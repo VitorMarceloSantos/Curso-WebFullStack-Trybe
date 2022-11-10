@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Trybe-Projeto-10-TrybeTunes/static/css/main.dc8dca35.css",
+    "main.js": "/Trybe-Projeto-10-TrybeTunes/static/js/main.6f934db6.js",
+    "static/media/asMaisTocadas.png": "/Trybe-Projeto-10-TrybeTunes/static/media/asMaisTocadas.4234ab3d479e6e6f967f.png",
+    "static/media/trybefi.png": "/Trybe-Projeto-10-TrybeTunes/static/media/trybefi.f597bcea6ac6773ffaba.png",
+    "index.html": "/Trybe-Projeto-10-TrybeTunes/index.html",
+    "main.dc8dca35.css.map": "/Trybe-Projeto-10-TrybeTunes/static/css/main.dc8dca35.css.map",
+    "main.6f934db6.js.map": "/Trybe-Projeto-10-TrybeTunes/static/js/main.6f934db6.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dc8dca35.css",
+    "static/js/main.6f934db6.js"
+  ]
+}
