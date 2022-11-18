@@ -18,4 +18,9 @@ const addProducts = async (name) => {
   return false;
 };
 
-module.exports = { findAll, findAllId, addProducts };
+const updateProduct = async (objParams) => {
+  const result = await productModel.updateProduct(objParams);
+  return result;
+};
+
+module.exports = { findAll, findAllId, addProducts, updateProduct };

@@ -118,5 +118,26 @@ describe('Testes de unidade do controller - Products', function () {
     expect(res.json).to.have.been.calledWith( {message: '"name" is required'});
   });
 
+  // it('Testando - Funcao updateProduts(Sucesso)', async function () {
+  //   sinon.stub(productService, 'updateProduct').resolves(productMockService.resultUpdate);
+  //   sinon.stub()
+
+  //   const update = {
+  //     id: 1,
+  //     name: "Martelo de Thor"
+  //   }
+
+  //   const res = {};
+  //   const req = { params: update.id, body: { name: update.name } };
+    
+  //   res.status = sinon.stub().returns(res);
+  //   res.json = sinon.stub().returns();
+
+  //   await productController.updateProduct(req, res);
+
+  //   expect(res.status).to.have.been.calledWith(200);
+  //   expect(res.json).to.have.been.calledWith(update);
+  // });
+
   afterEach(sinon.restore)
 })

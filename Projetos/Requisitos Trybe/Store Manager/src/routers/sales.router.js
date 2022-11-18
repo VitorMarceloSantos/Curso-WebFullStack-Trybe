@@ -6,7 +6,7 @@ const router = express.Router();
 // Rotas de Sales
 
 router.get('/sales', salesController.listSales);
-// router.get('/products/:id', productController.listProductsId);
+router.get('/sales/:id', salesController.listSalesId);
 
 router.post('/sales', salesController.addSales);
 

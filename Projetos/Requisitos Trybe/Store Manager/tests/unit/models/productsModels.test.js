@@ -38,11 +38,24 @@ describe('Testes de unidade do model - Products', function () {
   });
 
   it('Testando - Funcao addProducts(Sucesso)', async function () {
-    sinon.stub(connection, 'execute').resolves([productMock.createProduct.id]);
+    sinon.stub(connection, 'execute').resolves([{ insertId : 5}]);
     
     const result = await productModel.addProducts({name: "ProdutoX"});
 
-    expect(result).to.be.deep.equal(productMock.createProduct.id)
+    expect(result).to.be.deep.equal(5)
+  });
+
+  it('Testando - Funcao UpdateProduct(Sucesso)', async function () {
+    sinon.stub(connection, 'execute').resolves([productMock.resultUpdate]);
+
+    const update = {
+      id: 1,
+      name: "Martelo de Thor"
+    }
+
+    const result = await productModel.updateProduct(update.name, update.id);
+
+    expect(result).to.be.deep.equal(productMock.resultUpdate)
   });
 
   afterEach(sinon.restore)

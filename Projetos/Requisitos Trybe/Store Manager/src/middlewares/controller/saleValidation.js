@@ -8,7 +8,7 @@ function validateQuant(quantity) {
     }
    error = (quantMin.validate(quantity)).error;
     if (error) {
-      return { type: 400, message: '"quantity" must be greater than or equal to 1' }; // corrigir o nome do retorno
+      return { type: 422, message: '"quantity" must be greater than or equal to 1' }; // corrigir o nome do retorno
     }
 }
 
@@ -16,7 +16,7 @@ function validateId(id, quantity) {
   let error = null;
   error = (itemReq.validate(id)).error;
     if (error) { 
-      return { type: 400, message: 'productId" is required' }; // corrigir o nome do retorno
+      return { type: 400, message: '"productId" is required' }; // corrigir o nome do retorno
     } 
   error = validateQuant(quantity);
   return error;
