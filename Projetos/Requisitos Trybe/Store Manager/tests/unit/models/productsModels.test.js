@@ -58,5 +58,17 @@ describe('Testes de unidade do model - Products', function () {
     expect(result).to.be.deep.equal(productMock.resultUpdate)
   });
 
+  it('Testando - Funcao deleteProduct(Sucesso)', async function () {
+    sinon.stub(connection, 'execute').resolves([productMock.resultUpdate]);
+
+    const objDelete = {
+      id: 1
+    }
+
+    const result = await productModel.deleteProduct(objDelete.id);
+
+    expect(result).to.be.deep.equal(productMock.resultUpdate)
+  });
+
   afterEach(sinon.restore)
 })

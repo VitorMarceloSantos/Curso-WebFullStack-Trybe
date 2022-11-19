@@ -55,5 +55,17 @@ describe('Testes de unidade do model - Sales', function () {
 
     expect(result).to.be.deep.equal(5)
   });
+
+  it('Testando - Funcao deleteSales(Sucesso)', async function () {
+    // sinon.stub(connection, 'execute').resolves([{ insertId: 5 }]);
+    const callback = sinon.stub(connection, 'execute');
+    callback.onCall(0).returns();
+    callback.onCall(1).returns([salesMock.resultDelete]);
+  
+  const result = await salesModel.deleteSales(1)
+
+  expect(result).to.be.deep.equal(salesMock.resultDelete)
+});
+
   afterEach(sinon.restore)
 })

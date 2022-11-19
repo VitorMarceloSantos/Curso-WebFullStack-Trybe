@@ -6,6 +6,8 @@ const saleService = require('../../../src/services/sales.service');
 const saleModel = require('../../../src/models/sales.model');
 
 const salesMock = require('./mocks/sale.service.mock');
+const salesMockModel = require('../models/mocks/sales.model.mock');
+const verifyQuantity = require('../../../src/middlewares/services/verifyQuantity');
 
 describe('Testes de unidade do service - Sales', function () {
   it('Testando - Funcao FindAll(Sucesso)', async function () {
@@ -38,7 +40,7 @@ describe('Testes de unidade do service - Sales', function () {
     expect(result).to.be.deep.equal(false)
   });
 
-  it('Testando - Funcao addProducts(Sucesso)', async function () {
+  it('Testando - Funcao addSales(Sucesso)', async function () {
 
     const addSaleInput = [
       {
@@ -50,9 +52,10 @@ describe('Testes de unidade do service - Sales', function () {
         quantity: 5
       }
     ]
-
-    sinon.stub(saleModel, 'addSales').resolves(3);
+    sinon.stub(verifyQuantity, 'verifyQuantity').resolves(true);
     sinon.stub(saleModel, 'insertSale').resolves(3);
+    sinon.stub(saleModel, 'addSales').resolves(3);
+   
     // const callback = sinon.stub();
     //     callback.onCall(0).returns(1);
     //     callback.onCall(1).returns(2);
@@ -61,12 +64,20 @@ describe('Testes de unidade do service - Sales', function () {
 
     expect(result).to.be.deep.equal(salesMock.addSaleMock)
   });
-  it('Testando - Funcao addProducts(Fracasso)', async function () {
+  it('Testando - Funcao addSales(Fracasso)', async function () {
     sinon.stub(saleService, 'addSales').resolves(true);
 
     const result = await saleService.addSales([{ productId: 99, quantity: 5 }]);
 
     expect(result).to.be.deep.equal(true)
+  })
+
+  it('Testando - Funcao deleteSales(Sucesso)', async function () {
+    sinon.stub(saleService, 'deleteSales').resolves(salesMockModel.resultDelete);
+
+    const result = await saleService.deleteSales(1);
+
+    expect(result).to.be.deep.equal(salesMockModel.resultDelete)
   })
 
   afterEach(sinon.restore)

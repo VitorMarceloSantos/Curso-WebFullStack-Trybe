@@ -25,4 +25,14 @@ const findAllMock =
     }
   ]
   
-module.exports = { findAllMock, findAllIdMock }
+const resultDelete =
+{
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: '',
+  serverStatus: 2,
+  warningStatus: 0
+}
+  
+module.exports = { findAllMock, findAllIdMock, resultDelete }

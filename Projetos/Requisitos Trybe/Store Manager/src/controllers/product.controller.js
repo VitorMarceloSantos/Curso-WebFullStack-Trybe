@@ -43,5 +43,17 @@ const updateProduct = async (req, res) => {
   if (result) return res.status(200).json({ id, name });
 };
 
-module.exports = { listProducts, listProductsId, addProducts, updateProduct };
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
+
+  // Busca por Id
+  const searchId = await productService.findAllId(id);
+  if (!searchId) return res.status(404).json({ message: 'Product not found' });
+
+  // Delete
+  const result = await productService.deleteProduct(id);
+  if (result) return res.status(204).end();
+};
+
+module.exports = { listProducts, listProductsId, addProducts, updateProduct, deleteProduct };
 // As chaves devem ser utilizadas nas exportações em todos os casos, até quando há apenas um elemento a ser exportado

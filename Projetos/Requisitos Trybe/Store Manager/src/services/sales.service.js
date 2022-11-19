@@ -1,5 +1,5 @@
 const salesModel = require('../models/sales.model');
-const verifyQuantity = require('../middlewares/services/verifyQuantity');
+const { verifyQuantity } = require('../middlewares/services/verifyQuantity');
 
 const findAll = async () => {
   const result = await salesModel.findAll();
@@ -25,4 +25,9 @@ const addSales = async (sale) => {
   return verify; // em caso de a validação falhar
 };
 
-module.exports = { findAll, findAllId, addSales };
+const deleteSales = async (id) => {
+  const result = salesModel.deleteSales(id);
+  return result;
+};
+
+module.exports = { findAll, findAllId, addSales, deleteSales };

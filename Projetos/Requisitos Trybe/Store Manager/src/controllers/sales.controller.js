@@ -26,4 +26,14 @@ const addSales = async (req, res) => {
   return res.status(result.type).json({ message: result.message }); // caso retorne algum erro na validação
 };
 
-module.exports = { listSales, addSales, listSalesId };
+const deleteSales = async (req, res) => {
+  const { id } = req.params;
+
+  const searchId = await salesService.findAllId(id);
+  if (!searchId) return res.status(404).json({ message: 'Sale not found' });
+
+  const result = await salesService.deleteSales(id);
+  if (result.affectedRows !== 0) return res.status(204).end();
+};
+
+module.exports = { listSales, addSales, listSalesId, deleteSales };

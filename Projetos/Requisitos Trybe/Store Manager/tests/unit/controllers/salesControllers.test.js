@@ -12,6 +12,7 @@ const saleService = require('../../../src/services/sales.service');
 
 const saleMockController = require('./mocks/sales.controller.mock');
 const saleMockService = require('../services/mocks/sale.service.mock');
+const saleMockModel = require('../models/mocks/sales.model.mock');
 
 describe('Testes de unidade do controller - Sales', function () {
   it('Testando - Funcao listSale(Sucesso)', async function () {
@@ -121,6 +122,21 @@ describe('Testes de unidade do controller - Sales', function () {
 
     expect(res.status).to.have.been.calledWith(400);
     expect(res.json).to.have.been.calledWith({ message: "\"quantity\" is required"});
+  });
+
+  it('Testando - Funcao deleteSale(Sucesso)', async function () {
+    sinon.stub(saleService, 'deleteSales').resolves(saleMockModel.resultDelete);
+    
+    const res = {};
+    const req = { params: { id: 1 } };
+    
+    res.status = sinon.stub().returns(res);
+    res.end = sinon.stub().returns();
+
+    await saleController.deleteSales(req, res);
+
+    expect(res.status).to.have.been.calledWith(204);
+   
   });
 
   afterEach(sinon.restore)

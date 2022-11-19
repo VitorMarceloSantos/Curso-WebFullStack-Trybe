@@ -9,6 +9,7 @@ chai.use(sinonChai);
 // const connection = require('../../../src/models/connection');
 const productController = require('../../../src/controllers/product.controller');
 const productService = require('../../../src/services/product.service');
+// const nameValidation = require('../middlewares/controller/nameValidation');
 
 const productMockController = require('./mocks/products.controller.mock');
 const productMockService = require('../services/mocks/products.service.mock');
@@ -118,26 +119,48 @@ describe('Testes de unidade do controller - Products', function () {
     expect(res.json).to.have.been.calledWith( {message: '"name" is required'});
   });
 
-  // it('Testando - Funcao updateProduts(Sucesso)', async function () {
-  //   sinon.stub(productService, 'updateProduct').resolves(productMockService.resultUpdate);
-  //   sinon.stub()
+  it('Testando - Funcao updateProduts(Sucesso)', async function () {
+    sinon.stub(productService, 'updateProduct').resolves(productMockService.resultUpdate);
+    // sinon.stub(nameValidation, 'nameValidation').resolves(false);
+    sinon.stub(productService, 'findAllId').resolves(true);
 
-  //   const update = {
-  //     id: 1,
-  //     name: "Martelo de Thor"
-  //   }
+    const update = {
+      id: 1,
+      name: "Martelo de Thor"
+    }
 
-  //   const res = {};
-  //   const req = { params: update.id, body: { name: update.name } };
+    const res = {};
+    const req = { params: { id: update.id }, body: { name: update.name } };
     
-  //   res.status = sinon.stub().returns(res);
-  //   res.json = sinon.stub().returns();
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
 
-  //   await productController.updateProduct(req, res);
+    await productController.updateProduct(req, res);
 
-  //   expect(res.status).to.have.been.calledWith(200);
-  //   expect(res.json).to.have.been.calledWith(update);
-  // });
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(update);
+  });
+
+   it('Testando - Funcao deleteProduts(Sucesso)', async function () {
+    sinon.stub(productService, 'deleteProduct').resolves(productMockService.resultUpdate);
+    // sinon.stub(nameValidation, 'nameValidation').resolves(false);
+    sinon.stub(productService, 'findAllId').resolves(true);
+
+    const objDelete = {
+      id: 1
+    }
+
+    const res = {};
+    const req = { params: { id: objDelete.id } };
+    
+    res.status = sinon.stub().returns(res);
+    res.end = sinon.stub().returns();
+
+    await productController.deleteProduct(req, res);
+
+    expect(res.status).to.have.been.calledWith(204);
+
+  });
 
   afterEach(sinon.restore)
 })
