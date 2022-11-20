@@ -60,15 +60,24 @@ const addSales = async (newObject) => {
 
 const deleteSales = async (id) => {
   await connection.execute(
-    'DELETE FROM sales_products WHERE sale_id = ?',
+    'DELETE FROM StoreManager.sales_products WHERE sale_id = ?',
     [id],
   );
   const [result] = await connection.execute(
-    'DELETE FROM sales WHERE id = ?',
+    'DELETE FROM StoreManager.sales WHERE id = ?',
     [id],
   );
   // console.log('result', result)
   return result;
 };
 
-module.exports = { findAll, findAllId, addSales, insertSale, deleteSales };
+const updateSales = async (id, sale) => {
+  const { productId, quantity } = sale;
+  const [result] = await connection.execute(
+  'UPDATE StoreManager.sales_products SET quantity = (?) WHERE sale_id = (?) AND product_id = (?)',
+  [quantity, id, productId],
+  );
+  return result;
+}; 
+
+module.exports = { findAll, findAllId, addSales, insertSale, deleteSales, updateSales };

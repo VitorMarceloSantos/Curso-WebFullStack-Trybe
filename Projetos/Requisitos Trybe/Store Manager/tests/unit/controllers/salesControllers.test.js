@@ -9,6 +9,7 @@ chai.use(sinonChai);
 // const connection = require('../../../src/models/connection');
 const saleController = require('../../../src/controllers/sales.controller');
 const saleService = require('../../../src/services/sales.service');
+const validation = require('../../../src/middlewares/controller/saleValidation');
 
 const saleMockController = require('./mocks/sales.controller.mock');
 const saleMockService = require('../services/mocks/sale.service.mock');
@@ -125,6 +126,7 @@ describe('Testes de unidade do controller - Sales', function () {
   });
 
   it('Testando - Funcao deleteSale(Sucesso)', async function () {
+    sinon.stub(saleService, 'findAllId').resolves(true);
     sinon.stub(saleService, 'deleteSales').resolves(saleMockModel.resultDelete);
     
     const res = {};
@@ -136,6 +138,37 @@ describe('Testes de unidade do controller - Sales', function () {
     await saleController.deleteSales(req, res);
 
     expect(res.status).to.have.been.calledWith(204);
+   
+  });
+
+  it('Testando - Funcao updateSale(Sucesso)', async function () {
+    sinon.stub(saleService, 'findAllId').resolves(true);
+    sinon.stub(validation, 'saleValidation').resolves(false);
+    sinon.stub(validation, 'productIdVerification').resolves(true);
+    sinon.stub(saleService, 'updateSales').resolves(saleMockController.resultUpdate);
+    
+    const sale =
+      [
+        {
+          productId: 1,
+          quantity: 10
+        },
+        {
+          productId: 2,
+          quantity: 50
+        }
+      ]
+
+    const res = {};
+    const req = { params: { id: 1 }, body: sale };
+    
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+
+    await saleController.updateSales(req, res);
+
+    expect(res.status).to.have.been.calledWith(200);
+    expect(res.json).to.have.been.calledWith(saleMockController.resultUpdate.message);
    
   });
 

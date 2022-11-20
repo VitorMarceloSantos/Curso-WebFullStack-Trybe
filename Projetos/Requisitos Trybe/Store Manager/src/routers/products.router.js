@@ -5,6 +5,7 @@ const router = express.Router();
 
 // Rotas de Products
 
+router.get('/products/search', productController.searchProducts);
 router.get('/products', productController.listProducts);
 router.get('/products/:id', productController.listProductsId);
 

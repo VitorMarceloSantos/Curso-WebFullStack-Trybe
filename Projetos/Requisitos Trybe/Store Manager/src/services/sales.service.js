@@ -30,4 +30,12 @@ const deleteSales = async (id) => {
   return result;
 };
 
-module.exports = { findAll, findAllId, addSales, deleteSales };
+const updateSales = async (id, sales) => {
+const result = await Promise.all(sales
+  .map(async (sale) => salesModel.updateSales(id, sale)));
+if (result) return { type: null, message: { saleId: id, itemsUpdated: sales } };
+  // const result = salesModel.updateSales(objParams);
+  // return result;
+};
+
+module.exports = { findAll, findAllId, addSales, deleteSales, updateSales };

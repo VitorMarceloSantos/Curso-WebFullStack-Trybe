@@ -31,6 +31,11 @@ const resultUpdate =
     serverStatus: 2,
     warningStatus: 0,
     changedRows: 1
-  }
+}
   
-module.exports = { resultFindAll, resultFindAllId, resultUpdate }
+const resultSearch =
+  [
+    { id: 1, name: 'Martelo de Thor' }
+  ]
+  
+module.exports = { resultFindAll, resultFindAllId, resultUpdate, resultSearch }

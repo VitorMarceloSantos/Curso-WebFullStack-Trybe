@@ -70,15 +70,38 @@ describe('Testes de unidade do service - Sales', function () {
     const result = await saleService.addSales([{ productId: 99, quantity: 5 }]);
 
     expect(result).to.be.deep.equal(true)
-  })
+  });
 
   it('Testando - Funcao deleteSales(Sucesso)', async function () {
-    sinon.stub(saleService, 'deleteSales').resolves(salesMockModel.resultDelete);
+    sinon.stub(saleModel, 'deleteSales').resolves(salesMockModel.resultDelete);
 
     const result = await saleService.deleteSales(1);
 
     expect(result).to.be.deep.equal(salesMockModel.resultDelete)
-  })
+  });
+
+  it('Testando - Funcao updateSales(Sucesso)', async function () {
+
+    const updateArray =
+      [
+        {
+          "productId": 2,
+          "quantity": 10
+        },
+        {
+          "productId": 1,
+          "quantity": 50
+        }
+      ]
+    const id = 1;
+
+    sinon.stub(saleModel, 'updateSales').resolves(saleModel.updateSales);
+
+    const result = await saleService.updateSales(id, updateArray);
+
+    expect(result).to.be.deep.equal({ type: null, message: { saleId: id, itemsUpdated: updateArray }})
+  });
+
 
   afterEach(sinon.restore)
 

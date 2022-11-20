@@ -55,5 +55,14 @@ const deleteProduct = async (req, res) => {
   if (result) return res.status(204).end();
 };
 
-module.exports = { listProducts, listProductsId, addProducts, updateProduct, deleteProduct };
+const searchProducts = async (req, res) => {
+  const { q } = req.query;
+
+  const result = await productService.searchProducts(q);
+  return res.status(200).json(result);
+};
+
+module.exports = {
+  listProducts, listProductsId, addProducts, updateProduct, deleteProduct, searchProducts,
+};
 // As chaves devem ser utilizadas nas exportações em todos os casos, até quando há apenas um elemento a ser exportado

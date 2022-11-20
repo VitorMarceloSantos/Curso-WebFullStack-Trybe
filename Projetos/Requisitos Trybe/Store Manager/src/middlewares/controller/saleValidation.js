@@ -1,4 +1,5 @@
 const { itemReq, quantMin } = require('./validations/schemas');
+const productModel = require('../../models/product.model');
 
 function validateQuant(quantity) {
   let error = null;
@@ -31,4 +32,13 @@ const saleValidation = (sales) => { // recebe um array de objetos
   }
 };
 
-module.exports = saleValidation;
+const productIdVerification = async (sales) => {
+  const result = await Promise.all(sales
+    .map(async ({ productId }) => productModel.findAllId(productId)));
+  if (result.find((id) => id === false) !== undefined) { // caso seja undefined é porque todos os id estão corretos
+    return false;
+  }
+  return true;
+};
+
+module.exports = { saleValidation, productIdVerification };

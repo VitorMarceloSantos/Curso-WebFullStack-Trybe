@@ -34,5 +34,16 @@ const resultDelete =
   serverStatus: 2,
   warningStatus: 0
 }
+
+const resultUpdate =
+{
+  fieldCount: 0,
+  affectedRows: 1,
+  insertId: 0,
+  info: 'Rows matched: 1  Changed: 0  Warnings: 0',
+  serverStatus: 2,
+  warningStatus: 0,
+  changedRows: 1
+}
   
-module.exports = { findAllMock, findAllIdMock, resultDelete }
+module.exports = { findAllMock, findAllIdMock, resultDelete, resultUpdate }

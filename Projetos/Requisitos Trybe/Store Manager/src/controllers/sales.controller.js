@@ -1,5 +1,7 @@
 const salesService = require('../services/sales.service');
-const saleValidation = require('../middlewares/controller/saleValidation');
+const {
+  saleValidation, productIdVerification,
+} = require('../middlewares/controller/saleValidation');
 
 const listSales = async (_req, res) => {
   const result = await salesService.findAll();
@@ -36,4 +38,24 @@ const deleteSales = async (req, res) => {
   if (result.affectedRows !== 0) return res.status(204).end();
 };
 
-module.exports = { listSales, addSales, listSalesId, deleteSales };
+const updateSales = async (req, res) => {
+  const sale = req.body; // vai receber um array de objetos { quantity, productId }
+  const { id } = req.params;
+
+  // Buscando por Id
+  const searchId = await salesService.findAllId(id);
+  if (!searchId) return res.status(404).json({ message: 'Sale not found' });
+
+  // Validando informações
+  const validation = saleValidation(sale);
+  if (validation) return res.status(validation.type).json({ message: validation.message });
+
+  // Validando productId
+  const productIdValidate = await productIdVerification(sale);
+   if (!productIdValidate) return res.status(404).json({ message: 'Product not found' });
+
+  const result = await salesService.updateSales(id, sale); // passando um array de objetos
+  if (result) return res.status(200).json(result.message);
+};
+
+module.exports = { listSales, addSales, listSalesId, deleteSales, updateSales };

@@ -65,7 +65,29 @@ describe('Testes de unidade do model - Sales', function () {
   const result = await salesModel.deleteSales(1)
 
   expect(result).to.be.deep.equal(salesMock.resultDelete)
-});
+  });
+  
+  it('Testando - Funcao updateSales(Sucesso)', async function () {
+     
+    const updateArray =
+      [
+        {
+          "productId": 2,
+          "quantity": 10
+        },
+        {
+          "productId": 1,
+          "quantity": 50
+        }
+      ]
+    
+    sinon.stub(connection, 'execute').resolves([salesMock.resultUpdate]);
+    
+    const { productId, quantity } = updateArray[0];
+    const result = await salesModel.updateSales(productId, quantity);
+
+    expect(result).to.be.deep.equal(salesMock.resultUpdate)
+  });
 
   afterEach(sinon.restore)
 })
