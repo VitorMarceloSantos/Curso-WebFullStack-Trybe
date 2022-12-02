@@ -27,4 +27,15 @@ const newUser = async (req, res) => {
   }
 };
 
-module.exports = { login, newUser };
+const getAllUsers = async (_req, res) => {
+  try {
+    const users = await userService.getAllUsers();
+    // if (users.length === 0) return res.status(400).json({ message: 'Invalid fields' });
+    
+    return res.status(200).json(users);
+} catch (e) {
+    res.status(500).json({ e });
+  }
+};
+
+module.exports = { login, newUser, getAllUsers };

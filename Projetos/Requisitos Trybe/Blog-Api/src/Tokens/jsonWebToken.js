@@ -14,14 +14,14 @@ const createToken = async (data) => {
 
 const verifyToken = async (req, res, next) => {
   const token = req.header('Authorization');
-  if (!token) return res.status(401).json({ message: 'Token Inválido.' });
+  if (!token) return res.status(401).json({ message: 'Token not found' });
 
   try {
     const verify = jwt.verify(token, secret);
     req.checked = verify;
     next();
   } catch (e) {
-    return res.status(401).json({ message: `${e}` });
+    return res.status(401).json({ message: 'Expired or invalid token' });
   }
 };
 
