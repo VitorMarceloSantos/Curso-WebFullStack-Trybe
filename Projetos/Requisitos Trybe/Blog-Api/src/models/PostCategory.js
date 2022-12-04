@@ -28,7 +28,7 @@ const PostCategoryModel = (sequelize, DataTypes) => {
       as: 'blogPost',
       through: PostCategory,
       foreignKey: 'categoryId',
-      otherKey: 'blogPostId',
+      otherKey: 'postId',
     });
   };
 

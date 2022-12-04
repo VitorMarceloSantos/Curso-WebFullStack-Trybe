@@ -25,4 +25,11 @@ const getUserId = async (id) => {
   return userId;
 };
 
-module.exports = { getUser, addUser, getAllUsers, getUserId };
+const getUserEmail = async (email) => {
+  const userEmail = await User.findOne({ where: { email } });
+  if (userEmail === null) return { type: 404, message: 'User does not exist' };
+
+  return userEmail;
+};
+
+module.exports = { getUser, addUser, getAllUsers, getUserId, getUserEmail };
