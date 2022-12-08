@@ -7,7 +7,7 @@ const login = async (req, res) => {
     const user = await userService.getUser(email, password);
     if (user.length === 0) return res.status(400).json({ message: 'Invalid fields' });
     
-    const token = await createToken(email);
+    const token = await createToken(user);
     return res.status(200).json({ token });
   } catch (e) {
     res.status(500).json({ message: `${e}` });
@@ -50,4 +50,15 @@ const getUserId = async (req, res) => {
   }
 };
 
-module.exports = { login, newUser, getAllUsers, getUserId };
+const deleteUser = async (req, res) => {
+  const { data } = req.checked;
+  const { id: userId } = data[0];
+  try {
+    await userService.deleteUser(userId);
+    return res.status(204).end();
+} catch (e) {
+    res.status(500).json({ e });
+  }
+};
+
+module.exports = { login, newUser, getAllUsers, getUserId, deleteUser };

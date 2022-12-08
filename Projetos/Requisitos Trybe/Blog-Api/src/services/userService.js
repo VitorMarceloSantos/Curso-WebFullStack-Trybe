@@ -1,7 +1,10 @@
 const { User } = require('../models');
 
 const getUser = async (email, password) => {
-  const user = await User.findAll({ where: { email, password } });
+  const user = await User.findAll({
+    where: { email, password },
+    attributes: { exclude: ['password'] },
+  });
   return user;
 };
 
@@ -32,4 +35,9 @@ const getUserEmail = async (email) => {
   return userEmail;
 };
 
-module.exports = { getUser, addUser, getAllUsers, getUserId, getUserEmail };
+const deleteUser = async (id) => {
+  const delUser = await User.destroy({ where: { id } });
+  return delUser;
+};
+
+module.exports = { getUser, addUser, getAllUsers, getUserId, getUserEmail, deleteUser };
