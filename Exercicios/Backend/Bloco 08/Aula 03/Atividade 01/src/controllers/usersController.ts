@@ -13,3 +13,11 @@ export async function getById(req: Request, res: Response) {
     ? res.status(status).json(message)
     : res.status(status).json(users);
 }
+
+// export async function getByEmail(req: Request, res: Response) {
+//   const { email } = req.params;
+//   const {status, users, message } = await usersService.getByEmail(email);
+//   return message
+//     ? res.status(status).json(message)
+//     : res.status(status).json(users);
+// }
