@@ -1,6 +1,7 @@
-export const secret:string = 'Turma 23-b';
+require('dotenv/config');
+export const secret:string = process.env.JWT_SECRET || 'Turma 23-B';
 
 export const config: object = {
-  expiresIn: '1h',
+  expiresIn: '3h',
   algorithm: 'HS256',
 };
