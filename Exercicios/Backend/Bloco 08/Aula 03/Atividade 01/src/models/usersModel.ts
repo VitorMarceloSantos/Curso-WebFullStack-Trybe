@@ -22,6 +22,9 @@ export async function getByEmail(email: string): Promise<User | null> {
   return users || null;
 }
 
+// IMPORTANTE
+// Quando for SELECT utilizar RowDataPacket,
+// Os demais utilizar ResultSetHeader
 export async function getAddUser(user: IUser): Promise<User> { // IUser(name, email,password) // o id é gerado automatico
   const { name, email, password } = user;
   const query = 'INSERT INTO Users (name, email, password) VALUES (?, ?, ?)';

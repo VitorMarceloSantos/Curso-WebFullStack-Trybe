@@ -37,7 +37,9 @@ export async function newUser(user: IUser) {
     return { status: 400, message: MESSAGES.USER_EXISTS}
   }
 
-  // parei aqui !!!
   const createUser = await usersModel.getAddUser(user);
+  // const payload = {createUser.}
+
+  return { status: 201, createUser}
 
 }
