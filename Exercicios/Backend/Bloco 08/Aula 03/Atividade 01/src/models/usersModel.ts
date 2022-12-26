@@ -43,10 +43,8 @@ export async function getUpdate(user: User): Promise<User | undefined> { // IUse
   return undefined;
 }
 
-export async function getDelete(id: number): Promise< Object | undefined> {
+export async function getDelete(id: number): Promise<undefined> {
   const query = 'DELETE FROM Users WHERE id = ?';
-  const [{changedRows}] = await connection.execute<ResultSetHeader>(query, [id]); // linhas alteradas
-  console.log(changedRows)
-  if(changedRows) return changedRows; // verifica se houve alteração no banco de dados
-  return undefined;
+  const [{affectedRows}] = await connection.execute<ResultSetHeader>(query, [id]); // linhas alteradas
+  if(!affectedRows) return undefined; // verifica se houve alteração no banco de dados
 }

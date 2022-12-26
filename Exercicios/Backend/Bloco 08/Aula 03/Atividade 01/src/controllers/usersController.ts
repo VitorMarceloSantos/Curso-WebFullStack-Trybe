@@ -46,14 +46,14 @@ export async function getUpdate(req: Request, res: Response) {
 }
 
 export async function getDelete(req: Request, res: Response) {
-  const user = req.body;
+  const { id } = req.params;
   // Verifica se o usuario já esta cadastrado no banco de dados
-  const {status, message} = await usersService.getById(user.id);
+  const {status, message} = await usersService.getById(Number(id));
   if(status === 404) {
     return res.status(status).json(message)
   }
-  const {status: statDelete, message: mesDelete, userDelete}= await usersService.getDelete(Number(user.id))
+  const {status: statDelete, message: mesDelete}= await usersService.getDelete(Number(id))
   return message
     ? res.status(statDelete).json(mesDelete)
-    : res.status(statDelete).json(userDelete);
+    : res.status(statDelete).json(`User id: ${id} deleted.`);
 }

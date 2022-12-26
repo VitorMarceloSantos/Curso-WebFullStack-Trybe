@@ -51,5 +51,5 @@ export async function getDelete(id: number) {
   if(!userDelete){
     return { status: 404, message: MESSAGES.FORBIDDEN}
   }
-  return { status: 200, userDelete}
+  return { status: 200}
 }
