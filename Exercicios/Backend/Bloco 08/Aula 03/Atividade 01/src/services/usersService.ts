@@ -31,15 +31,7 @@ export async function getByEmail(email: string) {
 }
 
 export async function newUser(user: IUser) {
-  // Verifica se o usuario já esta cadastrado no banco de dados
-  const verifyUser = await usersModel.getByEmail(user.email);
-  if(verifyUser) {
-    return { status: 400, message: MESSAGES.USER_EXISTS}
-  }
-
   const createUser = await usersModel.getAddUser(user);
-  // const payload = {createUser.}
-
   return { status: 201, createUser}
 
 }
