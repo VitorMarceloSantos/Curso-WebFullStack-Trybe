@@ -30,8 +30,26 @@ export async function getByEmail(email: string) {
   return {status: 200, users};
 }
 
-export async function newUser(user: IUser) {
+export async function getAddUser(user: IUser) {
   const createUser = await usersModel.getAddUser(user);
+  if (!createUser) {
+    return {status: 404, message: MESSAGES.FORBIDDEN};
+  }
   return { status: 201, createUser}
+}
 
+export async function getUpdate(user: User) {
+  const userUpdate = await usersModel.getUpdate(user);
+  if(!userUpdate){
+    return { status: 404, message: MESSAGES.FORBIDDEN}
+  }
+  return { status: 200, userUpdate}
+}
+
+export async function getDelete(id: number) {
+  const userDelete = await usersModel.getDelete(id);
+  if(!userDelete){
+    return { status: 404, message: MESSAGES.FORBIDDEN}
+  }
+  return { status: 200, userDelete}
 }

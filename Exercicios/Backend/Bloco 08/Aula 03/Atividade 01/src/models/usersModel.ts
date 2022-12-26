@@ -33,3 +33,20 @@ export async function getAddUser(user: IUser): Promise<User> { // IUser(name, em
   const newUser = { id, name, email, password}
   return newUser as User;
 }
+
+export async function getUpdate(user: User): Promise<User | undefined> { // IUser(name, email,password) // o id é gerado automatico
+  const { name, email, password, id } = user;
+  const query = 'UPDATE Users SET name = ?, email = ?, password = ? WHERE id = ?';
+  const [{changedRows}] = await connection.execute<ResultSetHeader>(query, [name, email, password, Number(id)]); // linhas alteradas
+  console.log(changedRows)
+  if(changedRows) return user as User; // verifica se houve alteração no banco de dados
+  return undefined;
+}
+
+export async function getDelete(id: number): Promise< Object | undefined> {
+  const query = 'DELETE FROM Users WHERE id = ?';
+  const [{changedRows}] = await connection.execute<ResultSetHeader>(query, [id]); // linhas alteradas
+  console.log(changedRows)
+  if(changedRows) return changedRows; // verifica se houve alteração no banco de dados
+  return undefined;
+}

@@ -5,8 +5,6 @@ import {config, secret} from '../Token/jwtConfig';
 import * as usersService from '../services/usersService';
 const jwt =  require('jsonwebtoken');
 
-// require('dotenv/config');
-
 export async function loginUser(req: Request, res: Response) {
   try{
     const { email, password } = req.body;
@@ -18,10 +16,9 @@ export async function loginUser(req: Request, res: Response) {
     if(!users || users.password !== password) { // verifica se existe o usuario e se o password é verdadeiro
       return res.status(status).json(message);
     }
+    const { password: _password, ...usersWithoutPassword} = users; // utiliza a descontrucao para pegar o user sem o password, o restante é é coloca na variavel usersWithoutPassword(rest)(Obs: renomeando o password para _password)
 
-    const payload = { email: users.email, id: users.id, name: users.name } // não enviar o password
-
-    const token = jwt.sign({payload}, secret, config) // gerando o token
+    const token = jwt.sign({usersWithoutPassword}, secret, config) // gerando o token
 
     return res.status(200).json({token});
   }catch (err: any) {

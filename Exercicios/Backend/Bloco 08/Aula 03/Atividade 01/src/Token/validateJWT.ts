@@ -1,4 +1,5 @@
 // Validando o Token
+//Utilizado como midleware
 
 import { Request, Response, NextFunction } from "express";
 import {secret} from '../Token/jwtConfig';
