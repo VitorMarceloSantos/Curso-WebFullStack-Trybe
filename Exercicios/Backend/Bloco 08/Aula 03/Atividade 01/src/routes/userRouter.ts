@@ -9,7 +9,7 @@ const router = Router();
 router.get('/', usersController.getAll);
 router.get('/:id', usersController.getById);
 router.post('/',validateToken ,usersController.createUser); // criando novo usuario - Utilizando o validateToken como um midleware para verificar o token
-router.post('/update' ,validateToken ,usersController.getUpdate); // modificando usuario - Utilizando o validateToken como um midleware para verificar o token
-router.post('/delete/:id' ,validateToken ,usersController.getDelete); // modificando delete- Utilizando o validateToken como um midleware para verificar o token
+router.put('/update' ,validateToken ,usersController.getUpdate); // modificando usuario - Utilizando o validateToken como um midleware para verificar o token
+router.delete('/delete/:id' ,validateToken ,usersController.getDelete); // modificando delete- Utilizando o validateToken como um midleware para verificar o token
 
 export default router;
