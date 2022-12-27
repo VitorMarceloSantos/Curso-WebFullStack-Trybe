@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addUserAction } from '../redux/actions';
+import '../styles/login.css';
 
 class Login extends Component {
   constructor() {
