@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addUserAction } from '../redux/actions';
 import '../styles/login.css';
+import logo from '../images/logo.png';
 
 class Login extends Component {
   constructor() {
@@ -25,10 +26,16 @@ class Login extends Component {
         // console.log('Dados Corretos');
         this.setState({
           isDisable: false,
+        }, () => {
+          const buttonQuery = document.querySelector('.button-login');
+          buttonQuery.style.backgroundColor = 'rgb(9, 166, 3)';
         });
       } else {
         this.setState({
           isDisable: true,
+        }, () => {
+          const buttonQuery = document.querySelector('.button-login');
+          buttonQuery.style.backgroundColor = 'rgb(205, 205, 205)';
         });
       }
     });
@@ -46,34 +53,38 @@ class Login extends Component {
     const { email, password, isDisable } = this.state;
     return (
       <section className="container-email">
-        <form>
-          <label htmlFor="email">
-            <p>Email:</p>
+        <div className="container-img-form">
+          <img src={ logo } alt="Imagem Logo" />
+          <form className="form-login">
+            <label htmlFor="email">
+              <p>Email:</p>
+              <input
+                type="email"
+                name="email"
+                data-testid="email-input"
+                value={ email }
+                onChange={ this.randleChange }
+              />
+            </label>
+            <label htmlFor="password">
+              <p>Senha:</p>
+              <input
+                type="password"
+                name="password"
+                data-testid="password-input"
+                value={ password }
+                onChange={ this.randleChange }
+              />
+            </label>
             <input
-              type="email"
-              name="email"
-              data-testid="email-input"
-              value={ email }
-              onChange={ this.randleChange }
+              className="button-login"
+              type="submit"
+              value="Entrar"
+              disabled={ isDisable }
+              onClick={ this.formSubmit }
             />
-          </label>
-          <label htmlFor="password">
-            <p>Senha:</p>
-            <input
-              type="password"
-              name="password"
-              data-testid="password-input"
-              value={ password }
-              onChange={ this.randleChange }
-            />
-          </label>
-          <input
-            type="submit"
-            value="Entrar"
-            disabled={ isDisable }
-            onClick={ this.formSubmit }
-          />
-        </form>
+          </form>
+        </div>
       </section>
     );
   }
