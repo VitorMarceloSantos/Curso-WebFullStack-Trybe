@@ -1,15 +1,22 @@
-import jwt from 'jsonwebtoken';
-import { config, secret } from '../token/jwtConfig';
-import { IUser, ReturnToken } from '../interfaces/users';
+import { IUser, LoginUser, ReturnToken } from '../interfaces/users';
 import * as usersModel from '../models/usersModel';
+import generateToken from '../token/generateToken';
 
-export default async function newUser(infoUser: IUser): Promise<ReturnToken> {
-  const addUser = await usersModel.default(infoUser);
+export async function newUser(infoUser: IUser): Promise<ReturnToken> {
+  const addUser = await usersModel.newUser(infoUser);
   if (!addUser) {
     return { status: 400, message: 'BAD REQUEST' };
   }
   // Gerando Token
-  const { password: PASSWORD, ...payload } = addUser; // retirando o password
-  const token = jwt.sign({ payload }, secret, config);
-  return { status: 201, token };
+  return generateToken(addUser, 201);
+}
+
+export async function verifyLogin(infoLogin: LoginUser) {
+  const { username, password } = infoLogin;
+  const user = await usersModel.getUsername(username);
+  if (!user || user.password !== password) {
+    return { status: 401, message: 'Username or password invalid' };
+  }
+  // Gerando Token
+  return generateToken(user, 200);
 }

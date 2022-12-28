@@ -1,8 +1,11 @@
-export interface IUser {
+export interface LoginUser {
   username: string,
+  password: string
+}
+
+export interface IUser extends LoginUser {
   vocation: string,
   level: number,
-  password: string
 }
 
 export interface ReturnToken {
