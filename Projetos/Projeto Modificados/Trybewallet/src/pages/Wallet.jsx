@@ -5,15 +5,27 @@ import Header from '../components/Header';
 // import wallet from '../redux/reducers/wallet';
 import WalletForm from '../components/WalletForm';
 import Table from '../components/Table';
+import '../styles/containers.css';
 
 class Wallet extends React.Component {
   render() {
     // const { userState } = this.props;
     return (
       <div>
-        <Header />
-        <WalletForm />
-        <Table />
+        <section className="container-header">
+          <Header />
+        </section>
+        <section className="container-form">
+          <WalletForm />
+        </section>
+        <section className="container-table">
+          <Table />
+        </section>
+        <section className="container-footer">
+          <footer>
+            <h1>Trybe</h1>
+          </footer>
+        </section>
       </div>
     );
   }

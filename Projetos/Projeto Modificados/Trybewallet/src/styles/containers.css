@@ -1,0 +1,19 @@
+.container-header {
+  background-color: red;
+  height: 10vh;
+}
+
+.container-form {
+  background-color: green;
+  height: 15vh;
+}
+
+.container-table {
+  background-color: blue;
+  height: 65vh;
+}
+
+.container-footer {
+  background-color: gray;
+  height: 10vh;
+}
