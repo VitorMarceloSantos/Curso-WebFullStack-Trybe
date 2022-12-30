@@ -2,6 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import * as validateSchemaProduct from '../validations/productValidate';
 import validadeSchemaLogin from '../validations/loginValidate';
 import * as userValidate from '../validations/userValidate';
+import * as orderValidate from '../validations/orderValidate';
 
 export function validateProduct(req: Request, res: Response, next: NextFunction) {
   const { body } = req;
@@ -36,5 +37,16 @@ export function validateUserFull(req: Request, res: Response, next: NextFunction
   
   if (status === 400) return res.status(status).json({ message });
   if (statusUser === 422) return res.status(statusUser).json({ message: messageUser });
+  next();
+}
+
+export function validateOrder(req: Request, res: Response, next: NextFunction) {
+  const { productsIds } = req.body;
+  const { status, message } = orderValidate.validadeSchemaOrderExist(productsIds);
+  const { status: statusOrder, message: messageOrder } = orderValidate
+    .validadeSchemaOrder(productsIds);
+  
+  if (status === 400) return res.status(status).json({ message });
+  if (statusOrder === 422) return res.status(statusOrder).json({ message: messageOrder });
   next();
 }
