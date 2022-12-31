@@ -28,7 +28,7 @@ class Login extends Component {
           isDisable: false,
         }, () => {
           const buttonQuery = document.querySelector('.button-login');
-          buttonQuery.style.backgroundColor = 'rgb(9, 166, 3)';
+          buttonQuery.style.backgroundColor = 'rgba(1, 184, 139, 255)';
         });
       } else {
         this.setState({

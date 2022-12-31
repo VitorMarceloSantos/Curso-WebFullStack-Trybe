@@ -8,7 +8,7 @@
 
 .container-email {
   align-items: center;
-  background-color: rgb(165, 242, 153);
+  background-color: rgba(12, 92, 184, 255);
   display: flex;
   height: 100vh;
   justify-content: center;
@@ -50,7 +50,7 @@
   border: none;
   border-radius: 5px;
   box-shadow: none;
-  color: rgb(9, 166, 3);
+  color: rgba(0, 41, 106, 255);
   font-weight: 700;
   margin: 10px 0;
   padding: 10px;

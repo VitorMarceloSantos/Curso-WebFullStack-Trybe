@@ -11,32 +11,43 @@ class Header extends Component {
       <div className="container-header">
         <div className="container-logo">
           <FaMoneyBillWave className="icon-money" />
-          <h1>DashBoard - TrybeWallet</h1>
+          <h1>DASHBOARD - TRYBEWALLET</h1>
         </div>
         <div className="container-login-position">
           <section className="container-login">
+            <FaUserCircle className="icon-user-login" />
             <p data-testid="email-field">
-              <FaUserCircle className="icon-user-login" />
               {`${userState.email}`}
             </p>
           </section>
           <section className="container-expenses">
+            <p style={ { fontSize: '1.05em', fontWeight: 700 } }>Despesa Total:</p>
             <div className="container-expenses-total">
-              <p>Despesa Total:</p>
               <p data-testid="total-field">
-                { (walletState.expenses).length === 0 ? (0).toFixed(2) : (
+                { (walletState.expenses).length === 0 ? (0)
+                  .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : (
                   ((walletState.expenses)
                     .reduce((acc, current) => acc + (current.value * (Number(
                       current.exchangeRates[current.currency].ask,
-                    ))), 0)).toFixed(2)
+                    ))), 0))
+                    .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
                 )}
               </p>
-            </div>
-            <div className="container-coin-header">
-              <p data-testid="header-currency-field">
+              <p
+                style={ { fontSize: '0.8em', fontWeight: 700 } }
+                data-testid="header-currency-field"
+              >
                 BRL
               </p>
             </div>
+            {/* <div className="container-coin-header">
+              <p
+                style={ { fontSize: '0.8em', fontWeight: 700 } }
+                data-testid="header-currency-field"
+              >
+                BRL
+              </p>
+            </div> */}
           </section>
         </div>
 
