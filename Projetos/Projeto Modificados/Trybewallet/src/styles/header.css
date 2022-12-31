@@ -23,6 +23,16 @@
   background-color: yellow;
   align-items: center;
   display: flex;
-  right: 6vw;
+
+  right: 5vw;
+  padding: 5px 20px;
   position: absolute;
+}
+
+.container-login {
+  margin-right: 20px;
+}
+
+.icon-user-login {
+  font-size: 1.3em;
 }

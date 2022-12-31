@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { FaMoneyBillWave } from 'react-icons/fa';
+import { FaMoneyBillWave, FaUserCircle } from 'react-icons/fa';
 import '../styles/header.css';
 
 class Header extends Component {
@@ -16,7 +16,7 @@ class Header extends Component {
         <div className="container-login-position">
           <section className="container-login">
             <p data-testid="email-field">
-              Email:
+              <FaUserCircle className="icon-user-login" />
               {`${userState.email}`}
             </p>
           </section>
