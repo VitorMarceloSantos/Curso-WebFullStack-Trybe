@@ -6,13 +6,23 @@
 
 .container-logo {
   display: flex;
+  position: relative;
 }
 
 .icon-money {
   color: green;
   font-size: 3em;
+  margin: 0 15px;
 }
 
 .container-logo h1 {
   font-size: 2em;
+}
+
+.container-login-position {
+  background-color: yellow;
+  align-items: center;
+  display: flex;
+  right: 6vw;
+  position: absolute;
 }
