@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { FaMoneyBillWave } from 'react-icons/fa';
+import '../styles/header.css';
 
 class Header extends Component {
   render() {
     const { userState, walletState } = this.props;
     return (
       <div className="container-header">
+        <div className="container-logo">
+          <FaMoneyBillWave className="icon-money" />
+          <h1>DashBoard - TrybeWallet</h1>
+        </div>
         <section className="container-login">
           <p data-testid="email-field">
             Email:
