@@ -146,6 +146,7 @@ class WalletForm extends Component {
             </select>
           </label>
           <input
+            className="input-add-edit"
             type="submit"
             value={ valueText }
             onClick={ this.saveExpenses }
