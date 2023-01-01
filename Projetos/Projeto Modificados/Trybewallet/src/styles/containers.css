@@ -4,13 +4,13 @@
 }
 
 .container-form {
-  background-color: green;
-  height: 15vh;
+  background-image: linear-gradient(rgba(0, 41, 106, 255), black);
+  height: 10vh;
 }
 
 .container-table {
   background-color: blue;
-  height: 65vh;
+  height: 70vh;
 }
 
 .container-footer {

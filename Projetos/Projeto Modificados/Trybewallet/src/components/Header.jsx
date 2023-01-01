@@ -23,7 +23,7 @@ class Header extends Component {
           <section className="container-expenses">
             <p style={ { fontSize: '1.05em', fontWeight: 700 } }>Despesa Total:</p>
             <div className="container-expenses-total">
-              <p data-testid="total-field">
+              <p style={ { width: '4.3vw' } } data-testid="total-field">
                 { (walletState.expenses).length === 0 ? (0)
                   .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : (
                   ((walletState.expenses)
