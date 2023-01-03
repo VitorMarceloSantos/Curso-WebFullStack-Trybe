@@ -1,7 +1,9 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addWalletAction } from '../redux/actions';
+import '../styles/table.css';
 
 class Table extends Component {
   buttonDelete = (id) => {
@@ -23,61 +25,71 @@ class Table extends Component {
     const { walletState: { expenses } } = this.props;
     return (
       <section className="container-table">
-        <table>
-          <thead>
-            <tr>
-              <th>Descrição</th>
-              <th>Tag</th>
-              <th>Método de pagamento</th>
-              <th>Valor</th>
-              <th>Moeda</th>
-              <th>Câmbio utilizado</th>
-              <th>Valor convertido</th>
-              <th>Moeda de conversão</th>
-              <th>Editar/Excluir</th>
-            </tr>
-          </thead>
-          <tbody>
-            {expenses.map(({ id,
-              description,
-              tag,
-              method,
-              value,
-              exchangeRates,
-              currency,
-              // valueConverted,
-            } = this.expenses) => (
-              <tr key={ id }>
-                <td>{description}</td>
-                <td>{tag}</td>
-                <td>{method}</td>
-                <td>{(Number(value)).toFixed(2)}</td>
-                <td>{exchangeRates[currency].name}</td>
-                <td>{(Number(exchangeRates[currency].ask)).toFixed(2)}</td>
-                <td>{(Number(value) * exchangeRates[currency].ask).toFixed(2)}</td>
-                <td>Real</td>
-                <td>
-                  <button
-                    type="button"
-                    value="delete"
-                    data-testid="delete-btn"
-                    onClick={ (event) => { this.buttonDelete(id, event); } }
-                  >
-                    Apagar
-                  </button>
-                  <button
-                    type="button"
-                    value="edit"
-                    data-testid="edit-btn"
-                    onClick={ (event) => { this.buttonEdit(id, event); } }
-                  >
-                    Editar
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <div className="table-expenses">
+          {expenses.length > 0 ? (
+            <table id="table-exp">
+              <thead>
+                <tr>
+                  <th>Descrição</th>
+                  <th>Tag</th>
+                  <th>Método de pagamento</th>
+                  <th>Valor</th>
+                  <th>Moeda</th>
+                  <th>Câmbio utilizado</th>
+                  <th>Valor convertido</th>
+                  <th>Moeda de conversão</th>
+                  <th>Editar/Excluir</th>
+                </tr>
+              </thead>
+              <tbody>
+                {expenses.map(({ id,
+                  description,
+                  tag,
+                  method,
+                  value,
+                  exchangeRates,
+                  currency,
+                  // valueConverted,
+                } = this.expenses) => (
+                  <tr key={ id }>
+                    <td>{description}</td>
+                    <td>{tag}</td>
+                    <td>{method}</td>
+                    <td>{(Number(value)).toFixed(2)}</td>
+                    <td>{exchangeRates[currency].name}</td>
+                    <td>{(Number(exchangeRates[currency].ask)).toFixed(2)}</td>
+                    <td>{(Number(value) * exchangeRates[currency].ask).toFixed(2)}</td>
+                    <td>Real</td>
+                    <td>
+                      <button
+                        type="button"
+                        value="delete"
+                        data-testid="delete-btn"
+                        onClick={ (event) => { this.buttonDelete(id, event); } }
+                      >
+                        Apagar
+                      </button>
+                      <button
+                        type="button"
+                        value="edit"
+                        data-testid="edit-btn"
+                        onClick={ (event) => { this.buttonEdit(id, event); } }
+                      >
+                        Editar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          ) : (
+            <p>Imagem aqui</p>
+          )}
+        </div>
+
+        <div className="container-graphics">
+          <h1>graficos</h1>
+        </div>
       </section>
     );
   }
