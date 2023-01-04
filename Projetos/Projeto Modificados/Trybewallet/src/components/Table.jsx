@@ -1,6 +1,15 @@
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-max-depth */
 
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
 import { Bar } from 'react-chartjs-2'; // https://react-chartjs-2.js.org/
 
 import React, { Component } from 'react';
@@ -9,8 +18,16 @@ import { connect } from 'react-redux';
 import { addWalletAction } from '../redux/actions';
 import '../styles/table.css';
 import table from '../images/table.png';
-
 // import graphic from '../images/graphic.png';
+
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend,
+);
 
 class Table extends Component {
   buttonDelete = (id) => {
@@ -40,28 +57,42 @@ class Table extends Component {
         },
         title: {
           display: true,
-          text: 'Chart.js Bar Chart',
+          text: 'Gráfico de Despesas',
         },
       },
     };
     const data = {
       labels,
       datasets: [{
-        label: 'My First Dataset',
+        label: 'Dinheiro',
         data: [65, 59, 80, 81, 56, 55, 40],
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
+        ],
+        borderColor: [
+          'rgb(75, 192, 192)',
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: 'Cartão de Crédito',
+        data: [65, 59, 80, 81, 56, 55, 40],
+        backgroundColor: [
           'rgba(54, 162, 235, 0.2)',
         ],
         borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
           'rgb(54, 162, 235)',
+        ],
+        borderWidth: 1,
+      },
+      {
+        label: 'Cartão de Débito',
+        data: [65, 59, 80, 81, 56, 55, 40],
+        backgroundColor: [
+          'rgba(255, 159, 64, 0.2)',
+        ],
+        borderColor: [
+          'rgb(255, 159, 64)',
         ],
         borderWidth: 1,
       }],
