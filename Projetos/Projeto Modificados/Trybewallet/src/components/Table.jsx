@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { addWalletAction } from '../redux/actions';
 import '../styles/table.css';
 import table from '../images/table.png';
-// import graphic from '../images/graphic.png';
+import graphic from '../images/graphic.png';
 
 ChartJS.register(
   CategoryScale,
@@ -141,10 +141,19 @@ class Table extends Component {
                     <td>{description}</td>
                     <td>{tag}</td>
                     <td>{method}</td>
-                    <td>{(Number(value)).toFixed(2)}</td>
+                    <td>
+                      {(Number(value))
+                        .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    </td>
                     <td>{exchangeRates[currency].name}</td>
-                    <td>{(Number(exchangeRates[currency].ask)).toFixed(2)}</td>
-                    <td>{(Number(value) * exchangeRates[currency].ask).toFixed(2)}</td>
+                    <td>
+                      {(Number(exchangeRates[currency].ask))
+                        .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    </td>
+                    <td>
+                      {(Number(value) * exchangeRates[currency].ask)
+                        .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
+                    </td>
                     <td>Real</td>
                     <td>
                       <button
@@ -176,15 +185,20 @@ class Table extends Component {
             </div>
           )}
         </div>
-        <div className="container-graphics">
-          <div className="container-img-graphics">
-            {expenses.length > 0 ? (
+        {/* <div className="container-group-results"> */}
+        {expenses.length > 0 ? (
+          <div className="container-graphics">
+            <div className="container-img-graphics">
               <Bar options={ options } data={ data } />
-            ) : (
-              <img src={ graphic } alt="Table" className="imgs-dashboard" />
-            )}
+            </div>
+            <div className="container-results">
+              <h1>Resultados</h1>
+            </div>
           </div>
-        </div>
+        ) : (
+          <img src={ graphic } alt="Table" className="imgs-dashboard" />
+        ) }
+        {/* </div> */}
       </section>
     );
   }
