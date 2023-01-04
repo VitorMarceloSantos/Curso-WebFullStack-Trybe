@@ -46,14 +46,14 @@ class Table extends Component {
   };
 
   searchValue = (method, tag) => {
-    console.log('metodo,tag', method, tag);
+    // console.log('metodo,tag', method, tag);
     const { walletState: { expenses } } = this.props;
     const value = expenses
       .filter((lines) => (lines.method === method && lines.tag === tag))
       .map((values) => Number((Number(values.value) * values
         .exchangeRates[values.currency].ask).toFixed(2)))
       .reduce((acc, current) => acc + current, 0);
-    console.log('funcao', value);
+    // console.log('funcao', value);
     return value;
   };
 
@@ -73,14 +73,11 @@ class Table extends Component {
         },
       },
     };
-    // const test = (expenses.filter((lines) => lines.method === 'Dinheiro').value).reducer((acc, current) => {
-    //   return acc + current;
-    // }, 0);
     const data = {
       labels,
       datasets: [{
         label: 'Dinheiro',
-        data: [labels.map((tag) => this.searchValue('Dinheiro', tag))],
+        data: labels.map((tag) => this.searchValue('Dinheiro', tag)),
         backgroundColor: [
           'rgba(15, 192, 192, 0.2)',
         ],
@@ -91,7 +88,7 @@ class Table extends Component {
       },
       {
         label: 'Cartão de Crédito',
-        data: [labels.map((tag) => this.searchValue('Cartão de crédito', tag))],
+        data: labels.map((tag) => this.searchValue('Cartão de crédito', tag)),
         backgroundColor: [
           'rgba(54, 162, 235, 0.2)',
         ],
@@ -102,7 +99,7 @@ class Table extends Component {
       },
       {
         label: 'Cartão de Débito',
-        data: [labels.map((tag) => this.searchValue('Cartão de débito', tag))],
+        data: labels.map((tag) => this.searchValue('Cartão de débito', tag)),
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)',
         ],
@@ -115,11 +112,6 @@ class Table extends Component {
     return (
       <section className="container-table">
         <div className="table-expenses">
-          {console.log(expenses)}
-          {/* {console.log('Filter', (expenses.filter((lines) => (lines.method === 'Cartão de crédito' && lines.tag === 'Lazer')).map((values) => Number((Number(values.value) * values.exchangeRates[values.currency].ask).toFixed(2))).reduce((acc, current) => acc + current, 0)))} */}
-          {/* .reducer((acc, current) => {
-            return acc + current
-          }, 0) */}
           {expenses.length > 0 ? (
             <table id="table-exp">
               <thead>
@@ -184,11 +176,13 @@ class Table extends Component {
             </div>
           )}
         </div>
-
         <div className="container-graphics">
           <div className="container-img-graphics">
-            {/* <img src={ graphic } alt="Table" className="imgs-dashboard" /> */}
-            <Bar options={ options } data={ data } />
+            {expenses.length > 0 ? (
+              <Bar options={ options } data={ data } />
+            ) : (
+              <img src={ graphic } alt="Table" className="imgs-dashboard" />
+            )}
           </div>
         </div>
       </section>
