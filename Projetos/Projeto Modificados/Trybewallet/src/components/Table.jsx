@@ -104,7 +104,7 @@ class Table extends Component {
       <section className="container-table">
         <div className="table-expenses">
           {console.log(expenses)}
-          {console.log('Filter',(expenses.filter((lines) => lines.method === 'Cartão de crédito').map((values) => Number(values.value)).reduce((acc, current) => {
+          {console.log('Filter',(expenses.filter((lines) => (lines.method === 'Cartão de crédito' && lines.tag === 'Lazer')).map((values) => Number((Number(values.value) * values.exchangeRates[values.currency].ask).toFixed(2))).reduce((acc, current) => {
             return acc + current;
           }, 0)))}
           {/* .reducer((acc, current) => {
