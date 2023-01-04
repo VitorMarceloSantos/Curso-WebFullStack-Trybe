@@ -61,16 +61,19 @@ class Table extends Component {
         },
       },
     };
+    // const test = (expenses.filter((lines) => lines.method === 'Dinheiro').value).reducer((acc, current) => {
+    //   return acc + current;
+    // }, 0);
     const data = {
       labels,
       datasets: [{
         label: 'Dinheiro',
         data: [65, 59, 80, 81, 56, 55, 40],
         backgroundColor: [
-          'rgba(75, 192, 192, 0.2)',
+          'rgba(15, 192, 192, 0.2)',
         ],
         borderColor: [
-          'rgb(75, 192, 192)',
+          'rgb(15, 192, 192)',
         ],
         borderWidth: 1,
       },
@@ -100,6 +103,13 @@ class Table extends Component {
     return (
       <section className="container-table">
         <div className="table-expenses">
+          {console.log(expenses)}
+          {console.log('Filter',(expenses.filter((lines) => lines.method === 'Cartão de crédito').map((values) => Number(values.value)).reduce((acc, current) => {
+            return acc + current;
+          }, 0)))}
+          {/* .reducer((acc, current) => {
+            return acc + current
+          }, 0) */}
           {expenses.length > 0 ? (
             <table id="table-exp">
               <thead>
