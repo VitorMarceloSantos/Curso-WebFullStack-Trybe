@@ -80,7 +80,7 @@ class Table extends Component {
       labels,
       datasets: [{
         label: 'Dinheiro',
-        data: [this.searchValue('Dinheiro', 'Lazer'), 59, 80, 81, 56],
+        data: [labels.map((tag) => this.searchValue('Dinheiro', tag))],
         backgroundColor: [
           'rgba(15, 192, 192, 0.2)',
         ],
@@ -91,7 +91,7 @@ class Table extends Component {
       },
       {
         label: 'Cartão de Crédito',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [labels.map((tag) => this.searchValue('Cartão de crédito', tag))],
         backgroundColor: [
           'rgba(54, 162, 235, 0.2)',
         ],
@@ -102,7 +102,7 @@ class Table extends Component {
       },
       {
         label: 'Cartão de Débito',
-        data: [65, 59, 80, 81, 56, 55, 40],
+        data: [labels.map((tag) => this.searchValue('Cartão de débito', tag))],
         backgroundColor: [
           'rgba(255, 159, 64, 0.2)',
         ],
@@ -116,7 +116,7 @@ class Table extends Component {
       <section className="container-table">
         <div className="table-expenses">
           {console.log(expenses)}
-          {console.log('Filter', (expenses.filter((lines) => (lines.method === 'Cartão de crédito' && lines.tag === 'Lazer')).map((values) => Number((Number(values.value) * values.exchangeRates[values.currency].ask).toFixed(2))).reduce((acc, current) => acc + current, 0)))}
+          {/* {console.log('Filter', (expenses.filter((lines) => (lines.method === 'Cartão de crédito' && lines.tag === 'Lazer')).map((values) => Number((Number(values.value) * values.exchangeRates[values.currency].ask).toFixed(2))).reduce((acc, current) => acc + current, 0)))} */}
           {/* .reducer((acc, current) => {
             return acc + current
           }, 0) */}
