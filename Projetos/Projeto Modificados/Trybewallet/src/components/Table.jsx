@@ -57,6 +57,17 @@ class Table extends Component {
     return value;
   };
 
+  searchValueTotal = (method) => {
+    const { walletState: { expenses } } = this.props;
+    const value = expenses
+      .filter((lines) => lines.method === method)
+      .map((values) => Number((Number(values.value) * values
+        .exchangeRates[values.currency].ask).toFixed(2)))
+      .reduce((acc, current) => acc + current, 0);
+    // console.log('funcao', value);
+    return value;
+  };
+
   render() {
     const { walletState: { expenses } } = this.props;
     const labels = ['Alimentação', 'Lazer', 'Trabalho', 'Transporte', 'Saúde'];
@@ -185,20 +196,40 @@ class Table extends Component {
             </div>
           )}
         </div>
-        {/* <div className="container-group-results"> */}
-        {expenses.length > 0 ? (
-          <div className="container-graphics">
-            <div className="container-img-graphics">
-              <Bar options={ options } data={ data } />
+        <div className="container-group-results">
+          {expenses.length > 0 ? (
+            <div className="container-graphics">
+              <div className="container-img-graphics">
+                <Bar options={ options } data={ data } />
+              </div>
+              <div className="container-results">
+                <ul>
+                  <h2>Totais</h2>
+                  <li>
+                    <div className="container-expense-group">
+                      <h3>Dinheiro: </h3>
+                      <p>{this.searchValueTotal('Dinheiro')}</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="container-expense-group">
+                      <h3>Cartão de Crédito: </h3>
+                      <p>{this.searchValueTotal('Cartão de crédito')}</p>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="container-expense-group">
+                      <h3>Cartão de Débito: </h3>
+                      <p>{this.searchValueTotal('Cartão de débito')}</p>
+                    </div>
+                  </li>
+                </ul>
+              </div>
             </div>
-            <div className="container-results">
-              <h1>Resultados</h1>
-            </div>
-          </div>
-        ) : (
-          <img src={ graphic } alt="Table" className="imgs-dashboard" />
-        ) }
-        {/* </div> */}
+          ) : (
+            <img src={ graphic } alt="Table" className="imgs-dashboard" />
+          ) }
+        </div>
       </section>
     );
   }
