@@ -14,6 +14,6 @@
 }
 
 .container-footer {
-  background-color: gray;
+  background-image: linear-gradient(black, rgba(0, 41, 106, 255));
   height: 10vh;
 }
