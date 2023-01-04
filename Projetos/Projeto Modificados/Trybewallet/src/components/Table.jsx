@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 /* eslint-disable import/no-unresolved */
 /* eslint-disable react/jsx-max-depth */
 
@@ -203,24 +204,42 @@ class Table extends Component {
                 <Bar options={ options } data={ data } />
               </div>
               <div className="container-results">
+                <h2>Totais</h2>
                 <ul>
-                  <h2>Totais</h2>
                   <li>
                     <div className="container-expense-group">
                       <h3>Dinheiro: </h3>
-                      <p>{this.searchValueTotal('Dinheiro')}</p>
+                      <p>
+                        {this.searchValueTotal('Dinheiro')
+                          .toLocaleString(
+                            'pt-BR',
+                            { style: 'currency', currency: 'BRL' },
+                          )}
+                      </p>
                     </div>
                   </li>
                   <li>
                     <div className="container-expense-group">
                       <h3>Cartão de Crédito: </h3>
-                      <p>{this.searchValueTotal('Cartão de crédito')}</p>
+                      <p>
+                        {this.searchValueTotal('Cartão de crédito')
+                          .toLocaleString(
+                            'pt-BR',
+                            { style: 'currency', currency: 'BRL' },
+                          )}
+                      </p>
                     </div>
                   </li>
                   <li>
                     <div className="container-expense-group">
                       <h3>Cartão de Débito: </h3>
-                      <p>{this.searchValueTotal('Cartão de débito')}</p>
+                      <p>
+                        {this.searchValueTotal('Cartão de débito')
+                          .toLocaleString(
+                            'pt-BR',
+                            { style: 'currency', currency: 'BRL' },
+                          )}
+                      </p>
                     </div>
                   </li>
                 </ul>
