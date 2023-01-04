@@ -6,6 +6,7 @@ import Header from '../components/Header';
 import WalletForm from '../components/WalletForm';
 import Table from '../components/Table';
 import '../styles/containers.css';
+import Footer from '../components/Footer';
 
 class Wallet extends React.Component {
   render() {
@@ -23,7 +24,7 @@ class Wallet extends React.Component {
         </section>
         <section className="container-footer">
           <footer>
-            <h1>Trybe</h1>
+            <Footer />
           </footer>
         </section>
       </div>
