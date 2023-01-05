@@ -69,6 +69,7 @@ table th {
   background-color: rgba(0, 206, 171, 255);
   border: 1px solid black;
   height: 2vh;
+  padding: 0 5px;
 }
 
 table td {
