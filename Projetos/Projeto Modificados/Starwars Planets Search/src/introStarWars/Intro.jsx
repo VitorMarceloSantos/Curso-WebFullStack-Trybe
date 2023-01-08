@@ -3,21 +3,30 @@ import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import '../styles/introStarWars.css';
 import logo from '../images/star-wars-4.svg';
+import music from '../audio/star-wars-intro-edit.mp3';
 
 export default function Intro() {
   const intro = useRef();
   const title = useRef();
   const background = useRef();
   const content = useRef();
+  // const audio = useRef();
+  const song = new Audio(music);
 
   useEffect(() => {
+    // song.play();
     // eslint-disable-next-line new-cap
     const tl = new gsap.timeline();
-
     tl
       .to(intro.current, { opacity: 1, delay: 1, duration: 4.5 })
-      .to(intro.current, { opacity: 0, duration: 1.5 })
-      .set(title.current, { opacity: 1, scale: 1.75 })
+      .to(intro.current, {
+        opacity: 0,
+        duration: 1.5,
+        onComplete: () => {
+          song.play();
+        },
+      })
+      .set(title.current, { opacity: 1, delay: 0.5, scale: 1.75 })
       .to(title.current, { scale: 0.05, ease: 'power2', duration: 14 })
       .to(title.current, { opacity: 0, duration: 1.5 }, '-=6.5')
       .to(content.current, { top: '-170%', duration: 130 }, '-=7.5')
@@ -52,6 +61,12 @@ export default function Intro() {
           <p>The Developer has sent his most daring editor theme on a secret mission to the production branch, where an old ally has discovered a clue to the Lead’s whereabouts....</p>
         </div>
       </section>
+      {/* <audio id="music-audio" autoPlay>
+        <source
+          type="audio/mpeg"
+          src="https://ia801501.us.archive.org/23/items/StarWars_20180709/Star%20Wars.mp3"
+        />
+      </audio> */}
     </div>
   );
 }
