@@ -1,4 +1,5 @@
 /* stylelint-disable value-list-comma-space-after */
+
 @import url('https://fonts.googleapis.com/css2?family=Gugi&family=News+Cycle:wght@400;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Gugi&display=swap');
@@ -24,7 +25,8 @@ html {
 
 body {
   align-items: center;
-  background: black;
+  background-image: url('../images/starWarsGalaxy.png');
+  background-repeat: repeat;
   color: rgb(255, 197, 0);
   display: flex;
   font-family: News Cycle , sans-serif;
@@ -35,10 +37,6 @@ body {
   overflow: hidden;
   width: 100vw;
 }
-
-/* div[id="root"] {
-  width: 100%;
-} */
 
 .container-starWars {
   align-items: center;
@@ -66,36 +64,39 @@ body {
 
 .intro p {
   color: rgb(75, 213, 238);
-  font-size: 1.5rem;
+  font-size: 2.8rem;
+  font-weight: 500;
 }
 
-.container-background {
-  opacity: 0;
-  background: linear-gradient(to bottom , rgba(0, 0, 0, 1) 0% , rgba(0, 0, 0, 1) 20% , rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
+.container-background .delete-letter {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 0) 100%);
+  bottom: 0;
+  content: '';
   height: 100vh;
-  width: 100vw;
-  bottom: 0;
-  content: '';
   left: 0;
+  opacity: 0;
   position: absolute;
   right: 0;
   top: 0;
+  width: 100vw;
   z-index: 100;
 }
 
-/* .container-starWars:before {
-  background: linear-gradient(to bottom , rgba(0, 0, 0, 1) 0% , rgba(0, 0, 0, 1) 20% , rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
+.container-background .galaxy {
+  background-image: url('../images/starWarsGalaxy.png');
   bottom: 0;
   content: '';
+  height: 20vh;
   left: 0;
+  opacity: 0;
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 100;
-} */
+  width: 100vw;
+  z-index: 200;
+}
 
 .crawl {
-
   bottom: 0;
   font-size: 300%;
   height: 85rem;
@@ -118,6 +119,7 @@ body {
 }
 
 .episode-title {
+
   /* font-family: Gugi , cursive; */
   font-family: Starjhol , cursive;
   font-size: 250%;

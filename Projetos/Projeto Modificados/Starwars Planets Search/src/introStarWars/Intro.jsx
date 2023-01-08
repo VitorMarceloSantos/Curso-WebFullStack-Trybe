@@ -10,6 +10,7 @@ export default function Intro() {
   const intro = useRef();
   const title = useRef();
   const background = useRef();
+  const backgroundGalaxy = useRef();
   const content = useRef();
   // const audio = useRef();
   const song = new Audio(music);
@@ -31,19 +32,23 @@ export default function Intro() {
       .to(title.current, { scale: 0.05, ease: 'power2', duration: 14 })
       .to(title.current, { opacity: 0, duration: 1.5 }, '-=6.5')
       .to(content.current, { top: '-170%', duration: 145 }, '-=7.5')
+      .to(backgroundGalaxy.current, { opacity: 1 }, '-=145')
       .to(background.current, { opacity: 1 }, '-=145');
   }, []);
 
   return (
     <div className="container-starWars">
       <section className="intro" ref={ intro }>
-        <p>A Long Time Ago, in a galaxy far, </p>
-        <p>far away ...</p>
+        <p>Há muito tempo atrás, em uma galáxia muito, </p>
+        <p>muito distante ...</p>
       </section>
       <section className="title" ref={ title }>
         <img src={ logo } alt="Code Wars title" />
       </section>
-      <section className="container-background" ref={ background }> </section>
+      <section className="container-background">
+        <div className="galaxy" ref={ backgroundGalaxy }> </div>
+        <div className="delete-letter" ref={ background }> </div>
+      </section>
       <section className="crawl">
         <div className="content" ref={ content }>
           <h1 className="episode-number">Projeto XV</h1>
