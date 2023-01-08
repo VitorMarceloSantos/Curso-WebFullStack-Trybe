@@ -17,10 +17,10 @@ export default function Intro() {
     tl
       .to(intro.current, { opacity: 1, delay: 1, duration: 4.5 })
       .to(intro.current, { opacity: 0, duration: 1.5 })
-      .set(title.current, { opacity: 1, scale: 1.5 })
+      .set(title.current, { opacity: 1, scale: 1.75 })
       .to(title.current, { scale: 0.05, ease: 'power2', duration: 14 })
-      .to(title.current, { opacity: 0, duration: 1.5 }, '-=1.5')
-      .to(content.current, { top: '-170%', duration: 130 }, '-=9.5')
+      .to(title.current, { opacity: 0, duration: 1.5 }, '-=6.5')
+      .to(content.current, { top: '-170%', duration: 130 }, '-=7.5')
       .to(background.current, { opacity: 1 }, '-=130');
   }, []);
 
