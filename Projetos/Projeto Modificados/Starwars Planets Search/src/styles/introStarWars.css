@@ -10,7 +10,7 @@
 }
 
 /* Minimal Reset */
-html, body, div, h1, h2, p, section, audio {
+html, body, div, h1, h2, p, section {
   border: 0;
   font: inherit;
   font-size: 100%;

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import informationAPI from '../context/DataContext';
 import verifyFilterNew from '../functions/verifyFilterNew';
 import Table from './Table';
+import '../styles/tablePlanets.css';
 
 const optionsArray = [
   'orbital_period', 'diameter', 'rotation_period', 'surface_water', 'population'];

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import '../styles/introStarWars.css';
-// import logo from '../images/star-wars-4.svg';
 import logo from '../images/starWarsPlanet.png';
 import music from '../audio/star-wars-intro-edit.mp3';
 
@@ -12,7 +11,6 @@ export default function Intro() {
   const background = useRef();
   const backgroundGalaxy = useRef();
   const content = useRef();
-  // const audio = useRef();
   const song = new Audio(music);
 
   useEffect(() => {
