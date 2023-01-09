@@ -12,3 +12,14 @@ body {
   /* overflow: hidden; */
   /* width: 100vw; */
 }
+
+.container-header {
+  align-items: center;
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+}
+
+.img-logo-starWars {
+  width: 8vw;
+}

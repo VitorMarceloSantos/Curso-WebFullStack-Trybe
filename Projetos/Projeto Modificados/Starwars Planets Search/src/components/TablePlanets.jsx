@@ -3,6 +3,7 @@ import informationAPI from '../context/DataContext';
 import verifyFilterNew from '../functions/verifyFilterNew';
 import Table from './Table';
 import '../styles/tablePlanets.css';
+import logo from '../images/starWarsPlanet.png';
 
 const optionsArray = [
   'orbital_period', 'diameter', 'rotation_period', 'surface_water', 'population'];
@@ -115,7 +116,10 @@ function TablePlanets() {
     }
   };
   return (
-    <div>
+    <div className="container-global">
+      <section className="container-header">
+        <img src={ logo } alt="Imagem StarWars" className="img-logo-starWars" />
+      </section>
       {planets.length !== 0 && (
         <div>
           <input
