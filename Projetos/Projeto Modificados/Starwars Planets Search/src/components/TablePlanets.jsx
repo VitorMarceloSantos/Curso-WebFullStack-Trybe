@@ -121,12 +121,12 @@ function TablePlanets() {
         <div>
           <div className="container-filter">
             <div className="container-options-filter">
-              <input
-                type="text"
-                onChange={ handleOnChange }
-                data-testid="name-filter"
-              />
               <form>
+                <input
+                  type="text"
+                  onChange={ handleOnChange }
+                  data-testid="name-filter"
+                />
                 <select
                   id="column-filter"
                   data-testid="column-filter"
@@ -159,19 +159,21 @@ function TablePlanets() {
                   onChange={ (e) => (setValue(e.target.value)) }
                   value={ value }
                 />
-                <input
-                  type="submit"
-                  value="Filtrar"
-                  data-testid="button-filter"
-                  onClick={ handleSubmit }
-                />
+                <div>
+                  <input
+                    type="submit"
+                    value="Filtrar"
+                    data-testid="button-filter"
+                    onClick={ handleSubmit }
+                  />
+                  <input
+                    type="button"
+                    value="Remover Filtros"
+                    onClick={ removeAllFilters }
+                    data-testid="button-remove-filters"
+                  />
+                </div>
               </form>
-              <input
-                type="button"
-                value="Remover Filtros"
-                onClick={ removeAllFilters }
-                data-testid="button-remove-filters"
-              />
             </div>
             <div className="container-order">
               <label htmlFor="column-sort">
