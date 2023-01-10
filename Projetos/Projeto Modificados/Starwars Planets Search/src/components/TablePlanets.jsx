@@ -159,21 +159,21 @@ function TablePlanets() {
                   onChange={ (e) => (setValue(e.target.value)) }
                   value={ value }
                 />
-                <div>
-                  <input
-                    type="submit"
-                    value="Filtrar"
-                    data-testid="button-filter"
-                    onClick={ handleSubmit }
-                  />
-                  <input
-                    type="button"
-                    value="Remover Filtros"
-                    onClick={ removeAllFilters }
-                    data-testid="button-remove-filters"
-                  />
-                </div>
               </form>
+              <div>
+                <input
+                  type="submit"
+                  value="Filtrar"
+                  data-testid="button-filter"
+                  onClick={ handleSubmit }
+                />
+                <input
+                  type="button"
+                  value="Remover Filtros"
+                  onClick={ removeAllFilters }
+                  data-testid="button-remove-filters"
+                />
+              </div>
             </div>
             <div className="container-order">
               <label htmlFor="column-sort">
