@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import DataContexProvider from './context/DataContexProvider';
 import TablePlanets from './components/TablePlanets';
+import Header from './components/Header';
 // import Intro from './introStarWars/Intro';
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <main>
         {/* <span>Hello,App!</span> */}
         {/* <Intro /> */}
+        <Header />
         <TablePlanets />
       </main>
     </DataContexProvider>

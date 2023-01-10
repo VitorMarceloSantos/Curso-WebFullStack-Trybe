@@ -1,9 +1,9 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useContext, useEffect, useState } from 'react';
 import informationAPI from '../context/DataContext';
 import verifyFilterNew from '../functions/verifyFilterNew';
 import Table from './Table';
 import '../styles/tablePlanets.css';
-import logo from '../images/starWarsPlanet.png';
 
 const optionsArray = [
   'orbital_period', 'diameter', 'rotation_period', 'surface_water', 'population'];
@@ -117,121 +117,124 @@ function TablePlanets() {
   };
   return (
     <div className="container-global">
-      <section className="container-header">
-        <img src={ logo } alt="Imagem StarWars" className="img-logo-starWars" />
-      </section>
       {planets.length !== 0 && (
         <div>
-          <input
-            type="text"
-            onChange={ handleOnChange }
-            data-testid="name-filter"
-          />
-          <form>
-            <select
-              id="column-filter"
-              data-testid="column-filter"
-              onChange={ (e) => (setColumn(e.target.value)) }
-              value={ column }
-            >
-              {optionsValues
-                .map((optionValue) => (
-                  <option
-                    value={ optionValue }
-                    key={ optionValue }
-                  >
-                    {`${optionValue}`}
-                  </option>
-                ))}
-            </select>
-            <select
-              id="comparison-filter"
-              data-testid="comparison-filter"
-              onChange={ (e) => (setComparison(e.target.value)) }
-              value={ comparison }
-            >
-              <option value="maior que">maior que</option>
-              <option value="menor que">menor que</option>
-              <option value="igual a">igual a</option>
-            </select>
-            <input
-              type="number"
-              data-testid="value-filter"
-              onChange={ (e) => (setValue(e.target.value)) }
-              value={ value }
-            />
-            <input
-              type="submit"
-              value="Filtrar"
-              data-testid="button-filter"
-              onClick={ handleSubmit }
-            />
-          </form>
-          <input
-            type="button"
-            value="Remover Filtros"
-            onClick={ removeAllFilters }
-            data-testid="button-remove-filters"
-          />
-          <ol>
-            {filterByNumericValues.length !== 0 && (
-              filterByNumericValues
-                .map((filter, index) => (
-                  <div key={ index }>
-                    <li data-testid="filter">
-                      {Object.values(filter)}
-                      <button
-                        type="button"
-                        onClick={ () => removeFilter(filterByNumericValues[index]) }
+          <div className="container-filter">
+            <div className="container-options-filter">
+              <input
+                type="text"
+                onChange={ handleOnChange }
+                data-testid="name-filter"
+              />
+              <form>
+                <select
+                  id="column-filter"
+                  data-testid="column-filter"
+                  onChange={ (e) => (setColumn(e.target.value)) }
+                  value={ column }
+                >
+                  {optionsValues
+                    .map((optionValue) => (
+                      <option
+                        value={ optionValue }
+                        key={ optionValue }
                       >
-                        Apagar
-                      </button>
-                    </li>
-                  </div>))
-            )}
-          </ol>
-          <label htmlFor="column-sort">
-            Ordem:
-            <select
-              id="column-sort"
-              data-testid="column-sort"
-              onChange={ (e) => setOrderOption(e.target.value) }
-            >
-              <option value="population">population</option>
-              <option value="orbital_period">orbital_period</option>
-              <option value="diameter">diameter</option>
-              <option value="rotation_period">rotation_period</option>
-              <option value="surface_water">surface_water</option>
-            </select>
-          </label>
-          <label htmlFor="orderAsc">
-            <input
-              type="radio"
-              name="orderRadio"
-              id="orderAsc"
-              value="ASC"
-              data-testid="column-sort-input-asc"
-              onChange={ (e) => setOrderDirection(e.target.value) }
-            />
-            Ascendente
-          </label>
-          <label htmlFor="orderDesc">
-            <input
-              type="radio"
-              name="orderRadio"
-              id="orderDesc"
-              value="DESC"
-              data-testid="column-sort-input-desc"
-              onChange={ (e) => setOrderDirection(e.target.value) }
-            />
-            Descendente
-          </label>
-          <input
-            type="button"
-            value="Ordenar"
-            data-testid="column-sort-button"
-            onClick={ buttonOrder }
-          />
+                        {`${optionValue}`}
+                      </option>
+                    ))}
+                </select>
+                <select
+                  id="comparison-filter"
+                  data-testid="comparison-filter"
+                  onChange={ (e) => (setComparison(e.target.value)) }
+                  value={ comparison }
+                >
+                  <option value="maior que">maior que</option>
+                  <option value="menor que">menor que</option>
+                  <option value="igual a">igual a</option>
+                </select>
+                <input
+                  type="number"
+                  data-testid="value-filter"
+                  onChange={ (e) => (setValue(e.target.value)) }
+                  value={ value }
+                />
+                <input
+                  type="submit"
+                  value="Filtrar"
+                  data-testid="button-filter"
+                  onClick={ handleSubmit }
+                />
+              </form>
+              <input
+                type="button"
+                value="Remover Filtros"
+                onClick={ removeAllFilters }
+                data-testid="button-remove-filters"
+              />
+            </div>
+            <div className="container-order">
+              <label htmlFor="column-sort">
+                Ordem:
+                <select
+                  id="column-sort"
+                  data-testid="column-sort"
+                  onChange={ (e) => setOrderOption(e.target.value) }
+                >
+                  <option value="population">population</option>
+                  <option value="orbital_period">orbital_period</option>
+                  <option value="diameter">diameter</option>
+                  <option value="rotation_period">rotation_period</option>
+                  <option value="surface_water">surface_water</option>
+                </select>
+              </label>
+              <label htmlFor="orderAsc">
+                <input
+                  type="radio"
+                  name="orderRadio"
+                  id="orderAsc"
+                  value="ASC"
+                  data-testid="column-sort-input-asc"
+                  onChange={ (e) => setOrderDirection(e.target.value) }
+                />
+                Ascendente
+              </label>
+              <label htmlFor="orderDesc">
+                <input
+                  type="radio"
+                  name="orderRadio"
+                  id="orderDesc"
+                  value="DESC"
+                  data-testid="column-sort-input-desc"
+                  onChange={ (e) => setOrderDirection(e.target.value) }
+                />
+                Descendente
+              </label>
+              <input
+                type="button"
+                value="Ordenar"
+                data-testid="column-sort-button"
+                onClick={ buttonOrder }
+              />
+            </div>
+            <ol className="list-filters">
+              {filterByNumericValues.length !== 0 && (
+                filterByNumericValues
+                  .map((filter, index) => (
+                    <div key={ index }>
+                      <li data-testid="filter">
+                        {Object.values(filter)}
+                        <button
+                          type="button"
+                          onClick={ () => removeFilter(filterByNumericValues[index]) }
+                        >
+                          Apagar
+                        </button>
+                      </li>
+                    </div>))
+              )}
+            </ol>
+          </div>
           <table>
             <thead>
               <tr>
@@ -247,7 +250,5 @@ function TablePlanets() {
     </div>
   );
 }
-
-// Table.propTypes = {}
 
 export default TablePlanets;

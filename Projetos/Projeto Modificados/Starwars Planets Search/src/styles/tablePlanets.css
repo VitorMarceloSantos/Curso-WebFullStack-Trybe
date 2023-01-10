@@ -23,3 +23,9 @@ body {
 .img-logo-starWars {
   width: 8vw;
 }
+
+.container-filter {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
