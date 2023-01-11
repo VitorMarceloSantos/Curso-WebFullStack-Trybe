@@ -42,7 +42,7 @@ body {
   width: 35vw;
 }
 
-.container-options-filter form select, input {
+.container-options-filter form select, input, button {
   border-radius: 5px;
   margin: 0 5px;
 }
@@ -61,12 +61,18 @@ body {
   cursor: pointer;
 }
 
-/* .container-order {
+.list-filters {
   align-items: center;
-  border-right: 2px solid white;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  padding: 15px 0;
-  width: 35vw;
-} */
+}
+
+.list-filters button {
+  background-color: black;
+  border-color: rgb(255, 197, 0);
+  color: rgb(255, 197, 0);
+  height: 25px;
+  margin-top: 10px;
+  width: 120px;
+}
