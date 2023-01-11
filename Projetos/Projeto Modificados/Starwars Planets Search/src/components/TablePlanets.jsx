@@ -176,42 +176,44 @@ function TablePlanets() {
               </div>
             </div>
             <div className="container-order">
-              <label htmlFor="column-sort">
-                Ordem:
-                <select
-                  id="column-sort"
-                  data-testid="column-sort"
-                  onChange={ (e) => setOrderOption(e.target.value) }
-                >
-                  <option value="population">population</option>
-                  <option value="orbital_period">orbital_period</option>
-                  <option value="diameter">diameter</option>
-                  <option value="rotation_period">rotation_period</option>
-                  <option value="surface_water">surface_water</option>
-                </select>
-              </label>
-              <label htmlFor="orderAsc">
-                <input
-                  type="radio"
-                  name="orderRadio"
-                  id="orderAsc"
-                  value="ASC"
-                  data-testid="column-sort-input-asc"
-                  onChange={ (e) => setOrderDirection(e.target.value) }
-                />
-                Ascendente
-              </label>
-              <label htmlFor="orderDesc">
-                <input
-                  type="radio"
-                  name="orderRadio"
-                  id="orderDesc"
-                  value="DESC"
-                  data-testid="column-sort-input-desc"
-                  onChange={ (e) => setOrderDirection(e.target.value) }
-                />
-                Descendente
-              </label>
+              <div>
+                <label htmlFor="column-sort">
+                  <select
+                    id="column-sort"
+                    data-testid="column-sort"
+                    onChange={ (e) => setOrderOption(e.target.value) }
+                  >
+                    <option value="population">population</option>
+                    <option value="orbital_period">orbital_period</option>
+                    <option value="diameter">diameter</option>
+                    <option value="rotation_period">rotation_period</option>
+                    <option value="surface_water">surface_water</option>
+                  </select>
+                </label>
+                <label htmlFor="orderAsc">
+                  <input
+                    type="radio"
+                    name="orderRadio"
+                    id="orderAsc"
+                    value="ASC"
+                    data-testid="column-sort-input-asc"
+                    onChange={ (e) => setOrderDirection(e.target.value) }
+                  />
+                  Ascendente
+                </label>
+                <label htmlFor="orderDesc">
+                  <input
+                    type="radio"
+                    name="orderRadio"
+                    id="orderDesc"
+                    value="DESC"
+                    data-testid="column-sort-input-desc"
+                    onChange={ (e) => setOrderDirection(e.target.value) }
+                  />
+                  Descendente
+                </label>
+              </div>
+
               <input
                 type="button"
                 value="Ordenar"
