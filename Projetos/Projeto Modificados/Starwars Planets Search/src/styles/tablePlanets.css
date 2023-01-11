@@ -51,6 +51,7 @@ body {
   background-color: black;
   border-color: rgb(255, 197, 0);
   color: rgb(255, 197, 0);
+  font-weight: 700;
   height: 25px;
   margin-top: 10px;
   width: 120px;
@@ -65,7 +66,9 @@ body {
 }
 
 .container-options-filter input[ type = 'submit' ]:hover, input[ type = 'button' ]:hover {
-  color: white;
+  background-color: rgb(255, 197, 0);
+  border-color: black;
+  color: black;
   cursor: pointer;
 }
 
@@ -85,7 +88,15 @@ body {
   background-color: black;
   border-color: rgb(255, 197, 0);
   color: rgb(255, 197, 0);
-  height: 20px;
+  font-weight: 700;
+  height: 22px;
   margin-top: 10px;
   width: 90px;
+}
+
+.list-filters button:hover {
+  background-color: rgb(255, 197, 0);
+  border-color: black;
+  color: black;
+  cursor: pointer;
 }
