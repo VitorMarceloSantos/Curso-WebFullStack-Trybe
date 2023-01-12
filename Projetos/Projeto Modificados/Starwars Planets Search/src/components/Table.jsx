@@ -47,7 +47,7 @@ function Table() {
             <td>{terrain}</td>
             <td>{Number(surfaceWater)}</td>
             <td data-testid="test-unknown">{population}</td>
-            <td>{films}</td>
+            <td><a href={ films }>Link</a></td>
             <td>{created}</td>
             <td>{edited}</td>
             <td>{url}</td>

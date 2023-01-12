@@ -9,7 +9,12 @@
 .container-table table td {
   background-color: black;
   border: 1px solid white;
+  padding: 5px;
   text-align: center;
+}
+
+.container-table table td a {
+  color: rgb(255, 197, 0);
 }
 
 .table-title {
