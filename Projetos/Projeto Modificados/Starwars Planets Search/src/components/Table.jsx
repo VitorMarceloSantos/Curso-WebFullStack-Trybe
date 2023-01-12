@@ -5,22 +5,22 @@ import '../styles/table.css';
 function Table() {
   const { planets, planetsFiltered } = useContext(informationAPI);
   return (
-    <div>
+    <div className="container-table">
       <table>
         <tr>
-          <td>Name</td>
-          <td>Rotation</td>
-          <td>Orbital Period</td>
-          <td>Diameter</td>
-          <td>Climate</td>
-          <td>Gravity</td>
-          <td>Terrain</td>
-          <td>Surface</td>
-          <td>Population</td>
-          <td>Films</td>
-          <td>Created</td>
-          <td>Edited</td>
-          <td>Url</td>
+          <td className="table-title">Name</td>
+          <td className="table-title">Rotation</td>
+          <td className="table-title">Orbital Period</td>
+          <td className="table-title">Diameter</td>
+          <td className="table-title">Climate</td>
+          <td className="table-title">Gravity</td>
+          <td className="table-title">Terrain</td>
+          <td className="table-title">Surface</td>
+          <td className="table-title">Population</td>
+          <td className="table-title">Films</td>
+          <td className="table-title">Created</td>
+          <td className="table-title">Edited</td>
+          <td className="table-title">Url</td>
         </tr>
         {(planetsFiltered.length !== 0 ? planetsFiltered : planets).map(({
           name,

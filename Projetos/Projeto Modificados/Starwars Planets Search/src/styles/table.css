@@ -1,0 +1,19 @@
+.container-table {
+  padding: 20px;
+}
+
+.container-table table {
+  border-collapse: collapse;
+}
+
+.container-table table td {
+  background-color: black;
+  border: 1px solid white;
+  text-align: center;
+}
+
+.table-title {
+  color: white;
+  font-size: 1.15em;
+  font-weight: 700;
+}

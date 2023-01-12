@@ -239,16 +239,7 @@ function TablePlanets() {
               )}
             </ol>
           </div>
-          <table>
-            <thead>
-              <tr>
-                {(Object.keys(planets[0])).map((head) => <th key={ head }>{head}</th>)}
-              </tr>
-            </thead>
-            <tbody>
-              {Table()}
-            </tbody>
-          </table>
+          {Table()}
         </div>
       )}
     </div>
