@@ -24,6 +24,9 @@ export default function LightSaber() {
   return (
     <div className="container-light-saber">
       <div className="container-saber">
+        <div>
+          <h2 className="title-loading">Loading</h2>
+        </div>
         <div className="handle">
           <img src={ saber } alt="Sabre de Luz" className="img-saber" />
         </div>

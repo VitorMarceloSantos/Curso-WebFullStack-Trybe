@@ -1,11 +1,16 @@
+@font-face {
+  font-family: Starjhol;
+  src: url('../fonts/star_jedi/starjedi/Starjhol.ttf') format('truetype');
+}
+
 .container-light-saber {
   text-align: center;
   width: 400px;
 }
 
 .container-light-saber h2 {
-  font-size: 25px;
-  font-family: monospace;
+  font-size: 2em;
+  font-family: Starjhol;
 }
 
 .container-saber {
@@ -14,7 +19,7 @@
   display: flex;
   justify-content: center; */
   margin-top: 30px;
-  background-color: black;
+  /* background-color: red; */
   height: 200px;
   width: 500px;
 }
@@ -40,8 +45,10 @@
   z-index: 1;
 } */
 
+
 .img-saber {
   position: absolute;
+  top: 0px;
   left: -30px;
   height: 185px;
   transform: rotate(90deg);
