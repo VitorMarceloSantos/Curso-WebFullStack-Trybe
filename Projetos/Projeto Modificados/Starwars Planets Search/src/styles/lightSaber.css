@@ -54,14 +54,34 @@
   left: 110px;
   height: 15px;
   width: 75%;
-  background: rgba(0, 255, 98, 0.918);
   border-radius: 50px;
+}
+
+.animation {
+  animation: 4s linear 4s infinite running saberLaser;
+}
+
+.green {
+  background: rgba(0, 255, 98, 0.918);
   box-shadow: 0 0 15px 15px #11fbad7c;
-  animation: saberLaser 4s linear;
+}
+
+.blue {
+  background: rgb(55, 0, 255);
+  box-shadow: 0 0 15px 15px #2811fb7a;
+}
+
+.yellow {
+  background: rgb(208, 255, 0);
+  box-shadow: 0 0 15px 15px #d0fb117a;
+}
+
+.red {
+  background: rgb(255, 0, 0, 0.972);
+  box-shadow: 0 0 15px 15px #fb111177;
 }
 
 @keyframes saberLaser {
-  0% {
-    width: 0%;
-  }
+  from { width: 0%;}
+  to { width: 75%;}
 }
