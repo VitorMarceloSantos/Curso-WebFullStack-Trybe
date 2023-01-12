@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../images/starWarsPlanet.png';
+import logo from '../images/starWarsPlanetFull.png';
 
 export default function Header() {
   return (
