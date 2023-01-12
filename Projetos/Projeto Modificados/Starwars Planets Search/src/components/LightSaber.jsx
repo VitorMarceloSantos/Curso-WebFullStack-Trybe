@@ -6,16 +6,20 @@ export default function LightSaber() {
   let [count, setCount] = useState(Number(0));
   const array = ['green', 'red', 'blue', 'yellow'];
 
+  const addClassColor = () => {
+    const divLaser = document.querySelector('.laser');
+    if (count === 4) {
+      setCount(count = 0);
+    }
+    divLaser.removeAttribute('class');
+    divLaser.classList.add('laser', array[count], 'animation');
+    setCount(count += 1);
+  };
   useEffect(() => {
+    // addClassColor();
     setInterval(() => {
-      const divLaser = document.querySelector('.laser');
-      if (count === 4) {
-        setCount(count = 0);
-      }
-      divLaser.removeAttribute('class');
-      divLaser.classList.add('laser', array[count], 'animation');
-      setCount(count += 1);
-    }, 4500);
+      addClassColor();
+    }, 3000);
   }, count);
   return (
     <div className="container-light-saber">
@@ -23,7 +27,7 @@ export default function LightSaber() {
         <div className="handle">
           <img src={ saber } alt="Sabre de Luz" className="img-saber" />
         </div>
-        <div className="laser" />
+        <div className="laser yellow animation" />
         {console.log(count)}
       </div>
     </div>

@@ -58,7 +58,7 @@
 }
 
 .animation {
-  animation: 4s linear 4s infinite running saberLaser;
+  animation: 3s linear infinite running saberLaser;
 }
 
 .green {
@@ -82,6 +82,5 @@
 }
 
 @keyframes saberLaser {
-  from { width: 0%;}
-  to { width: 75%;}
+  0% { width: 0%;}
 }
