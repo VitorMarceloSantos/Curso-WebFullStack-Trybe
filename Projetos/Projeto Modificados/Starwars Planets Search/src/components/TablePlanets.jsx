@@ -4,6 +4,7 @@ import informationAPI from '../context/DataContext';
 import verifyFilterNew from '../functions/verifyFilterNew';
 import Table from './Table';
 import '../styles/tablePlanets.css';
+import LightSaber from './LightSaber';
 
 const optionsArray = [
   'orbital_period', 'diameter', 'rotation_period', 'surface_water', 'population'];
@@ -117,6 +118,7 @@ function TablePlanets() {
   };
   return (
     <div className="container-global">
+      <LightSaber />
       {planets.length !== 0 && (
         <div>
           <div className="container-filter">

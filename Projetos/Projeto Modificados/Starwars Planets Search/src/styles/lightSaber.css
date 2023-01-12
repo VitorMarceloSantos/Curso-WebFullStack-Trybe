@@ -1,0 +1,67 @@
+.container-light-saber {
+  text-align: center;
+  width: 400px;
+}
+
+.container-light-saber h2 {
+  font-size: 25px;
+  font-family: monospace;
+}
+
+.container-saber {
+  position: relative;
+  /* align-items: center;
+  display: flex;
+  justify-content: center; */
+  margin-top: 30px;
+  background-color: black;
+  height: 200px;
+  width: 500px;
+}
+
+/* .handle {
+  height: 20px;
+  width: 25%;
+  background-color: #777;
+  border-radius: 50px;
+  border: 4px solid #000;
+} */
+
+/* .handle::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 88px;
+  height: 40px;
+  width: 20px;
+  background-color: #ccc;
+  border-radius: 50px;
+  border: 4px solid #000;
+  z-index: 1;
+} */
+
+.img-saber {
+  position: absolute;
+  left: -30px;
+  height: 185px;
+  transform: rotate(90deg);
+  z-index: 1;
+}
+
+.laser {
+  position: absolute;
+  top: 88.7px;
+  left: 110px;
+  height: 15px;
+  width: 75%;
+  background: rgba(0, 255, 98, 0.918);
+  border-radius: 50px;
+  box-shadow: 0 0 15px 15px #11fbad7c;
+  animation: saberLaser 4s linear;
+}
+
+@keyframes saberLaser {
+  0% {
+    width: 0%;
+  }
+}
