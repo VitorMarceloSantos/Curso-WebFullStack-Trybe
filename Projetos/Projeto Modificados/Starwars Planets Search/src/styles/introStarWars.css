@@ -64,7 +64,7 @@ body {
 
 .intro p {
   color: rgb(75, 213, 238);
-  font-size: 2.8rem;
+  font-size: 2rem;
   font-weight: 500;
 }
 
@@ -102,9 +102,9 @@ body {
   height: 85rem;
   left: 50%;
   position: absolute;
-  transform: translateX(-50%) perspective(300px) rotateX(15deg);
+  transform: translateX(-50%) perspective(170px) rotateX(15deg);
   transform-origin: 50% 80%;
-  width: 75%;
+  width: 65%;
 }
 
 .content {
@@ -119,10 +119,9 @@ body {
 }
 
 .episode-title {
-
-  /* font-family: Gugi , cursive; */
+  color: white;
   font-family: Starjhol , cursive;
-  font-size: 190%;
+  font-size: 170%;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 7rem;
@@ -134,5 +133,5 @@ body {
   font-weight: 700;
   line-height: 1.33;
   margin-bottom: 4rem;
-  text-align: center;
+  text-align: justify;
 }

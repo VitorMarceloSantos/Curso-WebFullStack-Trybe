@@ -5,13 +5,14 @@ import '../styles/introStarWars.css';
 import logo from '../images/starWarsPlanet.png';
 import music from '../audio/star-wars-intro-edit.mp3';
 
-export default function Intro() {
+export default function Intro(props) { // recebendo o props (setVerifyIntro)
   const intro = useRef();
   const title = useRef();
   const background = useRef();
   const backgroundGalaxy = useRef();
   const content = useRef();
   const song = new Audio(music);
+  const { setVerifyIntro } = props;
 
   useEffect(() => {
     // song.play();
@@ -27,11 +28,16 @@ export default function Intro() {
         },
       })
       .set(title.current, { opacity: 1, delay: 0.5, scale: 1.75 })
-      .to(title.current, { scale: 0.05, ease: 'power2', duration: 14 })
-      .to(title.current, { opacity: 0, duration: 1.5 }, '-=6.5')
-      .to(content.current, { top: '-170%', duration: 145 }, '-=7.5')
-      .to(backgroundGalaxy.current, { opacity: 1 }, '-=145')
-      .to(background.current, { opacity: 1 }, '-=145');
+      .to(title.current, { scale: 0.05, ease: 'power2', duration: 16 })
+      .to(title.current, { opacity: 0, duration: 1.5 }, '-=7.5')
+      .to(content.current, { top: '-170%',
+        duration: 190 }, '-=9.5')
+      .to(backgroundGalaxy.current, { opacity: 1 }, '-=190')
+      .to(background.current, { opacity: 1 }, '-=190')
+      .to(content.current, { duration: 85,
+        onComplete: () => {
+          setVerifyIntro(true);
+        } }, '-=195');
   }, []);
 
   return (
@@ -75,7 +81,7 @@ export default function Intro() {
             Vitor Marcelo, apressa-se em
             em realizar os commits em sua conta,
             protegendo o código roubado que
-            podem salvar toda a rede e
+            pode salvar toda a rede e
             restaurar a liberdade na
             galáxia....
           </p>
