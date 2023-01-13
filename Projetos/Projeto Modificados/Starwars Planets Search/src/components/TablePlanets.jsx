@@ -118,8 +118,7 @@ function TablePlanets() {
   };
   return (
     <div className="container-global">
-      <LightSaber />
-      {planets.length !== 0 && (
+      {planets.length !== 0 ? (
         <div>
           <div className="container-filter">
             <div className="container-options-filter">
@@ -243,7 +242,7 @@ function TablePlanets() {
           </div>
           {Table()}
         </div>
-      )}
+      ) : <LightSaber /> }
     </div>
   );
 }

@@ -50,7 +50,7 @@ function Table() {
             <td><a href={ films }>Link</a></td>
             <td>{created}</td>
             <td>{edited}</td>
-            <td>{url}</td>
+            <td><a href={ url }>Link</a></td>
           </tr>
 
         ))}

@@ -13,6 +13,14 @@ body {
   /* width: 100vw; */
 }
 
+.container-global {
+  /* align-items: center; */
+  display: flex;
+  height: 85vh;
+  justify-content: center;
+  /* width: 90vw; */
+}
+
 .container-header {
   align-items: center;
   display: flex;

@@ -4,7 +4,7 @@ import saber from '../images/sabreluz.png';
 
 export default function LightSaber() {
   let [count, setCount] = useState(Number(0));
-  const array = ['green', 'red', 'blue', 'yellow'];
+  const array = ['blue', 'green', 'yellow', 'red'];
 
   const addClassColor = () => {
     const divLaser = document.querySelector('.laser');
@@ -19,18 +19,18 @@ export default function LightSaber() {
     // addClassColor();
     setInterval(() => {
       addClassColor();
-    }, 3000);
+    }, 2000);
   }, count);
   return (
     <div className="container-light-saber">
       <div className="container-saber">
-        <div>
+        <div className="container-title">
           <h2 className="title-loading">Loading</h2>
         </div>
         <div className="handle">
           <img src={ saber } alt="Sabre de Luz" className="img-saber" />
         </div>
-        <div className="laser yellow animation" />
+        <div className="laser red animation" />
         {console.log(count)}
       </div>
     </div>
