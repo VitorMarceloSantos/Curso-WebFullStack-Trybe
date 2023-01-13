@@ -26,6 +26,7 @@ body {
   display: flex;
   height: 10vh;
   justify-content: center;
+  margin: 10px;
 }
 
 .img-logo-starWars {
@@ -37,7 +38,7 @@ body {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   display: flex;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .container-options-filter, .container-order {
