@@ -14,11 +14,11 @@ body {
 }
 
 .container-global {
-  /* align-items: center; */
+  background-color: red;
   display: flex;
   height: 90vh;
+  width: 98vw;
   justify-content: center;
-  /* width: 90vw; */
 }
 
 .container-header {
@@ -26,7 +26,7 @@ body {
   display: flex;
   height: 10vh;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 }
 
 .img-logo-starWars {
@@ -38,7 +38,8 @@ body {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   display: flex;
-  margin-top: 35px;
+  margin-top: 20px;
+  width: 98vw;
 }
 
 .container-options-filter, .container-order {

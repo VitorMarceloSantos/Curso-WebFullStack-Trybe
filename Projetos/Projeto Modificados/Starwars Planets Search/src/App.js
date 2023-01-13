@@ -1,15 +1,13 @@
 import { React, useState } from 'react';
 import './App.css';
 import DataContexProvider from './context/DataContexProvider';
-// import VerifyIntroProvider from './context/VerifyIntroProvider';
 import TablePlanets from './components/TablePlanets';
 import Header from './components/Header';
 import Intro from './introStarWars/Intro';
 
 function App() {
-  const [verifyIntro, setVerifyIntro] = useState(false);
+  const [verifyIntro, setVerifyIntro] = useState(true);
   return (
-    // <VerifyIntroProvider>
     <DataContexProvider>
       <main>
         {verifyIntro === false ? (
@@ -22,7 +20,6 @@ function App() {
         )}
       </main>
     </DataContexProvider>
-    // </VerifyIntroProvider>
   );
 }
 
