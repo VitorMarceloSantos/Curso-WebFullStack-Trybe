@@ -28,16 +28,17 @@ export default function Intro(props) { // recebendo o props (setVerifyIntro)
         },
       })
       .set(title.current, { opacity: 1, delay: 0.5, scale: 1.75 })
-      .to(title.current, { scale: 0.05, ease: 'power2', duration: 16 })
-      .to(title.current, { opacity: 0, duration: 1.5 }, '-=7.5')
+      .to(title.current, { scale: 0.05, ease: 'power2', duration: 15 })
+      .to(title.current, { opacity: 0, duration: 1.5 }, '-=5.5')
       .to(content.current, { top: '-170%',
-        duration: 190 }, '-=9.5')
-      .to(backgroundGalaxy.current, { opacity: 1 }, '-=190')
-      .to(background.current, { opacity: 1 }, '-=190')
-      .to(content.current, { duration: 85,
+        duration: 130 }, '-=7.5')
+      .to(backgroundGalaxy.current, { opacity: 1 }, '-=110')
+      .to(background.current, { opacity: 1 }, '-=110')
+      .to(content.current, { duration: 70,
         onComplete: () => {
           setVerifyIntro(true);
-        } }, '-=195');
+        } }, '-=122')
+      .to(content.current, { opacity: 0, duration: 10 }, '-=60');
   }, []);
 
   return (
@@ -78,7 +79,7 @@ export default function Intro(props) { // recebendo o props (setVerifyIntro)
           <p>
             Perseguido pelos codificadores
             do Império, o líder do projeto
-            Vitor Marcelo, apressa-se em
+            Vitor Marcelo, apressa-se
             em realizar os commits em sua conta,
             protegendo o código roubado que
             pode salvar toda a rede e

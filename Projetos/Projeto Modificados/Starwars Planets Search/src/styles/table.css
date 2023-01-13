@@ -9,8 +9,10 @@
 .container-table table td {
   background-color: black;
   border: 1px solid white;
-  padding: 10px;
+  font-size: 1.1em;
+  padding: 5px;
   text-align: center;
+  line-height: 2em;
 }
 
 .container-table table td a {

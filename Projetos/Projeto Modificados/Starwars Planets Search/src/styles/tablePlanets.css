@@ -16,7 +16,7 @@ body {
 .container-global {
   /* align-items: center; */
   display: flex;
-  height: 85vh;
+  height: 90vh;
   justify-content: center;
   /* width: 90vw; */
 }
@@ -26,7 +26,7 @@ body {
   display: flex;
   height: 10vh;
   justify-content: center;
-  margin: 10px;
+  margin-top: 30px;
 }
 
 .img-logo-starWars {
@@ -38,7 +38,7 @@ body {
   border-bottom: 2px solid white;
   border-top: 2px solid white;
   display: flex;
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 .container-options-filter, .container-order {
