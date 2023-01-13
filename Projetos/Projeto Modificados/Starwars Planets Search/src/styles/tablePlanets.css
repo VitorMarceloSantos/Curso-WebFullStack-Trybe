@@ -14,7 +14,6 @@ body {
 }
 
 .container-global {
-  background-color: red;
   display: flex;
   height: 90vh;
   width: 98vw;

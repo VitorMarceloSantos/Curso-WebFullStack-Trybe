@@ -13,7 +13,6 @@
   padding: 5px;
   text-align: center;
   line-height: 2em;
-  width: 5vw;
 }
 
 .container-table table td a {
@@ -28,5 +27,13 @@
   color: white;
   font-size: 1.15em;
   font-weight: 700;
+}
+
+.large {
+  width: 12vw;
+}
+
+.small {
+  width: 5vw;
 }
 

@@ -8,19 +8,19 @@ function Table() {
     <div className="container-table">
       <table>
         <tr>
-          <td className="table-title">Name</td>
-          <td className="table-title">Rotation</td>
-          <td className="table-title">Orbital Period</td>
-          <td className="table-title">Diameter</td>
-          <td className="table-title">Climate</td>
-          <td className="table-title">Gravity</td>
-          <td className="table-title">Terrain</td>
-          <td className="table-title">Surface</td>
-          <td className="table-title">Population</td>
-          <td className="table-title">Films</td>
-          <td className="table-title">Created</td>
-          <td className="table-title">Edited</td>
-          <td className="table-title">Url</td>
+          <td className="table-title small">Name</td>
+          <td className="table-title small">Rotation</td>
+          <td className="table-title small">Orbital Period</td>
+          <td className="table-title small">Diameter</td>
+          <td className="table-title small">Climate</td>
+          <td className="table-title large">Gravity</td>
+          <td className="table-title large">Terrain</td>
+          <td className="table-title small">Surface</td>
+          <td className="table-title large">Population</td>
+          <td className="table-title small">Films</td>
+          <td className="table-title large">Created</td>
+          <td className="table-title large">Edited</td>
+          <td className="table-title small">Url</td>
         </tr>
         {(planetsFiltered.length !== 0 ? planetsFiltered : planets).map(({
           name,
