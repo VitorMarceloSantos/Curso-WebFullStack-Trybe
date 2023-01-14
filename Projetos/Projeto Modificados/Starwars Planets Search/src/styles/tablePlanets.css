@@ -32,6 +32,15 @@ body {
   width: 8vw;
 }
 
+.button-img {
+  background: none;
+  border: none;
+}
+
+.button-img:hover {
+  cursor: pointer;
+}
+
 .container-filter {
   align-items: center;
   border-bottom: 2px solid white;

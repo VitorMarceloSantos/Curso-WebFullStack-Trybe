@@ -6,7 +6,7 @@ import Header from './components/Header';
 import Intro from './introStarWars/Intro';
 
 function App() {
-  const [verifyIntro, setVerifyIntro] = useState(true);
+  const [verifyIntro, setVerifyIntro] = useState(false);
   return (
     <DataContexProvider>
       <main>
@@ -14,7 +14,7 @@ function App() {
           <Intro setVerifyIntro={ setVerifyIntro } />
         ) : (
           <div>
-            <Header />
+            <Header setVerifyIntro={ setVerifyIntro } />
             <TablePlanets />
           </div>
         )}

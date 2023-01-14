@@ -17,9 +17,10 @@ export default function LightSaber() {
   };
   useEffect(() => {
     // addClassColor();
-    setInterval(() => {
+    const interval = setInterval(() => {
       addClassColor();
     }, 2000);
+    return () => clearInterval(interval);
   }, count);
   return (
     <div className="container-light-saber">
@@ -31,7 +32,6 @@ export default function LightSaber() {
           <img src={ saber } alt="Sabre de Luz" className="img-saber" />
         </div>
         <div className="laser red animation" />
-        {console.log(count)}
       </div>
     </div>
   );
