@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
 import gsap from 'gsap';
 import '../styles/introStarWars.css';
 import logo from '../images/starWarsPlanet.png';
@@ -15,7 +16,6 @@ export default function Intro(props) { // recebendo o props (setVerifyIntro)
   const { setVerifyIntro } = props;
 
   useEffect(() => {
-    // song.play();
     // eslint-disable-next-line new-cap
     const tl = new gsap.timeline();
     tl
@@ -72,7 +72,7 @@ export default function Intro(props) { // recebendo o props (setVerifyIntro)
             rebeldes conseguem roubar
             o código secreto da arma
             decisiva do Império, a
-            ESTRELA DE BUG'S, um
+            ESTRELA DE BUG&apos;S, um
             script especial com poder suficiente
             para destruir uma rede inteira.
           </p>
@@ -91,3 +91,7 @@ export default function Intro(props) { // recebendo o props (setVerifyIntro)
     </div>
   );
 }
+
+Intro.propTypes = {
+  setVerifyIntro: PropTypes.func.isRequired,
+};

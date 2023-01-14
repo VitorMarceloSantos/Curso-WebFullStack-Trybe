@@ -1,23 +1,18 @@
+/* stylelint-disable selector-no-qualifying-type */
 body {
   align-items: center;
   background-image: url('../images/starWarsGalaxy.png');
   background-repeat: repeat;
   color: rgb(255, 197, 0);
-  /* display: flex; */
-  /* font-family: News Cycle , sans-serif; */
   font-weight: 400;
-  /* height: 100vh; */
   justify-content: center;
-  /* line-height: 1.25; */
-  /* overflow: hidden; */
-  /* width: 100vw; */
 }
 
 .container-global {
   display: flex;
   height: 90vh;
-  width: 98vw;
   justify-content: center;
+  width: 98vw;
 }
 
 .container-header {
@@ -25,7 +20,7 @@ body {
   display: flex;
   height: 10vh;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .img-logo-starWars {

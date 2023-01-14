@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import React, { useEffect, useState } from 'react';
 import '../styles/lightSaber.css';
 import saber from '../images/sabreluz.png';
@@ -5,10 +6,12 @@ import saber from '../images/sabreluz.png';
 export default function LightSaber() {
   let [count, setCount] = useState(Number(0));
   const array = ['blue', 'green', 'yellow', 'red'];
+  const NUMBER_FOUR = 4;
+  const NUMBER_SECONDS = 2000;
 
   const addClassColor = () => {
     const divLaser = document.querySelector('.laser');
-    if (count === 4) {
+    if (count === NUMBER_FOUR) {
       setCount(count = 0);
     }
     divLaser.removeAttribute('class');
@@ -19,7 +22,7 @@ export default function LightSaber() {
     // addClassColor();
     const interval = setInterval(() => {
       addClassColor();
-    }, 2000);
+    }, NUMBER_SECONDS);
     return () => clearInterval(interval);
   }, count);
   return (

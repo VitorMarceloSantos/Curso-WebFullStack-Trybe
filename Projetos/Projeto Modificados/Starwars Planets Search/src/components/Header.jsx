@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import logo from '../images/starWarsPlanetFull.png';
 
 export default function Header(props) {
@@ -16,3 +17,7 @@ export default function Header(props) {
     </header>
   );
 }
+
+Header.propTypes = {
+  setVerifyIntro: PropTypes.func.isRequired,
+};
