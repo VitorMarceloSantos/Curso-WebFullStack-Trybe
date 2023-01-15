@@ -8,7 +8,7 @@ class Student {
   ) {
     this.name = name;
     this.registration = registration;
-    this._tests = [];
+    this._tests = []; // mesmo não recebendo como parâmetro, deve ser inicializada no construtor
     this._works = [];
   }
 
@@ -32,6 +32,20 @@ class Student {
   public informationsStudent() {
     return console.log(`Nome: ${this.name} - Matricula: ${this.registration} - Provas: ${this.tests} - Trabalhos: ${this.works}`);
   }
+
+  // Soma das notas
+  public sumNotes(){
+    const studentArray = [...this._tests, ...this.works]; // realizando o espalhamento dos array
+    return console.log(`Soma: ${studentArray.reduce((acc, current) => {
+      return acc + current}, 0)}`);
+  }
+
+  // Media das notas
+  public middleNotes(){
+    const studentArray = [...this._tests, ...this.works]; // realizando o espalhamento dos array
+    return console.log(`Média: ${((studentArray.reduce((acc, current) => {
+      return acc + current}, 0))/studentArray.length).toFixed(2)}`);
+  }
 }
 
 const student01 =  new Student('Vitor', 123);
@@ -42,3 +56,5 @@ student01.works = [8.9, 10];
 student01.informationsStudent();
 console.log('Provas:', student01.tests);
 console.log('Trabalhos:', student01.works);
+student01.sumNotes();
+student01.middleNotes();
