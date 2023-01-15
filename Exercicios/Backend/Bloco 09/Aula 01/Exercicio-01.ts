@@ -20,11 +20,11 @@ class Student {
     this._works = addValues; // array de numbers
   }
 
-  public get tests(){
+  public get tests(): number[]{
     return this._tests;
   }
 
-  public get works(){
+  public get works(): number[]{
     return this._works;
   }
 
