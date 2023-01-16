@@ -26,8 +26,16 @@ class Person{
     // console.log(today.toLocaleDateString()) // Mostrar a data atual no formato: dia/mes/ano
   
     const actualDate = new Date();
-    if((newValue <= actualDate) && ((2023 - Number(newValue.getFullYear)) < 120))
-     this._birthDate = newValue;
+    if((newValue <= actualDate) && ((2023 - Number(newValue.getFullYear())) < 120)) {
+      this._birthDate = newValue;
     }
-
+  }
 }
+
+const person1 = new Person('Vitor', new Date("1991-04-16"));
+console.log(person1.birthDate);
+console.log(person1.name);
+person1.name = 'Rafaela';
+person1.birthDate = new Date('1993-12-14');
+console.log(person1.birthDate);
+console.log(person1.name);
