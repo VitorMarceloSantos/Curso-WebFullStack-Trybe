@@ -3,7 +3,6 @@ import usersServices from '../services/usersServices';
 
 const searchUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
-  await usersServices.searchUser(email, password);
   const { status, message } = await usersServices.searchUser(email, password);
   return status === 200
     ? res.status(status).json({ token: message })
@@ -11,8 +10,7 @@ const searchUser = async (req: Request, res: Response) => {
 };
 
 const validateUser = async (req: Request, res: Response) => {
-  const { email } = req.body;
-  // await usersServices.searchUser(email, password);
+  const { payload: { email } } = req.body.user; // pegando o email do decoded(validação do token)
   const { status, message } = await usersServices.searchRole(email);
   return res.status(status).json({ role: message });
 };
