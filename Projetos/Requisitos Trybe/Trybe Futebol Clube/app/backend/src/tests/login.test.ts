@@ -50,6 +50,13 @@ describe('Testes BackEnd', () => {
       expect(res.status).to.be.equal(401);
       expect(res.body).to.be.deep.equal({ message: 'Incorrect email or password' });
     });
+
+    it('Verifica usuário Incorreto - Senha(escrita incorreta)', async () => {
+      sinon.stub(usersModel, 'findOne').resolves(userCorrect as any);
+      const res = await chai.request(app).post('/login').send({ email: 'email@email.com', password: 'sec' });
+      expect(res.status).to.be.equal(401);
+      expect(res.body).to.be.deep.equal({ message: 'Incorrect email or password' });
+    });
   
     it('Verifica usuário Incorreto - Email', async () => {
       sinon.stub(usersModel, 'findOne').resolves(userCorrect as any);
@@ -67,7 +74,8 @@ describe('Testes BackEnd', () => {
   });
 
   describe('Testando a Rota - /login/validate', () => {
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20ifSwiaWF0IjoxNjc0NTgwMjA5LCJleHAiOjE2NzQ1OTEwMDl9.68LHafVAJuRsoGufrpmTc8FPx0DtWLg2F_-7DEvCbyg'
+    // O token expira
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20ifSwiaWF0IjoxNjc0NjAzMzM3LCJleHAiOjE2NzQ2MTQxMzd9.2z1FqlXpyisfh14U0FdheuH-NdEPkTM8XpSKO9ILPOQ'
 
     afterEach(() => sinon.restore());
 
