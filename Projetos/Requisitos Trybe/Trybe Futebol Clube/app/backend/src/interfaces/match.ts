@@ -1,13 +1,16 @@
-interface IMach {
-  id: number,
+interface IMatch {
+  iḍ?: number,
   homeTeamId: number,
   homeTeamGoals: number,
   awayTeamId: number,
   awayTeamGoals: number,
+}
+
+interface IMatchProgress extends IMatch {
   inProgress: boolean,
 }
 
-interface IMachComplete extends IMach{
+interface IMachComplete extends IMatchProgress{
   homeTeam: {
     teamName: string
   },
@@ -21,4 +24,4 @@ interface IMatchReturn {
   message: IMachComplete[] | string
 }
 
-export { IMach, IMachComplete, IMatchReturn };
+export { IMatch, IMatchProgress, IMachComplete, IMatchReturn };

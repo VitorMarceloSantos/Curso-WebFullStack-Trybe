@@ -15,6 +15,6 @@ export default function validateToken(req: Request, res: Response, next: NextFun
     req.body.user = decoded;
     next();
   } catch (err: unknown) {
-    return res.status(401).json({ message: 'Invalid token' }); // caso o token seja invalido vai cair nesse caso
+    return res.status(401).json({ message: 'Token must be a valid token' }); // caso o token seja invalido vai cair nesse caso
   }
 }

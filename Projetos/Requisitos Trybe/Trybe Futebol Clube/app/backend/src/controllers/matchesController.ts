@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
+// import { IMatch } from '../interfaces/match';
 import matchesService from '../services/matchesService';
 
 // Converte em boolean
-const progressBoolean = (value: any) => {
+const progressBoolean = (value: string): boolean => {
   let valueBoolean = false;
   switch (value) {
     case 'true':
@@ -38,4 +39,32 @@ const searchMatches = async (req: Request, res: Response) => {
     : res.status(status).json({ message });
 };
 
-export default { searchMatches };
+const addMatcheProgress = async (req: Request, res: Response) => {
+  // const match: IMatch = req.body;
+  // Retirando o user(payload - token)
+
+  const { user: USER, ...match } = req.body;
+  const { status, message } = await matchesService.addMatcheProgress(match);
+
+  return status === 201
+    ? res.status(status).json(message)
+    : res.status(status).json({ message });
+};
+
+const updateProgress = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { status, message } = await matchesService.updateProgress(id);
+
+  return res.status(status).json({ message });
+};
+
+const updateProgressGoals = async (req: Request, res: Response) => {
+  const { id } = req.params;
+  const { homeTeamGoals, awayTeamGoals } = req.body;
+  const { status, message } = await matchesService
+    .updateProgressGoals(id, homeTeamGoals, awayTeamGoals);
+
+  return res.status(status).json(message);
+};
+
+export default { searchMatches, addMatcheProgress, updateProgress, updateProgressGoals };

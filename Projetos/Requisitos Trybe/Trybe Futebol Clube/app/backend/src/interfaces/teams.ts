@@ -3,9 +3,16 @@ interface ITeams {
   teamName: string;
 }
 
-interface ITeamsReturn {
+interface ITeamsArray {
   status: number;
-  message?: (ITeams[] | string | ITeams);
+  message?: ITeams[];
+  notFound?: string;
 }
 
-export { ITeams, ITeamsReturn };
+interface ITeamOne {
+  status: number;
+  message?: ITeams;
+  notFound?: string;
+}
+
+export { ITeams, ITeamsArray, ITeamOne };
