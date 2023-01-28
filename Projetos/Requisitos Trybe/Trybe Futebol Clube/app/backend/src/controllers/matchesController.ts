@@ -40,9 +40,7 @@ const searchMatches = async (req: Request, res: Response) => {
 };
 
 const addMatcheProgress = async (req: Request, res: Response) => {
-  // const match: IMatch = req.body;
   // Retirando o user(payload - token)
-
   const { user: USER, ...match } = req.body;
   const { status, message } = await matchesService.addMatcheProgress(match);
 

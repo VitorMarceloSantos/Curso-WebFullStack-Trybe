@@ -1,15 +1,34 @@
-// import Team from '../database/models/teamsModel';
-// import matchesModel from '../database/models/matchesModel';
+import routeSelectedLeader from '../functions/routeSelectedLeader';
+import routeSelectedAway from '../functions/routeSelectdAway';
+import routeSelectedHome from '../functions/routeSelectedHome';
+import { IMachComplete } from '../interfaces/match';
+import matchesService from './matchesService';
 
 const searchLeaderHome = async () => {
-  // const matches = await matchesModel.findAll({
-  //   include: [
-  //     { model: Team, as: 'homeTeam', attributes: ['teamName'] },
-  //     { model: Team, as: 'awayTeam', attributes: ['teamName'] }] });
+  const { message } = await matchesService.searchMatchesProgress(false); // partidas encerradas
+  const matchResult = message as unknown as IMachComplete[];
 
-  // if (!matches) return { status: 401, message: 'Matches not found' };
+  const arrayResult = routeSelectedHome(matchResult);
 
-  // return { status: 200, message: matches };
+  return arrayResult;
 };
 
-export default { searchLeaderHome };
+const searchLeaderAway = async () => {
+  const { message } = await matchesService.searchMatchesProgress(false); // partidas encerradas
+  const matchResult = message as unknown as IMachComplete[];
+
+  const arrayResult = routeSelectedAway(matchResult);
+
+  return arrayResult;
+};
+
+const searchLeader = async () => {
+  const { message } = await matchesService.searchMatchesProgress(false); // partidas encerradas
+  const matchResult = message as unknown as IMachComplete[];
+
+  const arrayResult = routeSelectedLeader(matchResult);
+
+  return arrayResult;
+};
+
+export default { searchLeaderHome, searchLeaderAway, searchLeader };

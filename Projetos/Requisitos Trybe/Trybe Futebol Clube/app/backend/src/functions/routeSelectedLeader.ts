@@ -1,88 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
+import ILeaderBoard from '../interfaces/leaderBoard';
 import { IMachComplete } from '../interfaces/match';
-import matchesService from '../services/matchesService';
-
-// const matchesMock = [
-//   {
-//     id: 1,
-//     homeTeamId: 16,
-//     homeTeamGoals: 1,
-//     awayTeamId: 8,
-//     awayTeamGoals: 1,
-//     inProgress: false,
-//     homeTeam: {
-//       teamName: 'São Paulo',
-//     },
-//     awayTeam: {
-//       teamName: 'Grêmio',
-//     },
-//   },
-//   {
-//     id: 2,
-//     homeTeamId: 9,
-//     homeTeamGoals: 1,
-//     awayTeamId: 14,
-//     awayTeamGoals: 1,
-//     inProgress: false,
-//     homeTeam: {
-//       teamName: 'Internacional',
-//     },
-//     awayTeam: {
-//       teamName: 'Santos',
-//     },
-//   },
-//   {
-//     id: 3,
-//     homeTeamId: 4,
-//     homeTeamGoals: 3,
-//     awayTeamId: 11,
-//     awayTeamGoals: 0,
-//     inProgress: false,
-//     homeTeam: {
-//       teamName: 'Corinthians',
-//     },
-//     awayTeam: {
-//       teamName: 'Napoli-SC',
-//     },
-//   },
-//   {
-//     id: 4,
-//     homeTeamId: 3,
-//     homeTeamGoals: 0,
-//     awayTeamId: 2,
-//     awayTeamGoals: 2,
-//     inProgress: false,
-//     homeTeam: {
-//       teamName: 'Botafogo',
-//     },
-//     awayTeam: {
-//       teamName: 'Bahia',
-//     },
-//   },
-// ];
-
-interface ILeaderBoard {
-  name: string,
-  totalPoints: number,
-  totalGames: number,
-  totalVictories: number,
-  totalDraws: number,
-  totalLosses: number,
-  goalsFavor: number,
-  goalsOwn: number,
-  goalsBalance: number,
-  efficiency: string,
-  addPointsVictory(): void,
-  addPointsDraw(): void,
-  addGames(): void,
-  addTotalVictories(): void,
-  addTotalDraws(): void,
-  addTotalLosses(): void,
-  addGoalsFavor(goals: number): void,
-  addGoalsOwn(goals: number): void,
-  resultGoalsBalance(): void,
-  resultEfficiency(): void,
-}
+import sortResult from './sortResults';
 
 class Team implements ILeaderBoard {
   public name: string;
@@ -208,26 +126,8 @@ function gameDraw(arrayMatches: ILeaderBoard[], match: IMachComplete) {
   addFunctionsDraw(objectHome, objectAway, match); // Adicinando resultados
 }
 
-// type IMatchType = {
-//   id: number,
-//   homeTeamId: number,
-//   homeTeamGoals: number,
-//   awayTeamId: number,
-//   awayTeamGoals: number,
-//   inProgress: boolean,
-//   homeTeam: {
-//     teamName: string,
-//   },
-//   awayTeam: {
-//     teamName: string,
-//   },
-// };
-
-export default async function separateMacthes(req: Request, res: Response, next: NextFunction) {
+export default async function routeSelectedLeader(matchResult : IMachComplete[]) {
   const arrayMatches: ILeaderBoard[] = [];
-  const { message } = await matchesService.searchMatchesProgress(false); // partidas encerradas
-  const matchResult = message as unknown as IMachComplete[];
-  // return res.status(200).json(matchResult);
   matchResult.forEach((match) => {
     // Criando objetos caso não existam
     createNewObject(arrayMatches, match);
@@ -243,6 +143,5 @@ export default async function separateMacthes(req: Request, res: Response, next:
       gameDraw(arrayMatches, match);
     }
   });
-  return res.status(200).json(arrayMatches); // Testando a saída
-  next();
+  return sortResult(arrayMatches);
 }

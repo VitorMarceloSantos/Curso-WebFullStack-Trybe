@@ -1,9 +1,19 @@
 import { Request, Response } from 'express';
+import leaderBoardService from '../services/leaderBoardService';
 
-const searchLeaderBoard = async (_req: Request, _res: Response) => {
-  // return status === 200
-  //   ? res.status(status).json(message)
-  //   : res.status(status).json({ message: notFound });
+const searchLeaderHome = async (_req: Request, res: Response) => {
+  const arrayResult = await leaderBoardService.searchLeaderHome();
+  return res.status(200).json(arrayResult);
 };
 
-export default { searchLeaderBoard };
+const searchLeaderAway = async (_req: Request, res: Response) => {
+  const arrayResult = await leaderBoardService.searchLeaderAway();
+  return res.status(200).json(arrayResult);
+};
+
+const searchLeader = async (_req: Request, res: Response) => {
+  const arrayResult = await leaderBoardService.searchLeader();
+  return res.status(200).json(arrayResult);
+};
+
+export default { searchLeaderHome, searchLeaderAway, searchLeader };

@@ -75,7 +75,7 @@ describe('Testes BackEnd', () => {
 
   describe('Testando a Rota - /login/validate', () => {
     // O token expira
-    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20ifSwiaWF0IjoxNjc0ODIwMDY5LCJleHAiOjE2NzQ4MzA4Njl9.HwrKGYktG4sSCwdWlVksOOIecYxXsp1fkrHpZgISYp4'
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkFkbWluIiwicm9sZSI6ImFkbWluIiwiZW1haWwiOiJhZG1pbkBhZG1pbi5jb20ifSwiaWF0IjoxNjc0OTI1MDIwLCJleHAiOjE2NzQ5MzU4MjB9._2QSETi5uAjvBq5STbQ_ZvtM3DyRl4YuBxhwocUlJkM'
 
     afterEach(() => sinon.restore());
 

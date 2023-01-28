@@ -1,8 +1,9 @@
 import * as express from 'express';
-// import routers from './routes';
 import loginRoute from './routes/loginRoute';
 import teamsRoute from './routes/teamRoute';
 import matchRoute from './routes/matchRoute';
+import leaderBoardRouteHome from './routes/leaderBoardRouteHome';
+import leaderBoardRouteAway from './routes/leaderBoardRouteAway';
 import leaderBoardRoute from './routes/leaderBoardRoute';
 
 class App {
@@ -27,11 +28,12 @@ class App {
 
     this.app.use(express.json());
     this.app.use(accessControl);
-    // this.app.use(routers); // utilizando o o index.ts(routes)
     this.app.use('/login', loginRoute);
     this.app.use('/teams', teamsRoute);
     this.app.use('/matches', matchRoute);
-    this.app.use('/leaderboard/home', leaderBoardRoute);
+    this.app.use('/leaderboard/home', leaderBoardRouteHome);
+    this.app.use('/leaderboard/away', leaderBoardRouteAway);
+    this.app.use('/leaderboard', leaderBoardRoute);
   }
 
   public start(PORT: string | number):void {

@@ -1,4 +1,3 @@
-// import { IMatchReturn } from '../interfaces/match';
 import Team from '../database/models/teamsModel';
 import matchesModel from '../database/models/matchesModel';
 import { IMatch } from '../interfaces/match';
@@ -9,12 +8,12 @@ const searchMatches = async () => {
       { model: Team, as: 'homeTeam', attributes: ['teamName'] },
       { model: Team, as: 'awayTeam', attributes: ['teamName'] }] });
 
-  // if (!matches) return { status: 401, message: 'Matches not found' };
+  if (!matches) return { status: 401, message: 'Matches not found' };
 
   return { status: 200, message: matches };
 };
 
-const searchMatchesProgress = async (inProgress: boolean) => { // corrigir essa linha
+const searchMatchesProgress = async (inProgress: boolean) => {
   const matchesProgress = await matchesModel.findAll({ where: { inProgress },
     include: [
       { model: Team, as: 'homeTeam', attributes: ['teamName'] },
