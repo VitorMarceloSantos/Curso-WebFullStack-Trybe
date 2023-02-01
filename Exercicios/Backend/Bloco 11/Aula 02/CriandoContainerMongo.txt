@@ -1,0 +1,5 @@
+// Criando Container Mongo
+// Baixando a versão: docker pull mongo:4
+// criando container: docker run --name <nome-do-container> -d mongo:4  -> Nome: escolher nome do container
+// Mapeando a porta: docker run --name <nome-do-container> -d -p 27017:27017 mongo:4  -> Nome: deve utilizar o id do container
+// Executando o container: docker exec -it <nome-do-container-ou-id> mongo  ->Bash: deve utilizar o id do container
