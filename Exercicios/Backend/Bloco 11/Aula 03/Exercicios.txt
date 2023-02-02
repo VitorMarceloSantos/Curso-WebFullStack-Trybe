@@ -1,0 +1,42 @@
+// Exercicios
+
+1 - Utilizando o operador $all, retorne todos os filmes que contenham action e adventure no array category.
+db.movies.find({ category: { $all: ['action', 'adventure'] } });
+// São equivalentes
+db.movies.find({ $and: [{category: 'action'}, { category: 'adventure'}] });
+
+2- Agora retorne os filmes que contenham action e sci-fi no array category e possuem nota do IMDB maior do que 7.
+db.movies.find({ $and: [ { category: { $all: ['action', 'sci-fi']}}, { imdbRating: { $gt:  7 } } ]});
+
+3 - Retorne todos os filmes com ratings maior do que 103, exibindo apenas os campos title e ratings.
+db.movies.find({ ratings: { $elemMatch: { $gt: 103 }}}, { title: true, ratings: true, _id: false }).pretty();
+
+4 - Retorne todos os filmes com ratings entre 100 e 105, exibindo apenas os campos title e ratings.
+db.movies.find({ ratings: { $elemMatch: { $gt: 100, $lt: 105 }}}, { title: true, ratings: true, _id: false }).pretty();
+
+5 - Retorne todos os filmes onde ao menos um elemento de ratings esteja entre 64 e 105 e seja divisível por 9, exiba apenas os campos title e ratings.
+db.movies.find({ $and: [ {ratings: { $elemMatch: { $gte: 64, $lte: 105 }}}, { ratings: { $mod: [9, 0] }} ] }, { title: true, ratings: true, _id: false }).pretty();
+// Valores diferentes
+db.movies.find({ ratings: { $elemMatch: { $gte: 64, $lte: 105, $mod: [9, 0] } } }, { title: true, ratings: true, _id: false }).pretty();
+
+6 - Retorne os filmes da categoria adventure e com ratings maior do que 103, exibindo apenas os campos title, ratings e category.
+db.movies.find({ $and: [ {ratings: { $elemMatch: { $gte: 103 }}}, { category: { $in: ['adventure'] }} ] }, { title: true, ratings: true, _id: false, category: true }).pretty();
+
+7 - Retorne somente o título de todos os filmes com dois elementos no array category.
+db.movies.find({ category: { $size: 2 } }, { title: true, _id: false }).pretty();
+
+8 - Retorne somente o título de todos os filmes com quatro elementos no array ratings.
+db.movies.find({ ratings: { $size: 4 } }, { title: true, _id: false }).pretty();
+
+9 - Busque os filmes em que o módulo 5 do campo budget seja 0 e que o array category tenha tamanho 2.
+db.movies.find({ $and: [ { budget: { $mod: [5, 0] }}, { category: { $size: 2 }} ] }).pretty();
+
+10 -  Retorne os filmes da categoria "sci-fi" ou que possua o ratings maior do que 199, exibindo apenas os campos title, ratings e category.
+db.movies.find({ $or: [ { category: { $all: ['sci-fi'] }}, { ratings: { $gt: 199 }} ] }, { title: true, ratings: true, category: true, _id: false}).pretty();
+
+11 - Retorne os filmes em que o ratings possua tamanho 4 e que seja da category "adventure" ou "family", mas que não tenha o imdbRating menor que 7.
+db.movies.find({ $and: [{ $and: [ { category: { $in: ['adventure', 'family' ] }}, { ratings: { $size: 4 }} ] }, { imdbRating: { $gt: 7 }}]}).pretty();
+
+// Regex: ^ - Colocado para indicar o inicio ,  $ - colocado para indicar o fim
+12 - Utilizando o operador $regex, retorne todos os filmes em que a descrição comece com a palavra "The".
+db.movies.find({ description: { $regex: /^The/i}}).pretty();

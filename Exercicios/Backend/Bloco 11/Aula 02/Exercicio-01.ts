@@ -4,6 +4,8 @@
 // Exercicios - 01:
 // Selecione e faça a contagem dos restaurantes presentes nos bairros Queens, Staten Island e Bronx. (utilizando o atributo borough);
 // db.restaurants.countDocuments({ borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}); // Usando array, sem array utiliza o $eq(unitario) -> 20
+// db.restaurants.countDocuments({ borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}).limit(5); // limitando a quantidade que aparece
+// db.restaurants.countDocuments({ borough: {$in: ['Queens', 'Staten Island', 'Bronx']}}).skip(5); // pula a quantidade de documentos
 
 // Exercicio - 02
 // Selecione e faça a contagem dos restaurantes que não possuem culinária do tipo American. (utilizando o atributo cuisine)
