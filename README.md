@@ -127,7 +127,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 08: Projeto Jogo de Trivia
 
-- [X] 01: Projeto Jogo de Trivia
+- [X] **[01: Projeto Jogo de Trivia (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-12-Trivia)**
 
 ##### Bloco 09: Context API e React Hooks
 
