@@ -84,37 +84,37 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 02: JavaScript Assíncrono - Promises e fetch
 - [X] 03: Prática - Casa de câmbio
 - [X] 04: Async, await e testes assíncronos
-- [X] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)]()**
+- [X] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-07-Shopping-Cart/)**
 
 ##### Bloco 02: Introdução - React
 
 - [X] 01: 'Hello, world!' no React!
 - [X] 02: Componentes React
-- [X] **[03: Projeto - Solar System (NOTA: - 100%)]()**
+- [X] **[03: Projeto - Solar System (NOTA: - 100%)](https://github.com/VitorMarceloSantos/-Trybe-Projeto-08-Solar-System)**
 
 ##### Bloco 03: Componentes com Estado, Eventos e Formulários com React
 
 - [X] 01: Componentes com estado e eventos
 - [X] 02: Formulários no React
-- [X] **[03: Projeto - Tryunfo (NOTA: - 100%)]()**
+- [X] **[03: Projeto - Tryunfo (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-09-Tryunfo)**
 
 ##### Bloco 04: Ciclo de Vida de Componentes e React Router
 
 - [X] 01: Ciclo de vida de componentes
 - [X] 02: React Router
-- [X] **[03: Projeto - TrybeTunes (NOTA: - 100%)]()**
+- [X] **[03: Projeto - TrybeTunes (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes)**
 
 ##### Bloco 05: Metodologias Ágeis
 
 - [X] 01: Metodologias Ágeis
-- [X] **[02: Projeto - Front-end Online Store (NOTA: - 100%)]()**
+- [X] **[02: Projeto - Front-end Online Store (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-11-FrontEnd-Online-Store)**
 
 ##### Bloco 06: Testes automatizados com React Testing Library
 
 - [X] 01: RTL - Primeiros passos
 - [X] 02: RTL - Mocks e Inputs
 - [X] 03: RTL - Testando React Router
-- [X] **[04: Projeto - Testes em React (NOTA: - 100%)]()**
+- [X] **[04: Projeto - Testes em React (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-12-React-Testing-Library)**
 
 ##### Bloco 07: Gerenciamento de estado com Redux
 
@@ -123,7 +123,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 03: Usando o Redux no React - Prática
 - [X] 04: Usando o Redux no React - Actions Assíncronas
 - [X] 05: Testes em React-Redux
-- [X] **[06: Projeto - Trybe Wallet (NOTA: - 100%)]()**
+- [X] **[06: Projeto - Trybe Wallet (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-11-TrybeWallet)**
 
 ##### Bloco 08: Projeto Jogo de Trivia
 
