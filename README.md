@@ -80,57 +80,65 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 01: Introdução ao Frontend e JavaScript assíncrono
 
-- [ ] 01: Ambiente de desenvolvimento
-- [ ] 02: JavaScript Assíncrono - Promises e fetch
-- [ ] 03: Prática - Casa de câmbio
-- [ ] 04: Async, await e testes assíncronos
-- [ ] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)]()**
+- [X] 01: Ambiente de desenvolvimento
+- [X] 02: JavaScript Assíncrono - Promises e fetch
+- [X] 03: Prática - Casa de câmbio
+- [X] 04: Async, await e testes assíncronos
+- [X] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)]()**
 
 ##### Bloco 02: Introdução - React
 
-- [ ] 01: 'Hello, world!' no React!
-- [ ] 02: Componentes React
-- [ ] **[03: Projeto - Solar System (NOTA: - 100%)]()**
+- [X] 01: 'Hello, world!' no React!
+- [X] 02: Componentes React
+- [X] **[03: Projeto - Solar System (NOTA: - 100%)]()**
 
 ##### Bloco 03: Componentes com Estado, Eventos e Formulários com React
 
-- [ ] 01: Componentes com estado e eventos
-- [ ] 02: Formulários no React
-- [ ] **[03: Projeto - Tryunfo (NOTA: - 100%)]()**
+- [X] 01: Componentes com estado e eventos
+- [X] 02: Formulários no React
+- [X] **[03: Projeto - Tryunfo (NOTA: - 100%)]()**
 
 ##### Bloco 04: Ciclo de Vida de Componentes e React Router
 
-- [ ] 01: Ciclo de vida de componentes
-- [ ] 02: React Router
-- [ ] **[03: Projeto - TrybeTunes (NOTA: - 100%)]()**
+- [X] 01: Ciclo de vida de componentes
+- [X] 02: React Router
+- [X] **[03: Projeto - TrybeTunes (NOTA: - 100%)]()**
 
 ##### Bloco 05: Metodologias Ágeis
 
-- [ ] 01: Metodologias Ágeis
-- [ ] **[02: Projeto - Front-end Online Store (NOTA: - 100%)]()**
+- [X] 01: Metodologias Ágeis
+- [X] **[02: Projeto - Front-end Online Store (NOTA: - 100%)]()**
 
 ##### Bloco 06: Testes automatizados com React Testing Library
 
-- [ ] 01: RTL - Primeiros passos
-- [ ] 02: RTL - Mocks e Inputs
-- [ ] 03: RTL - Testando React Router
-- [ ] **[04: Projeto - Testes em React (NOTA: - 100%)]()**
+- [X] 01: RTL - Primeiros passos
+- [X] 02: RTL - Mocks e Inputs
+- [X] 03: RTL - Testando React Router
+- [X] **[04: Projeto - Testes em React (NOTA: - 100%)]()**
 
-##### Bloco 16: Introdução ao Redux
+##### Bloco 07: Gerenciamento de estado com Redux
 
-- [ ] 
+- [X] 01: Introdução ao Redux - O estado global da aplicação
+- [X] 02: Usando o Redux no React
+- [X] 03: Usando o Redux no React - Prática
+- [X] 04: Usando o Redux no React - Actions Assíncronas
+- [X] 05: Testes em React-Redux
+- [X] **[06: Projeto - Trybe Wallet (NOTA: - 100%)]()**
 
-##### Bloco 17: Projeto React
+##### Bloco 08: Projeto Jogo de Trivia
 
-- [ ] 
+- [X] 01: Projeto Jogo de Trivia
 
-##### Bloco 18: React & Context API
+##### Bloco 09: Context API e React Hooks
 
-- [ ] 
+- [X] 01: React Hooks - useState e useEffect
+- [X] 02: Context API
+- [X] 03: Custom Hooks
+- [X] **[04: Projeto - StarWars Datatable com Context API e Hooks (NOTA: - 100%)]()**
 
-##### Bloco 19: Projeto Final de Front-end
+##### Bloco 10: Projeto App de Receitas
 
-- [ ] 
+- [X] 01: Projeto App de Receitas
 
 ## Desenvolvimento Back-end :hourglass_flowing_sand:
 
