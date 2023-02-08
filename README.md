@@ -4,7 +4,7 @@ Este repositório contém todas as atividades de aprendizagem desenvolvidas por 
 
 O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
 
-## Fundamentos do Desenvolvimento Web (49 Dias) :white_check_mark:
+## Fundamentos do Desenvolvimento Web :white_check_mark:
 
 ##### Bloco 01: Unix & Bash
 
@@ -76,34 +76,45 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
 - [X] **[06: Projeto - Zoo functions (NOTA: 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-06-Zoo-Functions)**
 
-## Desenvolvimento Front-end (67 Dias) :hourglass_flowing_sand:
+## Desenvolvimento Front-end :hourglass_flowing_sand:
 
-##### Bloco 09: JavaScript e Testes Assíncronos
+##### Bloco 01: Introdução ao Frontend e JavaScript assíncrono
 
-- [ ] 01: JavaScript Assíncrono e Callbacks
-- [ ] 02: JavaScript Assíncrono - Fetch API e async/await
-- [ ] 03: Jest - Testes Assíncronos
-- [ ] **[04: Projeto - Carrinho de Compras (NOTA: -)]()**
+- [ ] 01: Ambiente de desenvolvimento
+- [ ] 02: JavaScript Assíncrono - Promises e fetch
+- [ ] 03: Prática - Casa de câmbio
+- [ ] 04: Async, await e testes assíncronos
+- [ ] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)]()**
 
-##### Bloco 11: Introdução - React
+##### Bloco 02: Introdução - React
 
-- [ ] 
+- [ ] 01: 'Hello, world!' no React!
+- [ ] 02: Componentes React
+- [ ] **[03: Projeto - Solar System (NOTA: - 100%)]()**
 
-##### Bloco 12: React
+##### Bloco 03: Componentes com Estado, Eventos e Formulários com React
 
-- [ ] 
+- [ ] 01: Componentes com estado e eventos
+- [ ] 02: Formulários no React
+- [ ] **[03: Projeto - Tryunfo (NOTA: - 100%)]()**
 
-##### Bloco 13: React
+##### Bloco 04: Ciclo de Vida de Componentes e React Router
 
-- [ ] 
+- [ ] 01: Ciclo de vida de componentes
+- [ ] 02: React Router
+- [ ] **[03: Projeto - TrybeTunes (NOTA: - 100%)]()**
 
-##### Bloco 14: Metodologias Ágeis
+##### Bloco 05: Metodologias Ágeis
 
-- [ ] 
+- [ ] 01: Metodologias Ágeis
+- [ ] **[02: Projeto - Front-end Online Store (NOTA: - 100%)]()**
 
-##### Bloco 15: Testes em React
+##### Bloco 06: Testes automatizados com React Testing Library
 
-- [ ] 
+- [ ] 01: RTL - Primeiros passos
+- [ ] 02: RTL - Mocks e Inputs
+- [ ] 03: RTL - Testando React Router
+- [ ] **[04: Projeto - Testes em React (NOTA: - 100%)]()**
 
 ##### Bloco 16: Introdução ao Redux
 
