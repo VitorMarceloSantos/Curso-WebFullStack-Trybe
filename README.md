@@ -134,7 +134,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 01: React Hooks - useState e useEffect
 - [X] 02: Context API
 - [X] 03: Custom Hooks
-- [X] **[04: Projeto - StarWars Datatable com Context API e Hooks (NOTA: - 100%)]()**
+- [X] **[04: Projeto - StarWars Datatable com Context API e Hooks (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-16-Recipes-App)**
 
 ##### Bloco 10: Projeto App de Receitas
 
