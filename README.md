@@ -76,7 +76,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
 - [X] **[06: Projeto - Zoo functions (NOTA: 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-06-Zoo-Functions)**
 
-## Desenvolvimento Front-end :hourglass_flowing_sand:
+## Desenvolvimento Front-end :white_check_mark:
 
 ##### Bloco 01: Introdução ao Frontend e JavaScript assíncrono
 
@@ -143,29 +143,51 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ## Desenvolvimento Back-end :hourglass_flowing_sand:
 
-##### Bloco 20: Introdução - Bancos de dados relacionais
+##### Bloco 01: Docker: Utilizando Containers
 
-- [ ] 
+- [X] 01: Utilizando Containers - Docker
+- [X] 02: Manipulando Imagens no Docker
+- [X] 03: Orquestrando Containers com Docker Compose
+- [X] **[04: Projeto - Docker Todo-List (NOTA: - 100%)]()**
 
-##### Bloco 21: Bancos de dados relacionais
+##### Bloco 02: Introdução à SQL
 
-- [ ] 
+- [X] 01: Banco de dados SQL
+- [X] 02: Encontrando dados em um banco de dados
+- [X] 03: Filtrando dados de forma específica
+- [X] 04: Manipulando tabelas
+- [X] **[05: Projeto - All For One (NOTA: - 100%)]()**
 
-##### Bloco 22: Bancos de dados relacionais
+##### Bloco 03: Funções SQL, JOINs e Normalização
 
-- [ ] 
+- [X] 01: Funções mais usadas no SQL
+- [X] 02: Descomplicando JOINs
+- [X] 03: Transformando ideias em um modelo de banco de dados
+- [X] **[04: Projeto - One For All (NOTA: - 100%)]()**
 
-##### Bloco 23: Introdução - NoSQL
+##### Bloco 04: Introdução ao desenvolvimento Web com Node.js
 
-- [ ] 
+- [X] 01: Node.js: Runtime Assíncrono
+- [X] 02: Node.js: API REST com Express
+- [X] 03: Node.js: Testes de Integração
+- [X] 04: Node.js: Express e Middlewares
+- [X] 05: Node.js: Express e MySQL
+- [X] **[06: Projeto - Talker Manager (NOTA: - 100%)]()**
 
-##### Bloco 24: Updates
+##### Bloco 05: Arquitetura de Software: Model, Service e Controller
 
-- [ ] 
+- [X] 01: Arquitetura de Software: Camada Model
+- [X] 02: Arquitetura de Software: Camada Service
+- [X] 03: Arquitetura de Software: Camada Controller
+- [X] **[04: Projeto - Store Manager (NOTA: - 100%)]()**
 
-##### Bloco 25: Aggregation Framework
+##### Bloco 06: Node.js: ORM e Autenticação
 
-- [ ] 
+- [X] 01: ORM - Interface da aplicação com o banco de dados
+- [X] 02: ORM - Associations 1:1 e 1:N
+- [X] 03: ORM - Associations N:N e Transactions
+- [X] 04: JWT - (JSON Web Token)
+- [X] **[05: Projeto - API de Blogs (NOTA: - 100%)]()**
 
 ##### Bloco 26: Intro - NodeJS
 
