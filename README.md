@@ -189,41 +189,48 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 04: JWT - (JSON Web Token)
 - [X] **[05: Projeto - API de Blogs (NOTA: - 100%)]()**
 
-##### Bloco 26: Intro - NodeJS
+##### Bloco 07: Masterclass: Implantação de Aplicações na Nuvem
 
-- [ ] 
+- [X] 01: Infraestrutura: Deploy com Railway
 
-##### Bloco 27: NodeJS
+##### Bloco 08: Introdução a TypeScript
 
-- [ ] 
+- [X] 01: Introdução ao TypeScript
+- [X] 02: Tipagem Estática e Generics
+- [X] 03: Express com TypeScript
+- [X] **[04: Projeto - Trybesmith (NOTA: - 100%)]()**
 
-##### Bloco 28: NodeJS
+##### Bloco 09: Programação Orientada a Objetos (POO) e SOLID
 
-- [ ] 
+- [X] 01: Introdução à Orientação a Objetos
+- [X] 02: Herança e Composição
+- [X] 03: Polimorfismo
+- [X] 04: SOLID - Introdução e Princípios S, O e D
+- [X] 05: SOLID - Princípios L e I
+- [X] **[06: Projeto - Trybers and Dragons (NOTA: - 100%)]()**
 
-##### Bloco 29: NodeJS
+##### Bloco 10: Projeto - TFC - Trybe Futebol Clube
 
-- [ ] 
+- [X] **[06:  Projeto - TFC - Trybe Futebol Clube (NOTA: - 100%)]()**
 
-##### Bloco 30: Introdução - Deploy
+##### Bloco 11: Introdução ao MongoDB
 
-- [ ] 
+- [X] 01: MongoDB - Introdução
+- [X] 02: Filter Operators
+- [X] 03: Operadores de consulta
+- [X] 04: Updates Simples
+- [X] 05: Updates Complexos - Arrays
+- [X] **[06: Projeto - Commerce (NOTA: - 100%)]()**
 
-##### Bloco 31: Projeto
+##### Bloco 12: APIs OO e NoSQL
 
-- [ ] 
+- [X] 01: APIs orientadas a objetos e NoSQL: POO e ODMs
+- [X] 02: APIs orientadas a objetos e NoSQL: Herança e Abstração
+- [X] **[03: Projeto - Car Shop (NOTA: - 100%)]()**
 
-##### Bloco 32: Arquitetura de Software
+##### Bloco 13: Projeto - App de Delivery
 
-- [ ] 
-
-##### Bloco 33: Sockets
-
-- [ ] 
-
-##### Bloco 34: Projeto
-
-- [ ] 
+- [X] **[01: Projeto - App de Delivery (NOTA: - 100%)]()**
 
 ## Ciência da Computação :hourglass_flowing_sand:
 
