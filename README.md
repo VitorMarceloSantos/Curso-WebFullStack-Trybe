@@ -4,7 +4,7 @@ Este repositório contém todas as atividades de aprendizagem desenvolvidas por 
 
 O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda introdução ao desenvolvimento de software, front-end, back-end, ciência da computação, engenharia de software, metodologias ágeis e habilidades comportamentais.
 
-## Fundamentos do Desenvolvimento Web (49 Dias) :white_check_mark:
+## Fundamentos do Desenvolvimento Web :white_check_mark:
 
 ##### Bloco 01: Unix & Bash
 
@@ -76,120 +76,165 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 05: JavaScript ES6 - spread operator, parâmetro rest, destructuring e mais
 - [X] **[06: Projeto - Zoo functions (NOTA: 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-06-Zoo-Functions)**
 
-## Desenvolvimento Front-end (67 Dias) :hourglass_flowing_sand:
+## Desenvolvimento Front-end :white_check_mark:
 
-##### Bloco 09: JavaScript e Testes Assíncronos
+##### Bloco 01: Introdução ao Frontend e JavaScript assíncrono
 
-- [ ] 01: JavaScript Assíncrono e Callbacks
-- [ ] 02: JavaScript Assíncrono - Fetch API e async/await
-- [ ] 03: Jest - Testes Assíncronos
-- [ ] **[04: Projeto - Carrinho de Compras (NOTA: -)]()**
+- [X] 01: Ambiente de desenvolvimento
+- [X] 02: JavaScript Assíncrono - Promises e fetch
+- [X] 03: Prática - Casa de câmbio
+- [X] 04: Async, await e testes assíncronos
+- [X] **[05: Projeto - Carrinho de Compras (NOTA: - 100%)](https://vitormarcelosantos.github.io/Trybe-Projeto-07-Shopping-Cart/)**
 
-##### Bloco 11: Introdução - React
+##### Bloco 02: Introdução - React
 
-- [ ] 
+- [X] 01: 'Hello, world!' no React!
+- [X] 02: Componentes React
+- [X] **[03: Projeto - Solar System (NOTA: - 100%)](https://github.com/VitorMarceloSantos/-Trybe-Projeto-08-Solar-System)**
 
-##### Bloco 12: React
+##### Bloco 03: Componentes com Estado, Eventos e Formulários com React
 
-- [ ] 
+- [X] 01: Componentes com estado e eventos
+- [X] 02: Formulários no React
+- [X] **[03: Projeto - Tryunfo (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-09-Tryunfo)**
 
-##### Bloco 13: React
+##### Bloco 04: Ciclo de Vida de Componentes e React Router
 
-- [ ] 
+- [X] 01: Ciclo de vida de componentes
+- [X] 02: React Router
+- [X] **[03: Projeto - TrybeTunes (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-10-TrybeTunes)**
 
-##### Bloco 14: Metodologias Ágeis
+##### Bloco 05: Metodologias Ágeis
 
-- [ ] 
+- [X] 01: Metodologias Ágeis
+- [X] **[02: Projeto - Front-end Online Store (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-11-FrontEnd-Online-Store)**
 
-##### Bloco 15: Testes em React
+##### Bloco 06: Testes automatizados com React Testing Library
 
-- [ ] 
+- [X] 01: RTL - Primeiros passos
+- [X] 02: RTL - Mocks e Inputs
+- [X] 03: RTL - Testando React Router
+- [X] **[04: Projeto - Testes em React (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-12-React-Testing-Library)**
 
-##### Bloco 16: Introdução ao Redux
+##### Bloco 07: Gerenciamento de estado com Redux
 
-- [ ] 
+- [X] 01: Introdução ao Redux - O estado global da aplicação
+- [X] 02: Usando o Redux no React
+- [X] 03: Usando o Redux no React - Prática
+- [X] 04: Usando o Redux no React - Actions Assíncronas
+- [X] 05: Testes em React-Redux
+- [X] **[06: Projeto - Trybe Wallet (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-11-TrybeWallet)**
 
-##### Bloco 17: Projeto React
+##### Bloco 08: Projeto Jogo de Trivia
 
-- [ ] 
+- [X] **[01: Projeto Jogo de Trivia (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-12-Trivia)**
 
-##### Bloco 18: React & Context API
+##### Bloco 09: Context API e React Hooks
 
-- [ ] 
+- [X] 01: React Hooks - useState e useEffect
+- [X] 02: Context API
+- [X] 03: Custom Hooks
+- [X] **[04: Projeto - StarWars Datatable com Context API e Hooks (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-15-StarWarsSearchPlanets)**
 
-##### Bloco 19: Projeto Final de Front-end
+##### Bloco 10: Projeto App de Receitas
 
-- [ ] 
+- [X] 01: Projeto App de Receitas
+- [X] **[01: Projeto - Projeto App de Receitas (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-16-Recipes-App)**
 
 ## Desenvolvimento Back-end :hourglass_flowing_sand:
 
-##### Bloco 20: Introdução - Bancos de dados relacionais
+##### Bloco 01: Docker: Utilizando Containers
 
-- [ ] 
+- [X] 01: Utilizando Containers - Docker
+- [X] 02: Manipulando Imagens no Docker
+- [X] 03: Orquestrando Containers com Docker Compose
+- [X] **[04: Projeto - Docker Todo-List (NOTA: - 100%)]()**
 
-##### Bloco 21: Bancos de dados relacionais
+##### Bloco 02: Introdução à SQL
 
-- [ ] 
+- [X] 01: Banco de dados SQL
+- [X] 02: Encontrando dados em um banco de dados
+- [X] 03: Filtrando dados de forma específica
+- [X] 04: Manipulando tabelas
+- [X] **[05: Projeto - All For One (NOTA: - 100%)]()**
 
-##### Bloco 22: Bancos de dados relacionais
+##### Bloco 03: Funções SQL, JOINs e Normalização
 
-- [ ] 
+- [X] 01: Funções mais usadas no SQL
+- [X] 02: Descomplicando JOINs
+- [X] 03: Transformando ideias em um modelo de banco de dados
+- [X] **[04: Projeto - One For All (NOTA: - 100%)]()**
 
-##### Bloco 23: Introdução - NoSQL
+##### Bloco 04: Introdução ao desenvolvimento Web com Node.js
 
-- [ ] 
+- [X] 01: Node.js: Runtime Assíncrono
+- [X] 02: Node.js: API REST com Express
+- [X] 03: Node.js: Testes de Integração
+- [X] 04: Node.js: Express e Middlewares
+- [X] 05: Node.js: Express e MySQL
+- [X] **[06: Projeto - Talker Manager (NOTA: - 100%)]()**
 
-##### Bloco 24: Updates
+##### Bloco 05: Arquitetura de Software: Model, Service e Controller
 
-- [ ] 
+- [X] 01: Arquitetura de Software: Camada Model
+- [X] 02: Arquitetura de Software: Camada Service
+- [X] 03: Arquitetura de Software: Camada Controller
+- [X] **[04: Projeto - Store Manager (NOTA: - 100%)]()**
 
-##### Bloco 25: Aggregation Framework
+##### Bloco 06: Node.js: ORM e Autenticação
 
-- [ ] 
+- [X] 01: ORM - Interface da aplicação com o banco de dados
+- [X] 02: ORM - Associations 1:1 e 1:N
+- [X] 03: ORM - Associations N:N e Transactions
+- [X] 04: JWT - (JSON Web Token)
+- [X] **[05: Projeto - API de Blogs (NOTA: - 100%)]()**
 
-##### Bloco 26: Intro - NodeJS
+##### Bloco 07: Masterclass: Implantação de Aplicações na Nuvem
 
-- [ ] 
+- [X] 01: Infraestrutura: Deploy com Railway
 
-##### Bloco 27: NodeJS
+##### Bloco 08: Introdução a TypeScript
 
-- [ ] 
+- [X] 01: Introdução ao TypeScript
+- [X] 02: Tipagem Estática e Generics
+- [X] 03: Express com TypeScript
+- [X] **[04: Projeto - Trybesmith (NOTA: - 100%)]()**
 
-##### Bloco 28: NodeJS
+##### Bloco 09: Programação Orientada a Objetos (POO) e SOLID
 
-- [ ] 
+- [X] 01: Introdução à Orientação a Objetos
+- [X] 02: Herança e Composição
+- [X] 03: Polimorfismo
+- [X] 04: SOLID - Introdução e Princípios S, O e D
+- [X] 05: SOLID - Princípios L e I
+- [X] **[06: Projeto - Trybers and Dragons (NOTA: - 100%)]()**
 
-##### Bloco 29: NodeJS
+##### Bloco 10: Projeto - TFC - Trybe Futebol Clube
 
-- [ ] 
+- [X] **[06:  Projeto - TFC - Trybe Futebol Clube (NOTA: - 100%)]()**
 
-##### Bloco 30: Introdução - Deploy
+##### Bloco 11: Introdução ao MongoDB
 
-- [ ] 
+- [X] 01: MongoDB - Introdução
+- [X] 02: Filter Operators
+- [X] 03: Operadores de consulta
+- [X] 04: Updates Simples
+- [X] 05: Updates Complexos - Arrays
+- [X] **[06: Projeto - Commerce (NOTA: - 100%)]()**
 
-##### Bloco 31: Projeto
+##### Bloco 12: APIs OO e NoSQL
 
-- [ ] 
+- [X] 01: APIs orientadas a objetos e NoSQL: POO e ODMs
+- [X] 02: APIs orientadas a objetos e NoSQL: Herança e Abstração
+- [X] **[03: Projeto - Car Shop (NOTA: - 100%)]()**
 
-##### Bloco 32: Arquitetura de Software
+##### Bloco 13: Projeto - App de Delivery
 
-- [ ] 
-
-##### Bloco 33: Sockets
-
-- [ ] 
-
-##### Bloco 34: Projeto
-
-- [ ] 
+- [X] **[01: Projeto - App de Delivery (NOTA: - 100%)]()**
 
 ## Ciência da Computação :hourglass_flowing_sand:
 
-##### Bloco 35: Introdução - Ciência da Computação
-
-- [ ] 
-
-##### Bloco 36: Python
+##### Bloco 01: Introdução - Ciência da Computação
 
 - [ ] 
 
