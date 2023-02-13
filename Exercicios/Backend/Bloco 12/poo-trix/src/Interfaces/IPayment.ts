@@ -4,6 +4,7 @@ interface IPayment {
   payToPerson: string;
   amount: number;
   key: string;
+  status?: number;
 }
 
 export default IPayment;

@@ -16,6 +16,7 @@ class TransferService {
         payment.amount,
         payment.key,
         payment.id,
+        payment.status,
       );
     }
     return null;
@@ -42,6 +43,16 @@ class TransferService {
     const arrayPayments = arrayFind
       .map((payment) => this.createPaymentDomain(payment));
     return arrayPayments;
+  }
+
+  public async updatePayment(id: string, updatePayment: Partial<IPayment>) {
+    const key = updatePayment.key as string;
+    if (!this.isValidKey(key)) {
+      throw new Error('Invalid Key!');
+    }
+    const updatePay = new PaymentODM();
+    const resultUpdate = await updatePay.updatePayment(id, updatePayment);
+    return this.createPaymentDomain(resultUpdate);
   }
 }
 

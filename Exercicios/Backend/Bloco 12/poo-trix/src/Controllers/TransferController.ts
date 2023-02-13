@@ -49,6 +49,20 @@ class TransferController {
       this.next(error);
     }
   }
+
+  public async updatePayment() {
+    const updatePayment: Partial<IPayment> = {
+      key: this.req.body.key,
+    };
+    try {
+      const { id } = this.req.params;
+      const newPayment = await this
+        .service.updatePayment(id, updatePayment);
+      return this.res.status(200).json(newPayment);
+    } catch (error) {
+      this.next(error);
+    }
+  }
 }
 
 export default TransferController;

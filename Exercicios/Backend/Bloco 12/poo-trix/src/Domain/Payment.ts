@@ -4,6 +4,7 @@ class Payment {
   private payToPerson: string;
   private amount: number;
   private key: string;
+  private status: number | undefined;
 
   constructor(
     payByPerson: string,
@@ -11,12 +12,14 @@ class Payment {
     amount: number,
     key: string,
     id: string | undefined,
+    status: number | undefined,
   ) {
     this.id = id;
     this.payByPerson = payByPerson;
     this.payToPerson = payToPerson;
     this.amount = amount;
     this.key = key;
+    this.status = status;
   }
 
   public setId(id: string) {
@@ -57,6 +60,14 @@ class Payment {
 
   public getKey() {
     return this.key;
+  }
+
+  public setStatus(status: number) {
+    this.status = status;
+  }
+
+  public getStatus() {
+    return this.status;
   }
 }
 
