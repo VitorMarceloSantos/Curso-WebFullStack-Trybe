@@ -17,7 +17,7 @@ class NewCarService {
   public async findAll() {
     const findODM = new NewCarModel();
     const arrayFind = await findODM.findAll();
-    if (arrayFind.length === 0) throw new VerifyError('Car not found', 404);
+    // if (arrayFind.length === 0) throw new VerifyError('Car not found', 404);
     const arrayCars = arrayFind
       .map((car) => this.createCarDomain(car));
     return arrayCars;
