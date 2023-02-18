@@ -148,7 +148,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 01: Utilizando Containers - Docker
 - [X] 02: Manipulando Imagens no Docker
 - [X] 03: Orquestrando Containers com Docker Compose
-- [X] **[04: Projeto - Docker Todo-List (NOTA: - 100%)]()**
+- [X] **[04: Projeto - Docker Todo-List (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-17-docker-todo-list)**
 
 ##### Bloco 02: Introdução à SQL
 
