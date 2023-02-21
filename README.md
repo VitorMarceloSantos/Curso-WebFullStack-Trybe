@@ -179,7 +179,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 01: Arquitetura de Software: Camada Model
 - [X] 02: Arquitetura de Software: Camada Service
 - [X] 03: Arquitetura de Software: Camada Controller
-- [X] **[04: Projeto - Store Manager (NOTA: - 100%)]()**
+- [X] **[04: Projeto - Store Manager (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-21-Store-Manager)**
 
 ##### Bloco 06: Node.js: ORM e Autenticação
 
