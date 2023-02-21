@@ -187,7 +187,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 02: ORM - Associations 1:1 e 1:N
 - [X] 03: ORM - Associations N:N e Transactions
 - [X] 04: JWT - (JSON Web Token)
-- [X] **[05: Projeto - API de Blogs (NOTA: - 100%)]()**
+- [X] **[05: Projeto - API de Blogs (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-22-API-Blog)**
 
 ##### Bloco 07: Masterclass: Implantação de Aplicações na Nuvem
 
