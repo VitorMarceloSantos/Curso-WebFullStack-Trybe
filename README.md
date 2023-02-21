@@ -156,7 +156,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 02: Encontrando dados em um banco de dados
 - [X] 03: Filtrando dados de forma específica
 - [X] 04: Manipulando tabelas
-- [X] **[05: Projeto - All For One (NOTA: - 100%)]()**
+- [X] **[05: Projeto - All For One (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-18-mysql-one-for-all)**
 
 ##### Bloco 03: Funções SQL, JOINs e Normalização
 
