@@ -172,7 +172,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 03: Node.js: Testes de Integração
 - [X] 04: Node.js: Express e Middlewares
 - [X] 05: Node.js: Express e MySQL
-- [X] **[06: Projeto - Talker Manager (NOTA: - 100%)]()**
+- [X] **[06: Projeto - Talker Manager (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-20-Project-Talker-Manager)**
 
 ##### Bloco 05: Arquitetura de Software: Model, Service e Controller
 
