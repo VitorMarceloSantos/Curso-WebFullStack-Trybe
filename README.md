@@ -220,7 +220,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 - [X] 03: Operadores de consulta
 - [X] 04: Updates Simples
 - [X] 05: Updates Complexos - Arrays
-- [X] **[06: Projeto - Commerce (NOTA: - 100%)]()**
+- [X] **[06: Projeto - Commerce (NOTA: - 100%)](https://github.com/VitorMarceloSantos/Trybe-Projeto-26-Commerce)**
 
 ##### Bloco 12: APIs OO e NoSQL
 
