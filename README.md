@@ -230,7 +230,7 @@ O programa conta com mais de 1.500 horas de aulas presenciais e online, aborda i
 
 ##### Bloco 13: Projeto - App de Delivery
 
-- [X] **[01: Projeto - App de Delivery (NOTA: - 100%)]()**
+- [ ] **[01: Projeto - App de Delivery (NOTA: - 100%)]()**
 
 ## Ciência da Computação :hourglass_flowing_sand:
 
