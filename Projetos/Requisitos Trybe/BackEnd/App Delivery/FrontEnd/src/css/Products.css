@@ -1,0 +1,15 @@
+.navBar-products-container {
+  height: 12vh;
+  width: 100vw;
+}
+
+.outlet-container {
+  background-color: rgb(242, 238, 172);
+  height: 80vh;
+  width: 100vw;
+}
+
+.footer-container {
+  height: 8vh;
+  width: 100vw;
+}

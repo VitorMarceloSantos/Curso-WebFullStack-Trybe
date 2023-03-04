@@ -1,0 +1,26 @@
+.imgCard {
+  width: 300px;
+}
+
+.card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+
+.divAdd {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonCard {
+  width: 30px;
+}
+
+.inputCard {
+  font-size: 5px;
+  text-align: center;
+  width: 0;
+}
