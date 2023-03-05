@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card from '../../components/Card';
 import { requestGet, setToken } from '../../services/request';
+import '../../css/routes/products/List.css';
+// import ContextProducts from '../../context/ContextProduct';
 
 export default function List() {
   const [products, setProducts] = useState([]);
@@ -27,7 +29,7 @@ export default function List() {
   }, [navigate]); // similar ao DidMount
 
   return (
-    <section>
+    <section className="list-products-cotnainer">
       {isAuthenticated && (
         products.map((product) => (
           <Card

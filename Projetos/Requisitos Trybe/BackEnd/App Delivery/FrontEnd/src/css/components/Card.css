@@ -1,13 +1,19 @@
-.imgCard {
-  width: 300px;
-}
-
 .card {
   align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 300px;
+  height: 34vh;
+  justify-content: space-evenly;
+  margin: 20px;
+  padding: 15px;
+  width: 8vw;
+}
+
+.img-product {
+  height: 13vh;
 }
 
 .divAdd {
@@ -16,11 +22,89 @@
 }
 
 .buttonCard {
-  width: 30px;
+  border: 1px solid black;
+  height: 3.4vh;
+  width: 1.7vw;
 }
 
 .inputCard {
-  font-size: 5px;
+  border: 1px solid black;
+  height: 3.18vh;
   text-align: center;
-  width: 0;
+  width: 3vw;
 }
+
+.button-card-plus {
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  left: -16px;
+  position: relative;
+}
+
+.button-card-minus {
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  position: relative;
+  right: -3px;
+}
+
+.options-values-container {
+  margin-left: 13px;
+}
+
+.data-product-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 35%;
+  justify-content: center;
+  margin: 15px 0;
+  width: 90%;
+}
+
+.data-product-container h3 {
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 1px solid black;
+}
+
+.data-product-container p {
+  font-size: 1.2em;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.cart-favorites-container {
+  align-items: center;
+  display: flex;
+  height: 3vh;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.icon-product {
+  font-size: 1.4em;
+}
+
+.icon-cart {
+  color: rgb(242, 183, 5);
+  cursor: pointer;
+  font-size: 1.5em;
+  margin-right: 10px;
+}
+
+.icon-cart:hover {
+  color: rgb(191, 126, 4);
+  text-shadow: 2px 2px 2px black;
+}
+
+.icon-favorite {
+  color: red;
+  cursor: pointer;
+}
+
+.icon-favorite:hover {
+  color: darkred;
+  text-shadow: 2px 2px 2px black;
+}
+

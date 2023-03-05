@@ -1,10 +1,9 @@
-const { secret } = require('./jwtConfig');
 const jwt = require('jsonwebtoken');
+const { secret } = require('./jwtConfig');
 
 const validateToken = async (req, res, next) => {
   const { authorization: token } = req.headers; // alterando o nome para token
   // passar no header do thunderClient : authorization - token
-  console.log('Entrou aqui')
   if (!token) {
     return res.status(401).json({ message: 'Token not found' });
   }

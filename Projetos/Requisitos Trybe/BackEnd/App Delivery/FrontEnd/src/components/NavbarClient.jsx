@@ -22,6 +22,12 @@ export default function NavBarClient() {
     verifyLocalStorage();
   }, []);
 
+  const clearStorage = () => {
+    localStorage.removeItem('user'); // removendo as informações do usuario(user) do localStorage
+  };
+
+  const CUSTOMER = 'customer_products';
+
   return (
     <header>
       <nav className="navBar-client">
@@ -34,7 +40,7 @@ export default function NavBarClient() {
         </div>
         <div className="container-links">
           <NavLink
-            data-testid="customer_products__element-navbar-link-products"
+            data-testid={ `${CUSTOMER}__element-navbar-link-products` }
             to="/customer/products"
             className="space-elements elements-link"
             style={ ({ isActive }) => (isActive ? activeStyle : undefined) } // personalizando estilo
@@ -42,8 +48,7 @@ export default function NavBarClient() {
             Produtos
           </NavLink>
           <NavLink
-            data-testid="customer_products__element-navbar-link-orders
-          12"
+            data-testid={ `${CUSTOMER}__element-navbar-link-orders` }
             to="/customer/orders"
             className="space-elements elements-link"
             style={ ({ isActive }) => (isActive ? activeStyle : undefined) } // personalizando estilo
@@ -54,16 +59,15 @@ export default function NavBarClient() {
         <div className="container-logout">
           <div
             className="user-container space-elements"
-            data-testid="customer_products__element-navbar-user-full-name
-13"
+            data-testid={ `${CUSTOMER}__element-navbar-user-full-name` }
           >
             { name }
           </div>
           <Link // votlando a Home
-            data-testid="customer_products__element-navbar-link-logout
-          14"
+            data-testid={ `${CUSTOMER}__element-navbar-link-logout` }
             to="/login"
             className="space-elements"
+            onClick={ clearStorage }
           >
             <RxExit
               className="link-logout"

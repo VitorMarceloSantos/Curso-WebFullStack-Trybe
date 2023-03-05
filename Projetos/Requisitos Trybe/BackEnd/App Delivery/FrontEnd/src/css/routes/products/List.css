@@ -1,0 +1,10 @@
+.list-products-cotnainer {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%; /* 100% do valor da div Outlet */
+  justify-content: space-evenly;
+  overflow-y: scroll;
+  padding: 0 40px;
+  width: auto;
+}

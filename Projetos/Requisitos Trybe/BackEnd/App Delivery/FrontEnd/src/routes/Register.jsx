@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // alterar a rota
 import { validateNewUser } from '../validations/validateNewUser';
-import '../css/Register.css';
+import '../css/routes/Register.css';
 import { requestPost } from '../services/request';
 import logo from '../images/beer-house.png';
 
@@ -68,6 +68,7 @@ export default function Register() {
               onChange={ handleChange }
               placeholder="Nome"
               data-testid="common_register__input-name"
+              className="input-form"
             />
           </label>
           <label htmlFor="email">
@@ -79,6 +80,7 @@ export default function Register() {
               onChange={ handleChange }
               placeholder="example@example.com"
               data-testid="common_register__input-email"
+              className="input-form"
             />
           </label>
           <label htmlFor="password">
@@ -90,7 +92,7 @@ export default function Register() {
               onChange={ handleChange }
               placeholder="******"
               data-testid="common_register__input-password"
-              className="input-password"
+              className="input-password input-form"
             />
           </label>
           <div className="view-password">

@@ -9,7 +9,7 @@ const findAll = async () => {
 };
 
 const findEmail = async (email) => {
-  const result  = await User.findOne({ where: { email } });
+  const result = await User.findOne({ where: { email } });
   if (!result) return { status: 404, message: 'Not found' };
   const token = generateToken(result.dataValues); // gerando token
   return { status: 200, message: { user: result.dataValues }, token }; // case false
