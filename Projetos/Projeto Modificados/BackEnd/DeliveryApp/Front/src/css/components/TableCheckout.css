@@ -1,0 +1,71 @@
+.table-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 20vh;
+  width: 100%;
+}
+
+.img-cart {
+  height: 200px;
+}
+
+.tableCar {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 20px;
+  width: 90%;
+}
+
+
+.column-item {
+  width: 8vw;
+}
+
+.tdItem {
+  background-color: rgb(242, 183, 5);
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  text-align: center;
+  width: 50px;
+}
+
+
+.tdDescricao {
+  background-color: #eaf1ef;
+  width: 300px;
+}
+
+
+.tdQuantidade {
+  background-color: rgba(242, 238, 172, 0.7);
+  text-align: center;
+}
+
+.tdPrice {
+  background-color: rgb(242, 238, 172, 0.7);
+  text-align: center;
+}
+
+
+.tdSubtotal {
+  background-color: #056cf9;
+  text-align: center;
+
+}
+
+.btnRemover {
+  background-color: rgb(191, 73, 4);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  font-size: 1em;
+  text-align: center;
+  width: 8vw;
+}
+
+.btnRemover:hover {
+  background-color: rgb(191, 126, 4);
+  box-shadow: 1px 1px 1px black;
+  color: white;
+  cursor: pointer;
+}

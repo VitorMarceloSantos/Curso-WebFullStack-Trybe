@@ -1,0 +1,90 @@
+/* .divDadosPedido {
+  display: flex;
+}
+
+.divDadosPedido p, button {
+  margin-left: 20px;
+}
+
+.inputInfo {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+
+
+.divInputInfo {
+  display: flex;
+}
+
+.divInputInfo input, select {
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 30px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  width: 200px;
+}
+
+.divButton {
+  width: 300px;
+}
+
+.tableCar {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+
+.thItem {
+  width: 50px;
+}
+
+.tdItem {
+  background-color: #2fc18c;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  text-align: center;
+  width: 50px;
+}
+
+
+.tdDescricao {
+  background-color: #eaf1ef;
+  width: 300px;
+}
+
+
+.tdQuantidade {
+  background-color: #036b52;
+  text-align: center;
+}
+
+.tdValor {
+  background-color: #421981;
+  text-align: center;
+}
+
+
+.tdvalorUnitario {
+  background-color: #056cf9;
+  text-align: center;
+
+}
+
+.btnRemover {
+  background-color: #2fc18c;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center;
+}
+
+.finishButton {
+  background-color: #2fc18c;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  height: 50px;
+  margin-top: 20px;
+  width: 200px;
+} */

@@ -1,0 +1,71 @@
+.orders-container {
+  align-items: flex-start;
+  display: flex;
+  height: 83vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.cards-orders-container {
+  align-items: center;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 3vh;
+  padding: 20px;
+  width: 85%;
+}
+
+.cards-orders-container h3 {
+  width: 100%;
+}
+
+.button-card-container {
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  height: 10vh;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 20px;
+}
+
+.button-card-container:hover {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}
+
+.pedidoId {
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.status {
+  align-items: center;
+  background-color: rgb(242, 203, 5);
+  border-radius: 10px;
+  display: flex;
+  font-size: 1.2em;
+  font-weight: 600;
+  height: 5vh;
+  justify-content: center;
+  width: 10vw;
+}
+
+.divDatePrice {
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.divDatePrice p {
+  margin-top: 5px;
+}
+
+.card-config {
+  margin: 5px 10px;
+}
