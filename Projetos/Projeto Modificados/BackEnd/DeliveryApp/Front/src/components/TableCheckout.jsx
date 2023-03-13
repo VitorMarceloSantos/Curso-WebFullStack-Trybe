@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { BsTrash } from 'react-icons/bs';
 import contextProducts from '../context/ContextProduct';
 import '../css/components/TableCheckout.css';
 import cartEmpty from '../images/CartEmpty.png';
@@ -9,7 +10,7 @@ export default function TableCheckout() {
   const CUSTOMER = 'customer_checkout';
 
   // Remover determinado produto do array
-  const RemoveProduct = ({ target: { name: nameParams } }) => {
+  const RemoveProduct = (nameParams) => {
     const temp = arrayProducts.filter((product) => product.name !== nameParams);
     setArrayProducts(temp); // Remove o elemento na posição id
     addProducts(temp); // atualizando contextAPI - Products
@@ -31,7 +32,7 @@ export default function TableCheckout() {
               <th className="column-item">Quantidade</th>
               <th className="column-item">V. Unitário</th>
               <th className="column-item">Sub-Total</th>
-              <th className="column-item">Remover</th>
+              <th className="column-item"> </th>
             </tr>
           </thead>
           <tbody>
@@ -59,24 +60,31 @@ export default function TableCheckout() {
                   className="tdPrice"
                   data-testid={ `${CUSTOMER}__element-order-table-unit-price-${index}` }
                 >
-                  {String(price.toFixed(2)).replace('.', ',')}
+                  {/* {String(price.toFixed(2)).replace('.', ',')} */}
+                  {Number(price)
+                    .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </td>
                 <td
                   className="tdSubtotal"
                   data-testid={ `${CUSTOMER}__element-order-table-sub-total-${index}` }
                 >
-                  {String((quantity * price).toFixed(2)).replace('.', ',')}
+                  {/* {String((quantity * price).toFixed(2)).replace('.', ',')} */}
+                  {Number(price * quantity)
+                    .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                 </td>
                 <td>
                   <button
                     className="btnRemover"
                     type="button"
-                    name={ name }
+                    // name={ name }
                     data-testid={ `${CUSTOMER}__element-order-table-remove-${index}` }
-                    onClick={ RemoveProduct }
+                    onClick={ () => RemoveProduct(name) }
                     id={ index }
                   >
-                    Remover
+                    <BsTrash
+                      className="icon-trash"
+                      onClick={ () => RemoveProduct(name) }
+                    />
                   </button>
                 </td>
               </tr>

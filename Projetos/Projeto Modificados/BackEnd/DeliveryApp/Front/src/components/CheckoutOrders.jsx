@@ -75,7 +75,7 @@ function CheckoutOrders() {
   return (
     <section className="main-order-checkout">
       <section className="checkout-order-container">
-        <h3>Finalizar Pedido</h3>
+        <h3>Pedido</h3>
         <TableCheckout />
         { listProducts.length > 0 && (
           <div className="checkout-order-price">
@@ -90,12 +90,12 @@ function CheckoutOrders() {
         )}
       </section>
       <section className="checkout-details-container">
-        <h3>Detalhes e Endereço para Entrega</h3>
+        <h3>Endereço para Entrega</h3>
         <div className="divInputInfo">
           <SellersRegister
             setSellerId={ setSellerId }
           />
-          <label className="inputInfo" htmlFor="endereco">
+          <label className="inputInfo config-order-input" htmlFor="endereco">
             Endereço:
             <input
               type="text"
@@ -104,6 +104,8 @@ function CheckoutOrders() {
               value={ addressClient }
               data-testid={ `${CUSTOMER}__input-address` }
               onChange={ handleAddress }
+              className="config-input-info"
+              placeholder="Rua, Avenida, Praça, ..."
             />
           </label>
           <label className="inputInfo" htmlFor="numero">
@@ -115,6 +117,8 @@ function CheckoutOrders() {
               value={ addressNumber }
               data-testid={ `${CUSTOMER}__input-address-number` }
               onChange={ handleAddress }
+              className="config-input-info"
+              placeholder="..."
             />
           </label>
         </div>
@@ -125,7 +129,7 @@ function CheckoutOrders() {
           data-testid={ `${CUSTOMER}__button-submit-order` }
           onClick={ handleCreateSale }
         >
-          Finalizar Pedido
+          Finalizar
         </button>
       </div>
     </section>

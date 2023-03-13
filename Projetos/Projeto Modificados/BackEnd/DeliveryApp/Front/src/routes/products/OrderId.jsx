@@ -67,39 +67,49 @@ export default function OrderId() {
   };
 
   return (
-    <div>
+    <div className="conatiner-order-id-geral">
       {(saleId && products.length !== 0) ? (
-        <div>
-          <h1>Detalhe do Pedido</h1>
-          <div className="divDadosPedido">
+        <div className="order-id-container">
+          <div className="details-order-id">
+            <h1>Detalhe do Pedido</h1>
             <p
-              data-testid={ `${CUSTOMER_ORDER}-label-order-id` }
-            >
-              {`PEDIDO ${editNumberOrder(id)}`}
-            </p>
-            <p
-              data-testid={ `${CUSTOMER_ORDER}-label-seller-name` }
-            >
-              {`P. Vend: ${seller.name}`}
-            </p>
-            <p
-              data-testid={ `${CUSTOMER_ORDER}-label-order-date` }
-            >
-              {editDate(saleDate)}
-            </p>
-            <p
+              className="container-status-order-id"
               data-testid={ `${CUSTOMER_ORDER}-label-delivery-status${1}` }
             >
               {verifyStatus}
             </p>
-            <button
-              data-testid={ `${CUSTOMER}__button-delivery-check` }
-              type="button"
-              onClick={ () => updateState('Entregue') }
-              disabled={ verifyStatus !== 'Em Trânsito' } // verfica status
+          </div>
+          <div className="divDadosPedido">
+            <p
+              className="number-order-id"
+              data-testid={ `${CUSTOMER_ORDER}-label-order-id` }
             >
-              MARCAR COMO ENTREGUE
-            </button>
+              {`PEDIDO n° ${editNumberOrder(id)}`}
+            </p>
+            <p
+              data-testid={ `${CUSTOMER_ORDER}-label-seller-name` }
+            >
+              {`Vendedor(a): ${seller.name}`}
+            </p>
+            <p
+              data-testid={ `${CUSTOMER_ORDER}-label-order-date` }
+            >
+              {`Data: ${editDate(saleDate)}`}
+            </p>
+            <div />
+            <div
+              className="container-order-id-date"
+            >
+              <button
+                data-testid={ `${CUSTOMER}__button-delivery-check` }
+                type="button"
+                onClick={ () => updateState('Entregue') }
+                disabled={ verifyStatus !== 'Em Trânsito' } // verfica status
+                className="order-id-button"
+              >
+                MARCAR COMO ENTREGUE
+              </button>
+            </div>
           </div>
           <table className="tableCar">
             <thead>
@@ -136,25 +146,32 @@ export default function OrderId() {
                     className="tdPrice"
                     data-testid={ `${CUSTOMER_ORDER}-table-unit-price-${index}` }
                   >
-                    {(productsId.price).replace('.', ',')}
+                    {/* {(productsId.price).replace('.', ',')} */}
+                    {Number(productsId.price)
+                      .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                   </td>
                   <td
                     className="tdSubtotal"
                     data-testid={ `${CUSTOMER_ORDER}-table-sub-total-${index}` }
                   >
-                    {String((quantity * productsId.price).toFixed(2)).replace('.', ',')}
+                    {/* {String((quantity * productsId.price).toFixed(2)).replace('.', ',')} */}
+                    {Number(productsId.price * quantity)
+                      .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
-          <p>Total:</p>
-          <p
-            className="chekcout-total-price"
-            data-testid={ `${CUSTOMER}__element-order-total-price` }
-          >
-            {totalPrice.replace('.', ',')}
-          </p>
+          <div className="container-total-order-id">
+            <p
+              className="chekcout-total-price"
+              data-testid={ `${CUSTOMER}__element-order-total-price` }
+            >
+              {/* {totalPrice.replace('.', ',')} */}
+              {`Total: ${Number(totalPrice)
+                .toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`}
+            </p>
+          </div>
         </div>
       ) : (
         <h3>Carregando</h3>

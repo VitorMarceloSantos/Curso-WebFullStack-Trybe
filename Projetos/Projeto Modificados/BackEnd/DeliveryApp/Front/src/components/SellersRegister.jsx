@@ -30,10 +30,11 @@ export default function SellersRegister(props) {
   return (
     <section>
       <label className="inputInfo" htmlFor="vendedora">
-        P. Vendedora Responsável:
+        Vendedor(a):
         <select
           data-testid={ `${CUSTOMER}__select-seller` }
           onChange={ selectedSeller }
+          className="config-input-info"
         >
           {sellers.map(({ id, name }, index) => (
             <option
