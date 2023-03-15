@@ -30,6 +30,22 @@ export default function Orders() {
     )();
   }, [setListOrders]);
 
+  // Atlerando o background do elemento Status
+  const modifyColor = (status) => {
+    switch (status) {
+    case 'Pendente':
+      return { backgroundColor: 'rgb(242, 39, 39)' };
+    case 'Preparando':
+      return { backgroundColor: 'rgb(242, 185, 15)' };
+    case 'Em Trânsito':
+      return { backgroundColor: 'rgb(191, 126, 4)' };
+    case 'Entregue':
+      return { backgroundColor: 'rgb(3, 166, 14)' };
+    default:
+      console.log('Error: Color Selected');
+    }
+  };
+
   const editDate = (date) => {
     const regexAno = /^(\d{4})-/;
     const [ano] = date.match(regexAno).slice(1);
@@ -85,6 +101,7 @@ export default function Orders() {
                 className="status card-config"
                 data-testid={ `${CUSTOMER}__element-delivery-status-${id}` }
                 id={ id }
+                style={ modifyColor(status) }
               >
                 {status}
               </p>

@@ -35,6 +35,10 @@ export default function OrderId() {
     )();
   }, [idUrl]);
 
+  // useEffect(() => {
+
+  // }, [])
+
   // Adicionando zeros a esquerda(Tamanho máximo do pedido 4 digitos)
   const editNumberOrder = (idParams) => {
     const idString = String(idParams);
@@ -66,6 +70,22 @@ export default function OrderId() {
       });
   };
 
+  // Atlerando o background do elemento Status
+  const modifyColor = (status) => {
+    switch (status) {
+    case 'Pendente':
+      return { backgroundColor: 'rgb(242, 39, 39)' };
+    case 'Preparando':
+      return { backgroundColor: 'rgb(242, 185, 15)' };
+    case 'Em Trânsito':
+      return { backgroundColor: 'rgb(191, 126, 4)' };
+    case 'Entregue':
+      return { backgroundColor: 'rgb(3, 166, 14)' };
+    default:
+      console.log('Error: Color Selected');
+    }
+  };
+
   return (
     <div className="conatiner-order-id-geral">
       {(saleId && products.length !== 0) ? (
@@ -75,6 +95,7 @@ export default function OrderId() {
             <p
               className="container-status-order-id"
               data-testid={ `${CUSTOMER_ORDER}-label-delivery-status${1}` }
+              style={ modifyColor(verifyStatus) }
             >
               {verifyStatus}
             </p>

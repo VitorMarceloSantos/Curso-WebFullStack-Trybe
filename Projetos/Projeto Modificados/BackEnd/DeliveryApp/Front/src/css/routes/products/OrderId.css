@@ -29,7 +29,6 @@
 
 .container-status-order-id {
   background-color: red;
-  border: 1px solid red;
   border-radius: 10px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
   color: white;
@@ -64,6 +63,12 @@
   width: 15vw;
 }
 
+.order-id-button:disabled {
+  background-color: white;
+  border: 2px solid white;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .order-id-button:hover {
   background-color: #2fc18c;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);
@@ -73,20 +78,16 @@
 .divDadosPedido {
   align-items: center;
   display: flex;
+  justify-content: space-between;
   margin: 10px;
-  width: 100%;
+  width: 99%;
 }
-
-/* .divDadosPedido p, button {
-  margin-left: 20px;
-} */
 
 .inputInfo {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
 }
-
 
 .divInputInfo {
   display: flex;
@@ -99,6 +100,10 @@
   margin-bottom: 10px;
   margin-right: 10px;
   width: 200px;
+}
+
+.button-delivery-id {
+  margin: 0;
 }
 
 .divButton {
@@ -125,7 +130,6 @@
   width: 50px;
 }
 
-
 .tdDescricao {
   background-color: #eaf1ef;
   width: 300px;
@@ -142,7 +146,6 @@
   text-align: center;
 }
 
-
 .tdSubtotal {
   background-color: #056cf9;
   font-weight: 700;
@@ -154,13 +157,14 @@
   display: flex;
   font-size: 1.2em;
   font-weight: 700;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 @media ( max-width : 1440px ) and ( max-height : 900px ) { /* 360 x 800 */
 
   .order-id-container {
-    height: 45vh;
+    height: auto;
+    padding: 3vh;
   }
 
   .container-status-order-id {
@@ -168,16 +172,28 @@
   }
 
   .order-id-button {
-    height: 5vh;
+    height: 6vh;
   }
 
 }
 
 @media ( max-width : 360px ) and ( max-height : 800px ) { /* 360 x 800 */
 
+  .order-id-container {
+    height: auto;
+    padding: 3vh 2vh 0;
+  }
+
+  .tableCar {
+    border: none;
+    padding: 0;
+    width: 100%;
+  }
+
   .details-order-id {
     align-items: center;
     display: flex;
+    height: 6vh;
     justify-content: space-between;
   }
 
@@ -188,12 +204,38 @@
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
     color: white;
     font-weight: 700;
-    padding: 15px;
+    margin: 0;
+    padding: 10px;
   }
 
   .number-order-id {
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: 900;
     text-align: center;
+  }
+
+  select {
+    width: 220px;
+  }
+
+  .divDadosPedido {
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .order-id-button {
+    height: 6vh;
+    margin: 5px 0;
+    width: 35vw;
+  }
+
+  .container-order-id-date {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .container-total-order-id {
+    margin: 15px 0;
   }
 }

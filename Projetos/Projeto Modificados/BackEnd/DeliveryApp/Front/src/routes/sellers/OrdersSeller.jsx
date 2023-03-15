@@ -57,10 +57,26 @@ export default function OrdersSeller() {
     navigate(`/seller/orders/${id}`);
   };
 
+  // Atlerando o background do elemento Status
+  const modifyColor = (status) => {
+    switch (status) {
+    case 'Pendente':
+      return { backgroundColor: 'rgb(242, 39, 39)' };
+    case 'Preparando':
+      return { backgroundColor: 'rgb(242, 185, 15)' };
+    case 'Em Trânsito':
+      return { backgroundColor: 'rgb(191, 126, 4)' };
+    case 'Entregue':
+      return { backgroundColor: 'rgb(3, 166, 14)' };
+    default:
+      console.log('Error: Color Selected');
+    }
+  };
+
   return (
     <section className="orders-container">
       <div className="cards-orders-container">
-        <h3>Minhas Vendas</h3>
+        <h3>Vendas Efetuadas</h3>
         {listSales.length === 0 ? (
           <img src={ CartEmpty } alt="Cart Empty" />
         ) : (
@@ -92,6 +108,7 @@ export default function OrdersSeller() {
                 className="status card-config"
                 data-testid={ `${CUSTOMER}__element-delivery-status-${id}` }
                 id={ id }
+                style={ modifyColor(status) }
               >
                 {status}
               </p>

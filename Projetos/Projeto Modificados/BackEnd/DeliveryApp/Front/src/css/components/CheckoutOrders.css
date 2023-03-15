@@ -3,8 +3,8 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  justify-content: center;
-  width: 85%;
+  overflow-y: scroll;
+  width: 100%;
 }
 
 .checkout-order-container, .checkout-details-container {
@@ -13,22 +13,18 @@
   border-radius: 5px;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   padding: 20px;
-  width: 100%;
+  width: 85%;
 }
 
 .checkout-details-container {
   align-items: stretch;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  background-color: yellow;
+  justify-content: space-evenly;
 }
 
 .config-order-input {
-  margin-left: 40px;
-  background-color: red;
-
+  padding-left: 60px;
 }
 
 .checkout-order-container {
@@ -37,7 +33,8 @@
   flex-direction: column;
   justify-content: center;
   margin-bottom: 1vh;
-  margin-top: 2vh;
+  margin-top: 3vh;
+
 }
 
 .checkout-order-container h3 {
@@ -106,7 +103,7 @@
   font-size: 1.15em;
   font-weight: 700;
   height: 5vh;
-  margin-top: 3vh;
+  margin: 2vh 0;
   width: 15vw;
 }
 
@@ -127,7 +124,7 @@
   }
 
   .inputInfo {
-    margin: 5px;
+    margin: 0;
   }
 
   .inputInfo input {
@@ -141,7 +138,8 @@
   .button-checkout-order-container button {
     font-size: 1em;
     height: 5vh;
-    margin-top: 3vh;
+    margin-bottom: 2vh;
+    margin-top: 2vh;
     padding: 2px;
     width: 30vw;
   }
@@ -150,6 +148,10 @@
     margin-bottom: 0;
     margin-top: 2vh;
     padding: 10px 20px;
+  }
+
+  .config-order-input {
+    padding-left: 0;
   }
 
 }

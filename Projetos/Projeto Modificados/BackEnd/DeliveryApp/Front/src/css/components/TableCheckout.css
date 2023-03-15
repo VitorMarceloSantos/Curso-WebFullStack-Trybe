@@ -82,7 +82,7 @@
 
   .tableCar {
     border: none;
-    border-collapse: collapse;
+    padding: 0;
     width: 100%;
   }
 
@@ -93,13 +93,13 @@
 
   .tableCar tr td {
     font-size: 0.85em;
+    margin: 5px 0;
     padding-top: 6px;
   }
 
-  .tdDescricao, .tdQuantidade, .tdPrice, .tdSubtotal {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-  }
+  /* .icon-trash {
+    padding-top: 10px;
+  } */
 
   .tdPrice, .tdSubtotal {
     padding-left: 1px;
