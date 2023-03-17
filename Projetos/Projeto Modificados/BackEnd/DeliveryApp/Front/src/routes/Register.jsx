@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; // alterar a rota
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs';
 import { validateNewUser } from '../validations/validateNewUser';
 import '../css/routes/Register.css';
 import { requestPost } from '../services/request';
@@ -11,6 +13,7 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [invisibleElement, setInvisibleElement] = useState(false);
   const navigate = useNavigate(); // instanciando para utilizar o navegate(alterar rota)
+  const [viewPasswordCheck, setViewPasswordCheck] = useState(true);
 
   const handleChange = ({ target: { name: nameTarget, value } }) => {
     switch (nameTarget) {
@@ -50,8 +53,10 @@ export default function Register() {
     const selectedPassword = document.querySelector('.input-password');
     if (selectedPassword.type === 'text') {
       selectedPassword.type = 'password';
+      setViewPasswordCheck(true);
     } else {
       selectedPassword.type = 'text';
+      setViewPasswordCheck(false);
     }
   };
 
@@ -86,27 +91,37 @@ export default function Register() {
               className="input-form"
             />
           </label>
-          <label htmlFor="password">
-            <p>Password:</p>
-            <input
-              type="password"
-              name="password"
-              value={ password }
-              onChange={ handleChange }
-              placeholder="******"
-              data-testid="common_register__input-password"
-              className="input-password input-form"
-            />
-          </label>
-          <div className="view-password">
-            <input
-              type="checkbox"
-              name="view-password"
-              id="view-password"
-              className="input-view-password"
-              onClick={ viewPassword }
-            />
-            Exibir Senha
+          <div className="container-password">
+            <label htmlFor="password">
+              Password:
+              <input
+                type="password"
+                name="password"
+                value={ password }
+                onChange={ handleChange }
+                placeholder="******"
+                data-testid="common_login__input-password"
+                className="input-password input-form"
+              />
+            </label>
+            <label htmlFor="view-password" className="view-password">
+              <input
+                type="checkbox"
+                name="view-password"
+                id="view-password"
+                className="input-view-password"
+                onClick={ viewPassword }
+              />
+              {viewPasswordCheck ? (
+                <BsEyeSlashFill
+                  className="icon-password"
+                />
+              ) : (
+                <BsEyeFill
+                  className="icon-password"
+                />
+              )}
+            </label>
           </div>
           <button
             className="submit-button"

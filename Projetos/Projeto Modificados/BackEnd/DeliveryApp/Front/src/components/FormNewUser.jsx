@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-max-depth */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { requestGet, requestPost, setToken } from '../services/request';
@@ -54,56 +55,58 @@ export default function FormNewUser(props) {
   };
 
   return (
-    <section>
-      <form>
-        <label htmlFor="nameNewUser">
-          <p>Nome:</p>
-          <input
-            type="text"
-            name="name"
-            className="input-config"
-            placeholder="Digite seu nome ..."
-            data-testid={ `${ADMIN}input-name` }
-            value={ name }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="emailNewUser">
-          <p>Email:</p>
-          <input
-            type="email"
-            name="email"
-            className="input-config"
-            placeholder="email@email.com"
-            data-testid={ `${ADMIN}input-email` }
-            value={ email }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="passwordNewUser">
-          <p>Password:</p>
-          <input
-            type="password"
-            name="password"
-            className="input-config"
-            placeholder="******"
-            data-testid={ `${ADMIN}input-password` }
-            value={ password }
-            onChange={ handleChange }
-          />
-        </label>
-        <label htmlFor="roleNewUser">
-          <p>Tipo:</p>
-          <select
-            name="role"
-            data-testid={ `${ADMIN}select-role` }
-            onChange={ handlerSearchRole }
-          >
-            <option value="customer" selected>Customer</option>
-            <option value="seller">Seller</option>
-            <option value="administrator">Administrator</option>
-          </select>
-        </label>
+    <section className="container-geral-adm">
+      <form className="container-form-adm">
+        <div className="container-inputs-form">
+          <label htmlFor="nameNewUser">
+            <p>Nome:</p>
+            <input
+              type="text"
+              name="name"
+              className="input-config"
+              placeholder="Digite seu nome ..."
+              data-testid={ `${ADMIN}input-name` }
+              value={ name }
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="emailNewUser">
+            <p>Email:</p>
+            <input
+              type="email"
+              name="email"
+              className="input-config"
+              placeholder="email@email.com"
+              data-testid={ `${ADMIN}input-email` }
+              value={ email }
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="passwordNewUser">
+            <p>Password:</p>
+            <input
+              type="password"
+              name="password"
+              className="input-config"
+              placeholder="******"
+              data-testid={ `${ADMIN}input-password` }
+              value={ password }
+              onChange={ handleChange }
+            />
+          </label>
+          <label htmlFor="roleNewUser">
+            <p>Tipo:</p>
+            <select
+              name="role"
+              data-testid={ `${ADMIN}select-role` }
+              onChange={ handlerSearchRole }
+            >
+              <option value="customer" selected>Customer</option>
+              <option value="seller">Seller</option>
+              <option value="administrator">Administrator</option>
+            </select>
+          </label>
+        </div>
         <button
           type="submit"
           data-testid={ `${ADMIN}button-register` }

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { BsTrash } from 'react-icons/bs';
 import { requestDelete, requestGet, setToken } from '../services/request';
 
 export default function ListUsers(props) {
@@ -25,7 +26,7 @@ export default function ListUsers(props) {
     )();
   }, [setListUserState]);
 
-  const RemoveUser = async ({ target: { name: nameParams, id } }) => {
+  const RemoveUser = async (nameParams, id) => {
     try {
       const { token } = JSON.parse(localStorage.getItem('user') || false);
       setToken(token);
@@ -50,7 +51,6 @@ export default function ListUsers(props) {
             <th className="column-item">Nome</th>
             <th className="column-item">Email</th>
             <th className="column-item">Tipo</th>
-            <th className="column-item">Remover</th>
           </tr>
         </thead>
         <tbody>
@@ -86,10 +86,13 @@ export default function ListUsers(props) {
                   type="button"
                   name={ name }
                   data-testid={ `${ADMIN}element-user-table-remove-${index}` }
-                  onClick={ RemoveUser }
+                  onClick={ () => RemoveUser(name, id) }
                   id={ id }
                 >
-                  Remover
+                  <BsTrash
+                    className="icon-trash"
+                    onClick={ () => RemoveUser(name, id) }
+                  />
                 </button>
               </td>
             </tr>
