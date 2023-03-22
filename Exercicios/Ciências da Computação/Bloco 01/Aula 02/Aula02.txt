@@ -1,0 +1,119 @@
+Modulos: todo arquivo python(.py) - Ex: area.py, peoples.py
+Pacotes: são o conjunto de módulos. - Ex: from base import area   -> importando o modulo base do pacote area
+
+Inputs:  são recebidos como string(str).  - Ex: input('Digite um número:')  -> deve realizar a conversão int(input('Digite um número:'))
+
+  Outra maneira de recebermos valores externos na execução de nossos programas é utilizando o módulo sys. Quando executamos um script e adicionamos parâmetros, os mesmos estarão disponíveis através de uma variável chamada sys.argv, que é preenchida sem que precisemos fazer nada. Na prática, podemos escrever o conteúdo abaixo em um arquivo e passar alguns parâmetros ao executá-lo.
+
+  import sys
+  if __name__ == "__main__":
+      for argument in sys.argv:
+          print("Received -> ", argument)
+
+Saídas: o print é o padrão. - Ex: print("O resultado é", 42)  # saída: O resultado é 42
+
+  Existe um parâmetro que nos permite modificar a saída padrão para a saída de erros:
+  import sys
+
+  err = "Arquivo não encontrado"
+  print(f"Erro aconteceu: {err}", file=sys.stderr)
+
+  x = 5, y = 3
+  print(f"{x} / {y} = {x / y:.2f}")  # saída: 5 / 3 = 1.67
+  # {x / y:.2f} O que vem após os dois pontos são formatadores, como nesse exemplo, duas casas decimais (.2f).
+
+  print(f"{x:.^3}")  # saída: ".5."
+  # . é o caractere utilizado para preencher
+  # ^ indica que o valor será centralizado
+  # 3 são o número de caracteres exibidos
+
+
+Desempacotamento:
+  a, b = "cd"
+  print(a)  # saída: c
+  print(b)  # saída: d
+
+  head, *tail = (1, 2, 3) # Quando um * está presente no desempacotamento, os valores são desempacotados em formato de lista.
+  print(head)  # saída: 1
+  print(tail)  # saída: [2, 3]
+
+
+Manipulação de Arquivos:
+  # escrita
+  file = open("arquivo.txt", mode="w")
+  file.write("Trybe S2")
+  file.close()
+
+  # leitura
+  file = open("arquivo.txt", mode="r")
+  content = file.read()
+  print(content)
+  file.close()  # não podemos esquecer de fechar o arquivo
+
+Exceções:
+  Para tratar exceções utilizamos o conjunto de instruções try, com as palavras reservadas try e except. O funcionamento dessa cláusula ocorre da seguinte forma:
+  Se nenhuma exceção ocorrer, a cláusula except é ignorada e a execução da instrução try é finalizada.
+  Se ocorrer uma exceção durante a execução da cláusula try, as instruções remanescentes na cláusula são ignoradas. Se o tipo da exceção ocorrida tiver sido previsto em algum except, então essa cláusula será executada.
+  Se não existir nenhum tratador previsto para tal exceção, trata-se de uma exceção não tratada e a execução do programa termina com uma mensagem de erro.
+  Vamos agora ver um exemplo de tratamento de exceções:
+
+  while True:
+      try:
+          x = int(input("Please enter a number: "))
+          break
+      except ValueError:
+          print("Oops!  That was no valid number.  Try again...")
+
+  O finally é uma outra cláusula do conjunto try, cuja finalidade é permitir a implementação de ações de limpeza, que sempre devem ser executadas independentemente da ocorrência de ações. Já o else ocorre sempre que todo o try for bem sucedido.
+
+  try:
+      arquivo = open("arquivo.txt", "r")
+  except OSError:
+      # será executado caso haja uma exceção
+      print("arquivo inexistente")
+  else:
+      # será executado se tudo ocorrer bem no try
+      print("arquivo manipulado e fechado com sucesso")
+      arquivo.close()
+  finally:
+      # será sempre executado, independentemente de erro
+      print("Tentativa de abrir arquivo")
+
+Json:
+  Assim como a desserialização, que faz a transformação de texto em formato JSON para Python(load -> carrega o JSON a partir de um arquivo., loads -> carrega o JSON a partir de um texto), a serialização (caminho inverso) possui um método equivalente para escrever em arquivos de forma direta.
+
+  Assim como a desserialização, que faz a transformação de texto em formato JSON para Python, a serialização (dump -> converte o arquivo para JSON a partir de um arquivo, dumps -> converte o arquivo para JSON a partir de um texto) possui um método equivalente para escrever em arquivos de forma direta.
+
+  import json
+
+  # Leitura de todos os pokemons
+  with open("pokemons.json") as file:
+      pokemons = json.load(file)["results"]
+
+  # Separamos somente os do tipo grama
+  grass_type_pokemons = [
+      pokemon for pokemon in pokemons if "Grass" in pokemon["type"]
+  ]
+
+  # Abre o arquivo para escrevermos apenas o pokemons do tipo grama
+  with open("grass_pokemons.json", "w") as file:
+      json_to_write = json.dumps(
+          grass_type_pokemons
+      )  # conversão de Python para o formato json (str)
+      file.write(json_to_write)
+
+CSV - Planilhas Excel
+  O módulo csv, contém duas principais funções:
+  Um leitor (reader) que nos ajuda a ler o conteúdo, já fazendo as transformações dos valores para Python;
+  E um escritor (writer) para facilitar a escrita nesse formato.
+
+  import csv
+
+  with open("graduacao_unb.csv", encoding = "utf-8") as file:
+      graduacao_reader = csv.reader(file, delimiter=",", quotechar='"')
+      # Usando o conceito de desempacotamento
+      header, *data = graduacao_reader
+
+  print(data)
+
+  O leitor define como dialeto padrão excel, o que significa dizer que o delimitador de campos será “,“ e o caractere de citação será aspas duplas (").
