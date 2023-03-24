@@ -113,7 +113,7 @@ for restaurant in restaurants:
 print(filtered_restaurants)  # imprime a lista de restaurantes, sem o B e D
 
 
-Estrutura avançada: list comprehension - É possível filtrar elementos utilizando o if.
+Estrutura avançada: list compression - É possível filtrar elementos utilizando o if.
 name_age = [{ 'name': 'Vitor', 'age': 32 }, { 'name': 'Rafaela', 'age': 28 }, { 'name': 'Maria', 'age': 73 }]
 select_age = [age_loop
               for age_loop in name_age
