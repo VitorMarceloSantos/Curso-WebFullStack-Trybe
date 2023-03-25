@@ -33,8 +33,8 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
         If `salary` isn't a valid integer
     """
     try:
-        min_salary = int(job['min_salary'])  # convertendo string em inteiro
-        max_salary = int(job['max_salary'])  # convertendo string em inteiro
+        min_salary = int(job["min_salary"])  # convertendo string em inteiro
+        max_salary = int(job["max_salary"])  # convertendo string em inteiro
         int_salary = int(salary)
     except TypeError:  # caso tente converter uma string em inteiro
         raise ValueError
@@ -48,18 +48,17 @@ def matches_salary_range(job: Dict, salary: Union[int, str]) -> bool:
 def filter_by_salary_range(
     jobs: List[dict], salary: Union[str, int]
 ) -> List[Dict]:
-    """Filters a list of jobs by salary range
-
-    Parameters
-    ----------
-    jobs : list
-        The jobs to be filtered
-    salary : int
-        The salary to be used as filter
-
-    Returns
-    -------
-    list
-        Jobs whose salary range contains `salary`
-    """
-    raise NotImplementedError
+    """Filters a list of jobs by salary range"""
+    list_jobs = []
+    for jobs_param in jobs:
+        try:
+            # verifica se satifaz os criterios da função
+            if matches_salary_range(jobs_param, salary):
+                list_jobs.append(jobs_param)
+        # o except vai pegar o erro caso ocorra na chamada da função
+        except Exception:
+            # o pass é apenas para não deixar o codigo em branco.
+            # deve ser usada sempre que o programa requisitar sintaticamente
+            # que se preencha uma lacuna(é passar, ou seja, deixa passar)
+            pass
+    return list_jobs

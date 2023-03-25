@@ -19,6 +19,7 @@ def max_salary_key(job: Dict) -> int:
     Job's max salary as an int, or -infinite.
     """
     try:
+        print(f'Maximo: {int(job["max_salary"])}')
         return int(job["max_salary"])
     except (KeyError, TypeError, ValueError):
         return -math.inf
@@ -94,4 +95,36 @@ def sort_by(jobs: List[Dict], criteria: str) -> None:
 
     reverse = criteria in ["max_salary", "date_posted"]
 
+    print(f'Jobs: {jobs}, Key: {key}, Reverse: {reverse}')
     jobs.sort(key=key, reverse=reverse)
+    print(f'Ordenado: {jobs}')
+
+
+mock = [
+        {
+            "date_posted": 2022-12-29,
+            "min_salary": 4000,
+            "max_salary": 8000,
+        },
+        {
+            "date_posted": 2021-12-29,
+            "min_salary": 2000,
+            "max_salary": 6000,
+        },
+        {
+            "date_posted": 2020-12-29,
+            "min_salary": 10000,
+            "max_salary": 16000,
+        },
+        {
+            "date_posted": 2019-12-29,
+            "min_salary": 1500,
+            "max_salary": 3000,
+        },
+    ]
+
+
+try:
+    print(f'Funcao: {sort_by(mock, "max_salary")}')
+except Exception as err:
+    print(f'Erro: {err=}, {type(err)=}')
