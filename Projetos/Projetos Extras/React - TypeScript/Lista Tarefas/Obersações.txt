@@ -1,0 +1,2 @@
+OBESERVAÇÕES:
+  -  ao inicialiazar o react(create-react-app ou vite) deve colocar: --template typescript -> para intalar o typescirpt 
