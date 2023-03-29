@@ -1,0 +1,32 @@
+.container-header {
+  background-color: darkblue;
+  height: 150px;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  padding-top: 30px;
+}
+
+.container-body {
+  margin: auto;
+  max-width: 980px;
+  margin-bottom: 50px;
+}
+
+.container-table table {
+  width: 100%;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow:  0px 0px 5px #ccc;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.container-table th {
+  padding: 10px 0;
+  text-align: center;
+}
