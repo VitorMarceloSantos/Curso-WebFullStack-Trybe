@@ -1,7 +1,13 @@
 import React from 'react'
 import '../styles/styles.css'
+import { TItem } from '../types/items'
+import TableExpenses, {} from './TableExpenses';
 
-function TableItems() {
+type Props = {
+  list: TItem[];
+}
+
+function TableItems({ list }: Props) {
   return (
     <section className='container-table'>
       <table>
@@ -14,7 +20,13 @@ function TableItems() {
           </tr>
         </thead>
         <tbody>
-
+          
+          {list.map((item, index) => (
+            <TableExpenses
+              key={index}
+              item={item}
+            />
+          ))}
         </tbody>
       </table>
     </section>

@@ -19,6 +19,23 @@ export const filterListByMonth = (list: TItem[], date: string): TItem[] => {
       newList.push(list[i]); // gerando nova lista
     }
   }
-
+  
   return newList;
+}
+
+const addZeroDate = (n: number): string => n < 10 ? `0${n}` : `${n}`;
+
+export const formatDate = (date: Date): string => {
+  let year = date.getFullYear();
+  let month = date.getMonth();
+  let day = date.getDay();
+
+  return `${addZeroDate(day)}/${addZeroDate(month)}/${year}`
+}
+
+export const formatCurrentMonth = (currentMonth: string): string => {
+  let [year, month] = currentMonth.split('-');
+  let months = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
+  
+  return `${months[parseInt(month) - 1]} de ${year}`
 }
