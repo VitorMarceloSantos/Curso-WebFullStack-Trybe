@@ -1,0 +1,63 @@
+.container-initial {
+  background-color: #27282f;
+  color: white;
+  min-height: 100vh;
+}
+
+.container-area {
+  margin: auto;
+  max-width: 980px;
+  padding: 30px 0;
+}
+
+.container-header {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.scrennWarning {
+  text-align: center;
+}
+
+.photo-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px
+}
+
+.container-photo {
+  background-color: #3d3f43;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.container-photo img {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 10px;
+  border-radius: 10px;
+}
+
+.upload-form {
+  background-color: #3d3f43;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.upload-form input[type=submit] {
+  background-color: #756df4;
+  border: 0;
+  color: #fff;
+  padding: 8px 16px;
+  font-size: 15px;
+  border-radius: 10px;
+  margin: 0px 20px;
+  cursor: pointer;
+}
+
+.upload-form input[type=submit]:hover {
+  opacity: 0.6;
+}
