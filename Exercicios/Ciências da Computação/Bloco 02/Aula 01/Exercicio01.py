@@ -45,21 +45,54 @@ class TV:
     def ligada(self, new_ligada):
         self.__ligada = new_ligada
 
-# Instânciando um novo objeto
-samsung = TV('Samsung', 'HBO', 55, True)
+    def aumentar_volume(self):
+        if self.__volume < 99:
+            self.__volume += 1
+        else: raise ValueError('Valor Incorreto')
+    
+    def diminuir_volume(self):
+        if self.__volume > 0:
+            self.__volume -= 1
+        else: raise ValueError('Valor Incorreto')
 
+    def modificar_canal(self, new_canal):
+        if 0 < new_canal <= 99:
+            self.__canal = new_canal
+        else: raise ValueError('Valor Incorreto')
+
+    def ligar_desligar(self):
+        self.__ligada = not self.__ligada
+
+# Instânciando um novo objeto
+samsung = TV(50, 1, 55, True)
+
+#Imprimindo valores
 print(f'Volume: {samsung.volume}')
 print(f'Canal: {samsung.canal}')
 print(f'Tamanho: {samsung.tamanho}')
 print(f'Ligada: {samsung.ligada}')
 
 #Alterando valores -> Setters
-samsung.volume = 'Neo QLed'
-samsung.canal = 'Paramount'
+samsung.volume = 20
+samsung.canal = 10
 samsung.tamanho = 75
 samsung.ligada = False
 
+#Imprimindo novos valores
+print('Novos valores\n')
 print(f'Volume: {samsung.volume}')
 print(f'Canal: {samsung.canal}')
 print(f'Tamanho: {samsung.tamanho}')
 print(f'Ligada: {samsung.ligada}')
+
+#Metodos
+print('Metodos\n')
+samsung.aumentar_volume()
+print(f'Volume: {samsung.volume}')
+samsung.diminuir_volume()
+print(f'Volume: {samsung.volume}')
+samsung.modificar_canal(45)
+print(f'Canal: {samsung.canal}')
+samsung.ligar_desligar()
+print(f'Ligada: {samsung.ligada}')
+
