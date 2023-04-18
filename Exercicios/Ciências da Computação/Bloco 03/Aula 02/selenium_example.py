@@ -7,6 +7,9 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys # Importa teclas comuns
 from selenium.webdriver.common.by import By # utilizar para especificar elemento css
 
+# INstalar selenium
+# pip install selenium
+
 # Instalar o webDriver Manager
 # pip install webdriver-manager
 
