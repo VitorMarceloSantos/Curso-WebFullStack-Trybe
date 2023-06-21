@@ -1,0 +1,24 @@
+1° Instalar dependências: npm i -D vitest jsdom @testing-library/jest-dom @testing-library/react @testing-library/user-event
+2° Na raiz do projeto, crie um arquivo chamado setupTests.ts e adicione o seguinte: import '@testing-library/jest-dom';
+3° No arquivo vite.config.ts, adicione uma nova chave ao objeto que está sendo exportado:
+  //   plugins: [react()],
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './setupTests.ts',
+      css: true,
+      reporters: ['verbose'],
+      coverage: {
+        reporter: ['text', 'json', 'html'],
+        provider: 'c8'
+      }
+    }
+4°Para atualizar o arquivo defineConfig(Arquivo do 3° passo) com os tipos definidos pelo Vitest, adicione a linha /// <reference types="vitest" />(Antes dos imports)
+5° No arquivo package.json, adicione o script de teste e de coverage:
+  "scripts": {
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
+  },
+
+* Da primeira vez que você executar o comando npm run coverage, será perguntado se deseja instalar o pacote '@vitest/coverage-c8'. Aperte Y para confirmar.
+

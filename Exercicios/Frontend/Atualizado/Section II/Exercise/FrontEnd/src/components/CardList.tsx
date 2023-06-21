@@ -1,4 +1,4 @@
-import Card from './Card.js';
+import {Card} from './Card.js';
 
 const informations = [
   {
@@ -20,18 +20,19 @@ const informations = [
   }
 ]
 
-function CardList() {
+export const CardList = () => {
   return (
     <>
     {
-      informations.map((cityInfo) => (
-        <Card
+      informations.map((cityInfo, index) => (
+        <div key={cityInfo.city} data-testid={`div-${index}`}>
+          <Card
           cityInfo={cityInfo}
         />
+        </div>
+        
       ))
     }
     </>
   )
 }
-
-export default CardList

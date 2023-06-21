@@ -1,6 +1,6 @@
 import CardProps from "../types/CardProps";
 
-export default function Card({cityInfo}: CardProps) {
+export const Card = ({cityInfo}: CardProps) => {
   const { city, country, visited = false, imageUrl } = cityInfo;
   return (
     <div className="card">
