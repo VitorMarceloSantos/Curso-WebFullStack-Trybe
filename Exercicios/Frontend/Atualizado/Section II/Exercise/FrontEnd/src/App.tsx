@@ -1,4 +1,4 @@
-import { CardList } from './components/CardList';
+import { CardList } from './components/Main/CardList';
 import { Header } from './components/Header/Header';
 import './css/main.css'
 

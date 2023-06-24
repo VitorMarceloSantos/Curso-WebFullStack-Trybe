@@ -59,18 +59,23 @@ html {
   width: 100vw;
 }
 
-header {
-  flex-grow: 1;
-  background-color: red;
+.header {
+  background-color: #F2F2F2;
+  padding: 2rem;
+  text-align: center;
 }
 
-main {
-  flex-grow: 10;
+h1 {
+  color: blue;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
-footer {
-  flex-grow: 1;
-  background-color: red;
+.card {
+  border: 1px solid black;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  width: 20%;
 }
 
 /*# sourceMappingURL=main.css.map */
