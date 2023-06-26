@@ -53,16 +53,36 @@ html {
 }
 
 .container-app {
+  background-color: #F2F2F2;
   display: flex;
   flex-direction: column;
   height: 100vh;
   width: 100vw;
 }
 
-.header {
-  background-color: #F2F2F2;
-  padding: 2rem;
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  border: 1px solid black;
+  margin: 0.5rem auto;
+  padding: 1rem;
+  width: 20%;
+}
+
+.card, .header {
   text-align: center;
+}
+
+.card h2, .card h3 {
+  margin: 0.5rem auto;
+}
+
+.header {
+  background-color: #f8b55e;
+  padding: 2rem;
 }
 
 h1 {
@@ -72,10 +92,37 @@ h1 {
 }
 
 .card {
-  border: 1px solid black;
-  margin: 0.5rem auto;
-  padding: 1rem;
-  width: 20%;
+  align-items: center;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  box-shadow: 2px 5px 5px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  justify-content: center;
+}
+.card img {
+  width: 200px;
+}
+.card h2 {
+  font-weight: bold;
+}
+.card:hover {
+  cursor: pointer;
+  border-color: black;
+  box-shadow: 5px 5px 5px;
+}
+
+.card-0 {
+  background-color: #2EF297;
+}
+
+.card-1 {
+  background-color: #9BF2CA;
+}
+
+.card-2 {
+  background-color: #F28F79;
 }
 
 /*# sourceMappingURL=main.css.map */

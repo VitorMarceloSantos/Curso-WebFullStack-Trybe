@@ -1,9 +1,10 @@
 @use '../1-base/variables'
+@use '../2-layouts/_placeHoldersCard'
 
 .header
-  background-color: variables.$bg-card
+  background-color: variables.$bg-header
   padding: 2rem
-  text-align: center
+  @extend %text-center
 h1
   color: blue
   font-size: 2rem
