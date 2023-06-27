@@ -1,0 +1,37 @@
+@use '../1-base/variables'
+
+.numbers
+  background-color: white
+  border: 1px solid black
+  border-radius: 5px
+  align-items: center
+  display: flex
+  flex-direction: column
+  margin: 10px
+  padding: 10px 0
+  justify-content: space-evenly
+
+.numbers-title
+  color: variables.$text
+  font-size: 1.5rem
+  font-weight: bold
+
+.numbers-list
+  display: flex
+  margin: 10px auto
+
+  >p
+    font-weight: bold
+
+  >ul
+    display: flex
+
+    li
+      color: variables.$numbers
+      // &:nth-last-child(1n + 2) // não seleciona o utilmo filho
+      //   color: black
+
+.numbers-unit
+  margin: auto 5px
+        
+

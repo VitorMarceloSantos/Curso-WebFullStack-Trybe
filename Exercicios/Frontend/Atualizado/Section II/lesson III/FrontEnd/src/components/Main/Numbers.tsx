@@ -14,7 +14,7 @@ export const Numbers = () => {
 				<ul>
 					{listNumbers.map((number) => (
 						<li key={number}>
-							<p>{number}</p>
+							<p className='numbers-unit'>{number}</p>
 						</li>
 					))}
 				</ul>
