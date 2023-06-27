@@ -9,20 +9,16 @@ export const Numbers = () => {
 	return (
 		<section className='numbers'>
 			<h3 className='numbers-title'>Os números sorteados são:</h3>
-			{listNumbers.length === 0 ? (
-				<p>Carregando ...</p>
-			) : (
-				<div className='numbers-list'>
-					<p>Numbers:</p>
-					<ul>
-						{listNumbers.map((number) => (
-							<li key={number}>
-								<p>{number}</p>
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
+			<div className='numbers-list'>
+				<p>Numbers:</p>
+				<ul>
+					{listNumbers.map((number) => (
+						<li key={number}>
+							<p>{number}</p>
+						</li>
+					))}
+				</ul>
+			</div>
 		</section>
 	);
 };
