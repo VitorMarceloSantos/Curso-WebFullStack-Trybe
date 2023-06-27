@@ -1,7 +1,15 @@
+import { Title } from './components/Header/Title';
+import { LottoNumbers } from './components/Main/LottoNumbers';
 function App() {
 	return (
 		<>
-			<h1>Iniciando</h1>
+			<header>
+				<Title />
+			</header>
+			<main>
+				<LottoNumbers />
+			</main>
+			<footer></footer>
 		</>
 	);
 }
