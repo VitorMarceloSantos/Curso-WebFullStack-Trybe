@@ -2,4 +2,4 @@ import { createContext } from 'react';
 import { MissionsType } from '../types/MissionType';
 
 
-export const MissionsContext = createContext<MissionsType[] | null >(null); // default value
+export const MissionsContext = createContext<MissionsType[]>([]); // default value
