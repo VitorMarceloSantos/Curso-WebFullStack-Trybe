@@ -6,23 +6,36 @@ import { MissionsType } from '../../types/MissionType';
 export const Missions = () => {
 	const missions = useContext(MissionsContext);
 	const [filteredMissions, setFiteredMissions] = useState<MissionsType[]>([]);
-	const [filterName, setFilterName] = useState<string>('');
+	const [filterSelected, setFilterSelected] = useState<keyof MissionsType>('name');
+	const [filterGeneric, setFilterGeneric] = useState<string>('');
 
-	const handlerFilterName = (e: React.ChangeEvent<HTMLInputElement>) => {
+	const handlerFilterSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const { target } = e;
+		setFilterSelected(target.value as keyof MissionsType);
+	};
 
-		// No mínimo 3 letras para realizar o filtro
+	const handlerFilterGeneric = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { target } = e;
+		// // No mínimo 3 letras para realizar o filtro
 		if (target.value.length >= 3) {
-			const targetNameLower = target.value.toLowerCase();
-			const filtered = missions.filter(({ name }) => name.toLocaleLowerCase().includes(targetNameLower));
-			filtered.length > 0 && setFiteredMissions(filtered); // Verifica se o filtro retornou algum resultado
+			const targetInputLower = target.value.toLowerCase();
+			const filtered = missions.filter((mission) =>
+				mission[filterSelected].toLocaleLowerCase().includes(targetInputLower),
+			);
+			
+			if (filtered.length !== 0){
+				setFiteredMissions(filtered)
+			} else if (filteredMissions.length !== 0) setFiteredMissions([]);
+			
 		}
 		if (target.value.length === 0 && filteredMissions.length !== 0) {
 			// só vai ocorrer uma nova renderização nos componentes, caso o filteredMissions tenha recebido um filtro maior que zero
 			setFiteredMissions([]);
 		}
-		setFilterName(target.value);
+		setFilterGeneric(target.value);
 	};
+
+
 
 	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : missions;
 
@@ -30,8 +43,15 @@ export const Missions = () => {
 		<section className='cards'>
 			<h2 className='cards-title'>Missões</h2>
 			<section className='cards-filter'>
-				<label htmlFor='filter-name'>Nome:</label>
-				<input type='text' value={filterName} onChange={(e) => handlerFilterName(e)} id='filter-name' />
+				<label htmlFor='type-filter'>Selecione o filtro:</label>
+				<select name='type-filter' id='type-filter' onChange={(e) => handlerFilterSelected(e)}>
+					<option value='name'>Nome</option>
+					<option value='year'>Ano</option>
+					<option value='country'>País</option>
+					<option value='destination'>Destino</option>
+				</select>
+				{/* <label htmlFor='filter-selected'></label> */}
+				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} id='filter-selected' />
 			</section>
 			<ul>
 				{useMemo(
