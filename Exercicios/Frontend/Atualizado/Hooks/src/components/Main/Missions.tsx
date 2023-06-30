@@ -1,17 +1,45 @@
-import { useContext, useMemo, useState } from 'react';
+import { useContext, useMemo, useReducer, useRef, useState } from 'react';
 import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
+import { ReducerActionType } from '../../types/ReducerMissionsType';
+import { MissionsActionType } from '../../types/MissionsEnum';
+
+// actions, payload
+const reducerMissions = (state: MissionsType[], action: ReducerActionType): MissionsType[] => {
+	switch (action.type) {
+		case 'new':
+			state.push(action.payload);
+			return state;
+		// const newArray = state as MissionsType[];
+		// newArray.push(action.payload);
+		// console.log(newArray)
+		// return newArray
+
+		default:
+			return state;
+	}
+};
+
+const newMission: MissionsType = {
+	country: 'Brasil',
+	destination: 'Lua',
+	name: 'VqV',
+	year: '2023',
+};
 
 export const Missions = () => {
 	const missions = useContext(MissionsContext);
 	const [filteredMissions, setFiteredMissions] = useState<MissionsType[]>([]);
 	const [filterSelected, setFilterSelected] = useState<keyof MissionsType>('name');
 	const [filterGeneric, setFilterGeneric] = useState<string>('');
+	const inputRef = useRef<HTMLInputElement>(null);
+	const [state, dispatch] = useReducer(reducerMissions, missions);
 
 	const handlerFilterSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const { target } = e;
 		setFilterSelected(target.value as keyof MissionsType);
+		inputRef.current?.focus(); // ao selecionar a opção o cursor do mouse é direcionado para o elemento input text;
 	};
 
 	const handlerFilterGeneric = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -22,11 +50,10 @@ export const Missions = () => {
 			const filtered = missions.filter((mission) =>
 				mission[filterSelected].toLocaleLowerCase().includes(targetInputLower),
 			);
-			
-			if (filtered.length !== 0){
-				setFiteredMissions(filtered)
+
+			if (filtered.length !== 0) {
+				setFiteredMissions(filtered);
 			} else if (filteredMissions.length !== 0) setFiteredMissions([]);
-			
 		}
 		if (target.value.length === 0 && filteredMissions.length !== 0) {
 			// só vai ocorrer uma nova renderização nos componentes, caso o filteredMissions tenha recebido um filtro maior que zero
@@ -34,8 +61,6 @@ export const Missions = () => {
 		}
 		setFilterGeneric(target.value);
 	};
-
-
 
 	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : missions;
 
@@ -51,7 +76,8 @@ export const Missions = () => {
 					<option value='destination'>Destino</option>
 				</select>
 				{/* <label htmlFor='filter-selected'></label> */}
-				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} id='filter-selected' />
+				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
+				<button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button>
 			</section>
 			<ul>
 				{useMemo(

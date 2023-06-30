@@ -9,6 +9,7 @@ export const MissionsCard = ({information}: ReturnMissionsType) => {
         <p>{information.country}</p>
         <p>{information.destination}</p>
       </div>
+      <input type="button" value="Remover" />
     </div>
   );
 }
