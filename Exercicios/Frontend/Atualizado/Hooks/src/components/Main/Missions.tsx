@@ -2,25 +2,25 @@ import { useContext, useMemo, useReducer, useRef, useState } from 'react';
 import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
-import { ReducerActionType } from '../../types/ReducerMissionsType';
-import { MissionsActionType } from '../../types/MissionsEnum';
+// import { ReducerActionType } from '../../types/ReducerMissionsType';
+// import { MissionsActionType } from '../../types/MissionsEnum';
 
 // actions, payload
-const reducerMissions = (state: MissionsType[], action: ReducerActionType): MissionsType[] => {
-	switch (action.type) {
-		case 'new':
-			state.push(action.payload);
-			return state;
-		// const newArray = state as MissionsType[];
-		// newArray.push(action.payload);
-		// console.log(newArray)
-		// return newArray
+// const reducerMissions = (state: MissionsType[], action: ReducerActionType): MissionsType[] => {
+// 	switch (action.type) {
+// 		case 'new':
+// 			state.push(action.payload);
+// 			return state;
+// 		// const newArray = state as MissionsType[];
+// 		// newArray.push(action.payload);
+// 		// console.log(newArray)
+// 		// return newArray
 
-		default:
-			return state;
-	}
-};
-
+// 		default:
+// 			return state;
+// 	}
+// };
+console.log('Renderizou');
 const newMission: MissionsType = {
 	country: 'Brasil',
 	destination: 'Lua',
@@ -29,12 +29,12 @@ const newMission: MissionsType = {
 };
 
 export const Missions = () => {
-	const missions = useContext(MissionsContext);
+	const { missions, setMissions } = useContext(MissionsContext);
 	const [filteredMissions, setFiteredMissions] = useState<MissionsType[]>([]);
 	const [filterSelected, setFilterSelected] = useState<keyof MissionsType>('name');
 	const [filterGeneric, setFilterGeneric] = useState<string>('');
 	const inputRef = useRef<HTMLInputElement>(null);
-	const [state, dispatch] = useReducer(reducerMissions, missions);
+	// const [state, dispatch] = useReducer(reducerMissions, missions);
 
 	const handlerFilterSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const { target } = e;
@@ -62,7 +62,10 @@ export const Missions = () => {
 		setFilterGeneric(target.value);
 	};
 
+	console.log(missions.map((mission) => mission.name));
 	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : missions;
+	console.log(missions.map((mission) => mission.name));
+	console.log(`verify: ${verifyCardsFiltered.map((mission) => mission.name)}`);
 
 	return (
 		<section className='cards'>
@@ -77,7 +80,8 @@ export const Missions = () => {
 				</select>
 				{/* <label htmlFor='filter-selected'></label> */}
 				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
-				<button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button>
+				{/* <button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button> */}
+				<button onClick={() => setMissions(newMission)}>Adicionar</button>
 			</section>
 			<ul>
 				{useMemo(
@@ -87,7 +91,7 @@ export const Missions = () => {
 								<MissionsCard information={mission} />
 							</li>
 						)),
-					[filteredMissions],
+					[filteredMissions, missions],
 				)}
 			</ul>
 		</section>

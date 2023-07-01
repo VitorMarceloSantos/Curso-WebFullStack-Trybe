@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { MissionsType } from '../types/MissionType';
+import { MissionSetType } from '../types/MissionType';
 
 
-export const MissionsContext = createContext<MissionsType[]>([]); // default value
+export const MissionsContext = createContext<MissionSetType>({missions: [], setMissions: () =>[]}); // default value

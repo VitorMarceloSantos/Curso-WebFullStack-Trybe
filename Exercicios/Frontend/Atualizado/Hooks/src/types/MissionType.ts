@@ -5,6 +5,11 @@ export type MissionsType = {
 	destination: string;
 };
 
+export type MissionSetType = {
+	missions: MissionsType[];
+	setMissions: (mission: MissionsType) => void;
+};
+
 export type ReturnMissionsType = {
 	information: MissionsType;
 };

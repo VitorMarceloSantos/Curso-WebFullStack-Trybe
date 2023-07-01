@@ -1,20 +1,31 @@
 import { MissionsContext } from './MissionsContext';
-import { Missions } from '../services/missions';
+import { missions } from '../services/missions';
 import { ChildrenType } from '../types/ChildrenType';
-import { useMemo, useState } from 'react';
+import { useState, useMemo } from 'react';
 import { MissionsType } from '../types/MissionType';
 
-export const MissionsProvider = ({ children }: ChildrenType): MissionsType[] => {
-	const [missionsList, setMissionsList] = useState<MissionsType[]>(Missions);
-	const addMissionsList = (mission: MissionsType): void => {
+console.log('Provider')
+export const MissionsProvider = ({ children }: ChildrenType) => {
+	const [missionsList, setMissionsList] = useState<MissionsType[]>(missions);
+	console.log(`Provider: ${missionsList.map((mission) => mission.name)}`)
+	function setMissions(mission: MissionsType): void {
 		const newList = missionsList;
 		newList.push(mission);
+		console.log(mission)
+		console.log(`Missions: ${missionsList.map((mission) => mission.name)}`)
 		setMissionsList(newList);
-		// setMissionsList((prev: MissionsType[]):MissionsType[] =>  prev.push(mission));
-	};
+		console.log(`Missions: ${missionsList.map((mission) => mission.name)}`)
+		console.log(`NewList: ${newList.map((mission) => mission.name)}`)
+		// setMissionsList((prev): MissionsType[] => {
+		// 	prev[prev.length] = mission;
+		// 	return prev;
+		// });
+	}
 	// Vericar se deve usar ou nao o useMemo
-	const valueContext = useMemo(() => ({ missionsList, addMissionsList }), [missionsList, addMissionsList]);
+	const valueContext = useMemo(() => ({missions:missionsList, setMissions}), [missionsList, setMissions]);
 
 	//value do provider está errado, antes estava enviando somente o Missions
-	return <MissionsContext.Provider value={valueContext}>{children}</MissionsContext.Provider>;
+	return (
+		<MissionsContext.Provider value={valueContext}>{children}</MissionsContext.Provider>
+	);
 };
