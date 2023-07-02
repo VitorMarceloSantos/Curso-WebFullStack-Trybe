@@ -1,7 +1,10 @@
 import { MissionsType } from './MissionType';
-import {MissionsActionType} from './MissionsEnum'
+import { MissionsActionType } from './MissionsEnum';
 
 export type ReducerActionType = {
 	type: MissionsActionType;
-	payload: MissionsType;
+	payload: {
+		newMission: MissionsType;
+		setMissions: (mission: MissionsType[]) => void;
+	};
 };

@@ -7,7 +7,7 @@ export type MissionsType = {
 
 export type MissionSetType = {
 	missions: MissionsType[];
-	setMissions: (mission: MissionsType) => void;
+	setMissions: (mission: MissionsType[]) => void;
 };
 
 export type ReturnMissionsType = {
