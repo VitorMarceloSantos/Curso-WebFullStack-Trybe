@@ -1,46 +1,25 @@
-import { useContext, useMemo, useReducer, useRef, useState } from 'react';
+import { useContext, useMemo, useRef, useState } from 'react';
 import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
-// import { ReducerActionType } from '../../types/ReducerMissionsType';
-// import { MissionsActionType } from '../../types/MissionsEnum';
+import { MissionsActionType } from '../../types/MissionsEnum';
+import { AddNewMission } from './AddNewMission';
 
-// actions, payload
-// const reducerMissions = (state: MissionsType[], action: ReducerActionType): MissionsType[] => {
-// 	switch (action.type) {
-// 		case 'new':
-// 			const {newMission, setMissions} = action.payload
-// 			state.push(newMission);
-// 			console.log(`state: ${state.map((mission) => mission.name)}`)
-// 			setMissions(state);
-
-// 			return state;
-// 		// const newArray = state as MissionsType[];
-// 		// newArray.push(action.payload);
-// 		// console.log(newArray)
-// 		// return newArray
-
-// 		default:
-// 			return state;
-// 	}
-// };
-const newMission: MissionsType[] = [
-	{
-		country: 'Brasil',
-		destination: 'Lua',
-		name: 'VqV',
-		year: '2023',
-	},
-];
+const newMission: MissionsType = {
+	country: 'Brasil',
+	destination: 'Lua',
+	name: 'VqV',
+	year: '2023',
+};
 
 export const Missions = () => {
-	const { missions, setMissions } = useContext(MissionsContext);
+	const { state, dispatch } = useContext(MissionsContext);
 	const [filteredMissions, setFiteredMissions] = useState<MissionsType[]>([]);
 	const [filterSelected, setFilterSelected] = useState<keyof MissionsType>('name');
 	const [filterGeneric, setFilterGeneric] = useState<string>('');
+	const [formDisplay, setFormDisplay] = useState<boolean>(false)
 	const inputRef = useRef<HTMLInputElement>(null);
-	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : missions;
-	// const [state, dispatch] = useReducer(reducerMissions, verifyCardsFiltered);
+	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : state;
 
 	const handlerFilterSelected = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		const { target } = e;
@@ -53,7 +32,7 @@ export const Missions = () => {
 		// // No mínimo 3 letras para realizar o filtro
 		if (target.value.length >= 3) {
 			const targetInputLower = target.value.toLowerCase();
-			const filtered = missions.filter((mission) =>
+			const filtered = state.filter((mission) =>
 				mission[filterSelected].toLocaleLowerCase().includes(targetInputLower),
 			);
 
@@ -68,6 +47,10 @@ export const Missions = () => {
 		setFilterGeneric(target.value);
 	};
 
+	const handlerSetDisplayForm = () => {
+		setFormDisplay((prev) => !prev)
+	}
+
 	return (
 		<section className='cards'>
 			<h2 className='cards-title'>Missões</h2>
@@ -81,8 +64,9 @@ export const Missions = () => {
 				</select>
 				{/* <label htmlFor='filter-selected'></label> */}
 				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
-				{/* <button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: { newMission, setMissions }})}>Adicionar</button> */}
-				<button onClick={() => setMissions(newMission)}>Adicionar</button>
+				<button onClick={() => handlerSetDisplayForm()}>Nova Missão</button>
+				{formDisplay && <AddNewMission dispatch={dispatch}/>}
+				<button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button>
 			</section>
 			<ul>
 				{useMemo(
@@ -94,11 +78,6 @@ export const Missions = () => {
 						)),
 					[verifyCardsFiltered],
 				)}
-				{/* {verifyCardsFiltered.map((mission) => (
-					<li key={mission.name}>
-						<MissionsCard information={mission} />
-					</li>
-				))} */}
 			</ul>
 		</section>
 	);
