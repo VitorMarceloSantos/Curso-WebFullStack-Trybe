@@ -2,15 +2,15 @@ import { useContext, useMemo, useRef, useState } from 'react';
 import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
-import { MissionsActionType } from '../../types/MissionsEnum';
+// import { MissionsActionType } from '../../types/MissionsEnum';
 import { AddNewMission } from './AddNewMission';
 
-const newMission: MissionsType = {
-	country: 'Brasil',
-	destination: 'Lua',
-	name: 'VqV',
-	year: '2023',
-};
+// const newMission: MissionsType = {
+// 	country: 'Brasil',
+// 	destination: 'Lua',
+// 	name: 'VqV',
+// 	year: '2023',
+// };
 
 export const Missions = () => {
 	const { state, dispatch } = useContext(MissionsContext);
@@ -66,7 +66,7 @@ export const Missions = () => {
 				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
 				<button onClick={() => handlerSetDisplayForm()}>Nova Missão</button>
 				{formDisplay && <AddNewMission dispatch={dispatch}/>}
-				<button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button>
+				{/* <button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button> */}
 			</section>
 			<ul>
 				{useMemo(

@@ -1,20 +1,27 @@
 import { useState } from 'react';
 import { AddNewMissionType } from '../../types/AddNewMissionType';
+import { MissionsActionType } from '../../types/MissionsEnum';
+import { MissionsType } from '../../types/MissionType';
+
+const valuesInitialForm = {
+	name: '',
+	year: '',
+	country: '',
+	destination: '',
+};
 
 export const AddNewMission = ({ dispatch }: AddNewMissionType) => {
-	const [inputName, setInputName] = useState<string>('');
-	const [inputDate, setInputDate] = useState<string>('__/__/__');
-	const [inputCountry, setInputCountry] = useState<string>('');
-	const [inputDestiny, setInputDestiny] = useState<string>('');
+	const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
 
+	// VAlidar para nenhum campo está vazio
 	const handlerGenericInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
-
+		setValuesForm({ ...valuesForm, [name]: value });
 	};
 
 	const handlerSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		console.log('Formulário Enviado.');
+		dispatch({ type: MissionsActionType.NEW, payload: valuesForm });
 	};
 	return (
 		<form>
@@ -23,8 +30,8 @@ export const AddNewMission = ({ dispatch }: AddNewMissionType) => {
 				<input
 					type='text'
 					id='newMission'
-					name='setInputName'
-					value={inputName}
+					value={valuesForm.name}
+					name='name'
 					onChange={(e) => handlerGenericInputs(e)}
 				/>
 			</label>
@@ -33,8 +40,8 @@ export const AddNewMission = ({ dispatch }: AddNewMissionType) => {
 				<input
 					type='string'
 					id='newAge'
-					name='setInputDate'
-					value={inputDate}
+					name='year'
+					value={valuesForm.year}
 					onChange={(e) => handlerGenericInputs(e)}
 				/>
 			</label>
@@ -43,18 +50,18 @@ export const AddNewMission = ({ dispatch }: AddNewMissionType) => {
 				<input
 					type='text'
 					id='newCountry'
-					name='setInputCountry'
-					value={inputCountry}
+					name='country'
+					value={valuesForm.country}
 					onChange={(e) => handlerGenericInputs(e)}
 				/>
 			</label>
-			<label htmlFor='newDestiny'>
+			<label htmlFor='newdestination'>
 				Destino:
 				<input
 					type='text'
-					id='newDestiny'
-					name='setInputDestiny'
-					value={inputDestiny}
+					id='newdestination'
+					name='destination'
+					value={valuesForm.destination}
 					onChange={(e) => handlerGenericInputs(e)}
 				/>
 			</label>
