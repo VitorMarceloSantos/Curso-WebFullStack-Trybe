@@ -1,69 +1,57 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { AddNewMissionType } from '../../types/AddNewMissionType';
-import { MissionsActionType } from '../../types/MissionsEnum';
 import { MissionsType } from '../../types/MissionType';
+import { valuesInitialForm } from '../../utils/InitialValues';
 
-const valuesInitialForm = {
-	name: '',
-	year: '',
-	country: '',
-	destination: '',
-};
-
-export const AddNewMission = ({ dispatch }: AddNewMissionType) => {
+export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
 	const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
+	const inputFocus = useRef<HTMLInputElement>(null);
 
-	// VAlidar para nenhum campo está vazio
+	// onBlur -> é chamado quando o foco deixou o elemento
 	const handlerGenericInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
-		setValuesForm({ ...valuesForm, [name]: value });
+		if (value.length !== 0) {
+			setValuesForm({ ...valuesForm, [name]: value });
+			// Utilizar alert aqui !!
+		} else console.log(`Digite um ${name} válido.`);
 	};
 
 	const handlerSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
 		e.preventDefault();
-		dispatch({ type: MissionsActionType.NEW, payload: valuesForm });
+		console.log(actionSelected.actionSelected);
+		if (actionSelected.actionSelected === 'update') {
+			console.log('Somente update');
+		} else console.log('Deu ruim');
+		actionSelected.actionSelected === 'update'
+			? dispatch({
+					type: actionSelected.actionSelected,
+					payload: { currentValues: valuesForm, valuesDepreciated: missionValueUpdate.valuesUpdate },
+			  })
+			: dispatch({ type: actionSelected.actionSelected, payload: { currentValues: valuesForm } });
+		setValuesForm(valuesInitialForm); // resetando os valores
+		setFormDisplay(false); // Fechando o formulário(ao fechar o formulário os valores(input values) são apagados)
 	};
+
+	useEffect(() => {
+		inputFocus.current?.focus();
+	}, []);
 	return (
 		<form>
 			<label htmlFor='newMission'>
 				Nome:
-				<input
-					type='text'
-					id='newMission'
-					value={valuesForm.name}
-					name='name'
-					onChange={(e) => handlerGenericInputs(e)}
-				/>
+				<input type='text' id='newMission' name='name' onBlur={(e) => handlerGenericInputs(e)} ref={inputFocus} />
 			</label>
 			<label htmlFor='newAge'>
 				Ano:
-				<input
-					type='string'
-					id='newAge'
-					name='year'
-					value={valuesForm.year}
-					onChange={(e) => handlerGenericInputs(e)}
-				/>
+				<input type='string' id='newAge' name='year' onBlur={(e) => handlerGenericInputs(e)} />
 			</label>
 			<label htmlFor='newCountry'>
 				País:
-				<input
-					type='text'
-					id='newCountry'
-					name='country'
-					value={valuesForm.country}
-					onChange={(e) => handlerGenericInputs(e)}
-				/>
+				<input type='text' id='newCountry' name='country' onBlur={(e) => handlerGenericInputs(e)} />
 			</label>
 			<label htmlFor='newdestination'>
 				Destino:
-				<input
-					type='text'
-					id='newdestination'
-					name='destination'
-					value={valuesForm.destination}
-					onChange={(e) => handlerGenericInputs(e)}
-				/>
+				<input type='text' id='newdestination' name='destination' onBlur={(e) => handlerGenericInputs(e)} />
 			</label>
 			<button type='submit' onClick={(e) => handlerSubmit(e)}>
 				Confirmar

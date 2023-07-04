@@ -4,7 +4,7 @@ import { MissionsActionType } from './MissionsEnum';
 
 export type ReducerActionType = {
 	type: MissionsActionType;
-	payload: MissionsType;
+	payload: { currentValues: MissionsType; valuesDepreciated?: MissionsType };
 };
 
 export type MissionValueType = {

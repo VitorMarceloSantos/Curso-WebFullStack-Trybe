@@ -2,22 +2,18 @@ import { useContext, useMemo, useRef, useState } from 'react';
 import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
-// import { MissionsActionType } from '../../types/MissionsEnum';
 import { AddNewMission } from './AddNewMission';
-
-// const newMission: MissionsType = {
-// 	country: 'Brasil',
-// 	destination: 'Lua',
-// 	name: 'VqV',
-// 	year: '2023',
-// };
+import { MissionsActionType } from '../../types/MissionsEnum';
+import { valuesInitialForm } from '../../utils/InitialValues';
 
 export const Missions = () => {
 	const { state, dispatch } = useContext(MissionsContext);
 	const [filteredMissions, setFiteredMissions] = useState<MissionsType[]>([]);
 	const [filterSelected, setFilterSelected] = useState<keyof MissionsType>('name');
 	const [filterGeneric, setFilterGeneric] = useState<string>('');
-	const [formDisplay, setFormDisplay] = useState<boolean>(false)
+	const [formDisplay, setFormDisplay] = useState<boolean>(false);
+	const [actionSelected, setActionSelected] = useState<MissionsActionType>(MissionsActionType.NEW); // valor default
+	const [valuesUpdate, setValuesUpdate] = useState<MissionsType>(valuesInitialForm);
 	const inputRef = useRef<HTMLInputElement>(null);
 	const verifyCardsFiltered = filteredMissions.length > 0 ? filteredMissions : state;
 
@@ -48,8 +44,9 @@ export const Missions = () => {
 	};
 
 	const handlerSetDisplayForm = () => {
-		setFormDisplay((prev) => !prev)
-	}
+		setActionSelected(MissionsActionType.NEW);
+		setFormDisplay((prev) => !prev);
+	};
 
 	return (
 		<section className='cards'>
@@ -65,15 +62,27 @@ export const Missions = () => {
 				{/* <label htmlFor='filter-selected'></label> */}
 				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
 				<button onClick={() => handlerSetDisplayForm()}>Nova Missão</button>
-				{formDisplay && <AddNewMission dispatch={dispatch}/>}
-				{/* <button onClick={() => dispatch({ type: MissionsActionType.NEW, payload: newMission })}>Adicionar</button> */}
+				{formDisplay && (
+					<AddNewMission
+						dispatch={dispatch}
+						setFormDisplay={setFormDisplay}
+						actionSelected={{ actionSelected, setActionSelected }}
+						missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
+					/>
+				)}
 			</section>
 			<ul>
 				{useMemo(
 					() =>
 						verifyCardsFiltered?.map((mission) => (
 							<li key={mission.name}>
-								<MissionsCard information={mission} />
+								<MissionsCard
+									information={mission}
+									dispatch={dispatch}
+									setFormDisplay={setFormDisplay}
+									actionSelected={{ actionSelected, setActionSelected }}
+									missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
+								/>
 							</li>
 						)),
 					[verifyCardsFiltered],

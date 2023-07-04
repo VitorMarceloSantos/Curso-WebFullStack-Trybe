@@ -6,11 +6,25 @@ import { MissionsType } from '../types/MissionType';
 import { ReducerActionType } from '../types/ReducerMissionsType';
 
 const reducer = (state: MissionsType[], action: ReducerActionType): MissionsType[] => {
-	switch (action.type) {
+	const { type, payload } = action;
+	// Payload: values -> currentValues: valores atuais, valuesDepreciated: valores que serão atualizados
+	switch (type) {
 		case 'new':
-			const newState = [...state, action.payload];
-			// console.log(`New: ${newState.map((mission) => mission.name)}`);
+			const newValues = payload.currentValues;
+			const newState = [...state, newValues];
 			return newState;
+		case 'update':
+			const { currentValues, valuesDepreciated } = payload;
+			const updateState = [...state];
+			const indexUpdate = state.findIndex(({ name }) => name === valuesDepreciated?.name);
+			updateState[indexUpdate] = currentValues;
+			return updateState;
+		case 'delete':
+			const deleteValues = payload.currentValues;
+			const deletedState = [...state];
+			const indexDelete = state.findIndex(({ name }) => name === deleteValues.name);
+			deletedState.splice(indexDelete, 1);
+			return deletedState;
 		default:
 			return state;
 	}
