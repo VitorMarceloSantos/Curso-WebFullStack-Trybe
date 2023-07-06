@@ -2,10 +2,14 @@ import { useEffect, useRef, useState } from 'react';
 import { AddNewMissionType } from '../../types/AddNewMissionType';
 import { MissionsType } from '../../types/MissionType';
 import { valuesInitialForm } from '../../utils/InitialValues';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { FormMissionType } from '../../types/FormMissionType';
 
 export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
 	const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
 	const inputFocus = useRef<HTMLInputElement>(null);
+	const { register, handleSubmit } = useForm<FormMissionType>();
+	const onSubmit: SubmitHandler<FormMissionType> = (data) => console.log(data);
 
 	// onBlur -> é chamado quando o foco deixou o elemento
 	const handlerGenericInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,8 +40,25 @@ export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missio
 		inputFocus.current?.focus();
 	}, []);
 	return (
-		<form>
+		<form onSubmit={handleSubmit(onSubmit)}>
 			<label htmlFor='newMission'>
+				Nome:
+				<input type='text' id='newMission' {...register('name')} />
+			</label>
+			<label htmlFor='newAge'>
+				Ano:
+				<input type='string' id='newAge' {...register('age')} />
+			</label>
+			<label htmlFor='newCountry'>
+				País:
+				<input type='text' id='newCountry' {...register('country')} />
+			</label>
+			<label htmlFor='newdestination'>
+				Destino:
+				<input type='text' id='newdestination' {...register('destination')} />
+			</label>
+			<button type='submit'>Confirmar</button>
+			{/* <label htmlFor='newMission'>
 				Nome:
 				<input type='text' id='newMission' name='name' onBlur={(e) => handlerGenericInputs(e)} ref={inputFocus} />
 			</label>
@@ -55,7 +76,7 @@ export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missio
 			</label>
 			<button type='submit' onClick={(e) => handlerSubmit(e)}>
 				Confirmar
-			</button>
+			</button> */}
 		</form>
 	);
 };
