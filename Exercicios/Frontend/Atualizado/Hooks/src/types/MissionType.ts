@@ -3,7 +3,7 @@ import { ReducerActionType } from './ReducerMissionsType';
 import { MissionsActionType } from './MissionsEnum';
 export type MissionsType = {
 	name: string;
-	year: string;
+	year: number;
 	country: string;
 	destination: string;
 };

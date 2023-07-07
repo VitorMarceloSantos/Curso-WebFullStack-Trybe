@@ -29,7 +29,7 @@ export const Missions = () => {
 		if (target.value.length >= 3) {
 			const targetInputLower = target.value.toLowerCase();
 			const filtered = state.filter((mission) =>
-				mission[filterSelected].toLocaleLowerCase().includes(targetInputLower),
+				mission[filterSelected].toString().toLocaleLowerCase().includes(targetInputLower),
 			);
 
 			if (filtered.length !== 0) {

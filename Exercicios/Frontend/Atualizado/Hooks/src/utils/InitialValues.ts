@@ -1,6 +1,6 @@
 export const valuesInitialForm = {
 	name: '',
-	year: '',
+	year: 0,
 	country: '',
 	destination: '',
 };

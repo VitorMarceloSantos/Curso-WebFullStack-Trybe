@@ -1,82 +1,65 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect } from 'react';
 import { AddNewMissionType } from '../../types/AddNewMissionType';
 import { MissionsType } from '../../types/MissionType';
-import { valuesInitialForm } from '../../utils/InitialValues';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { FormMissionType } from '../../types/FormMissionType';
+import { joiResolver } from '@hookform/resolvers/joi';
+import { createFormSchema } from '../../validations/formMissionSchema';
 
+// npm install react-hook-form
+// npm install @hookform/resolvers
 export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
-	const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
-	const inputFocus = useRef<HTMLInputElement>(null);
-	const { register, handleSubmit } = useForm<FormMissionType>();
-	const onSubmit: SubmitHandler<FormMissionType> = (data) => console.log(data);
+	// const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
+	const {
+		register,
+		handleSubmit,
+		setFocus,
+		formState: { errors },
+	} = useForm<MissionsType>({ resolver: joiResolver(createFormSchema) });
 
-	// onBlur -> é chamado quando o foco deixou o elemento
-	const handlerGenericInputs = (e: React.ChangeEvent<HTMLInputElement>) => {
-		const { name, value } = e.target;
-		if (value.length !== 0) {
-			setValuesForm({ ...valuesForm, [name]: value });
-			// Utilizar alert aqui !!
-		} else console.log(`Digite um ${name} válido.`);
-	};
-
-	const handlerSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
-		e.preventDefault();
-		console.log(actionSelected.actionSelected);
-		if (actionSelected.actionSelected === 'update') {
-			console.log('Somente update');
-		} else console.log('Deu ruim');
+	const onSubmit: SubmitHandler<MissionsType> = (data) => {
 		actionSelected.actionSelected === 'update'
 			? dispatch({
 					type: actionSelected.actionSelected,
-					payload: { currentValues: valuesForm, valuesDepreciated: missionValueUpdate.valuesUpdate },
+					payload: { currentValues: data, valuesDepreciated: missionValueUpdate.valuesUpdate },
 			  })
-			: dispatch({ type: actionSelected.actionSelected, payload: { currentValues: valuesForm } });
-		setValuesForm(valuesInitialForm); // resetando os valores
+			: dispatch({ type: actionSelected.actionSelected, payload: { currentValues: data } });
 		setFormDisplay(false); // Fechando o formulário(ao fechar o formulário os valores(input values) são apagados)
 	};
 
+	// onBlur -> é chamado quando o foco deixou o elemento
+	// https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+	// const refInputName = useCallback((node: HTMLInputElement) => {
+	// 	node?.focus();
+	// }, []);
+
 	useEffect(() => {
-		inputFocus.current?.focus();
-	}, []);
+		//https://react-hook-form.com/docs/useform/setfocus
+		setFocus('name');
+	}, [setFocus]);
+
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column' }}>
 			<label htmlFor='newMission'>
 				Nome:
 				<input type='text' id='newMission' {...register('name')} />
+				{errors.name && <p>{errors.name?.message}</p>}
 			</label>
-			<label htmlFor='newAge'>
+			<label htmlFor='newYear'>
 				Ano:
-				<input type='string' id='newAge' {...register('age')} />
+				<input type='number' id='newYear' {...register('year')} />
+				{errors.year && <p>{errors.year?.message}</p>}
 			</label>
 			<label htmlFor='newCountry'>
 				País:
 				<input type='text' id='newCountry' {...register('country')} />
+				{errors.country && <p>{errors.country?.message}</p>}
 			</label>
 			<label htmlFor='newdestination'>
 				Destino:
 				<input type='text' id='newdestination' {...register('destination')} />
+				{errors.destination && <p>{errors.destination?.message}</p>}
 			</label>
 			<button type='submit'>Confirmar</button>
-			{/* <label htmlFor='newMission'>
-				Nome:
-				<input type='text' id='newMission' name='name' onBlur={(e) => handlerGenericInputs(e)} ref={inputFocus} />
-			</label>
-			<label htmlFor='newAge'>
-				Ano:
-				<input type='string' id='newAge' name='year' onBlur={(e) => handlerGenericInputs(e)} />
-			</label>
-			<label htmlFor='newCountry'>
-				País:
-				<input type='text' id='newCountry' name='country' onBlur={(e) => handlerGenericInputs(e)} />
-			</label>
-			<label htmlFor='newdestination'>
-				Destino:
-				<input type='text' id='newdestination' name='destination' onBlur={(e) => handlerGenericInputs(e)} />
-			</label>
-			<button type='submit' onClick={(e) => handlerSubmit(e)}>
-				Confirmar
-			</button> */}
 		</form>
 	);
 };
