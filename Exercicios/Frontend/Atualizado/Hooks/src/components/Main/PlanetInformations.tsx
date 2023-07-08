@@ -1,6 +1,6 @@
-import { ReturnPlanetsType } from '../../types/PlanetsType';
+import { PlanetsInformationProps } from '../../types/PlanetsType';
 
-export const PlanetInformation = ({ information }: ReturnPlanetsType) => {
+export const PlanetInformation = ({ information }: PlanetsInformationProps) => {
 	return (
 		<div className='card-planet'>
 			<img src={information.image} alt={information.name} />

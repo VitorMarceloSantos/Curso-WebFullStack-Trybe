@@ -1,14 +1,13 @@
+// npm install react-hook-form
+// npm install @hookform/resolvers
 import { useEffect } from 'react';
-import { AddNewMissionType } from '../../types/AddNewMissionType';
+import { AddNewMissionType } from '../../types/MissionFormType';
 import { MissionsType } from '../../types/MissionType';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { createFormSchema } from '../../validations/formMissionSchema';
 
-// npm install react-hook-form
-// npm install @hookform/resolvers
-export const AddNewMission = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
-	// const [valuesForm, setValuesForm] = useState<MissionsType>(valuesInitialForm);
+export const MissionForm = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
 	const {
 		register,
 		handleSubmit,

@@ -3,6 +3,9 @@ export type PlanetsType = {
 	image: string;
 };
 
-export type ReturnPlanetsType = {
-	information: PlanetsType;
+export type PlanetsInformationProps = {
+	information: {
+		name: string;
+		image: string;
+	};
 };

@@ -1,10 +1,11 @@
 import { useContext, useMemo, useRef, useState } from 'react';
-import { MissionsCard } from './MissionsCard';
 import { MissionsContext } from '../../context/MissionsContext';
 import { MissionsType } from '../../types/MissionType';
-import { AddNewMission } from './AddNewMission';
+import { MissionForm } from './MissionForm';
 import { MissionsActionType } from '../../types/MissionsEnum';
 import { valuesInitialForm } from '../../utils/InitialValues';
+import { Card } from './Card';
+import { CardActions } from './Card/Actions';
 
 export const Missions = () => {
 	const { state, dispatch } = useContext(MissionsContext);
@@ -63,7 +64,7 @@ export const Missions = () => {
 				<input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} />
 				<button onClick={() => handlerSetDisplayForm()}>Nova Missão</button>
 				{formDisplay && (
-					<AddNewMission
+					<MissionForm
 						dispatch={dispatch}
 						setFormDisplay={setFormDisplay}
 						actionSelected={{ actionSelected, setActionSelected }}
@@ -76,13 +77,19 @@ export const Missions = () => {
 					() =>
 						verifyCardsFiltered?.map((mission) => (
 							<li key={mission.name}>
-								<MissionsCard
-									information={mission}
-									dispatch={dispatch}
-									setFormDisplay={setFormDisplay}
-									actionSelected={{ actionSelected, setActionSelected }}
-									missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
-								/>
+								<Card.Root>
+									<Card.Icon />
+									<Card.Content information={mission} />
+									<CardActions.Root>
+										<CardActions.Edit
+											information={mission}
+											setFormDisplay={setFormDisplay}
+											actionSelected={{ actionSelected, setActionSelected }}
+											missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
+										/>
+										<CardActions.Delete information={mission} dispatch={dispatch} />
+									</CardActions.Root>
+								</Card.Root>
 							</li>
 						)),
 					[verifyCardsFiltered],
