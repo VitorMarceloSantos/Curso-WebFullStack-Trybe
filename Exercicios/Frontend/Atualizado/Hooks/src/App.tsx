@@ -3,6 +3,7 @@ import { Missions } from './components/Main/Missions';
 import { Planets } from './components/Main/Planets';
 import { MissionsProvider } from './context/MissionsProvider';
 import { PlanetsProvider } from './context/PlanetsProvider';
+import '../src/css/styles.css';
 
 function App() {
 	return (
@@ -13,11 +14,11 @@ function App() {
 			<main>
 				{/* Cada componente terá acesso somente ao provider que fará uso */}
 				<PlanetsProvider>
-					<Planets/>
+					<Planets />
 				</PlanetsProvider>
-        <MissionsProvider>
-          <Missions />
-        </MissionsProvider>
+				<MissionsProvider>
+					<Missions />
+				</MissionsProvider>
 			</main>
 			<footer></footer>
 		</>
