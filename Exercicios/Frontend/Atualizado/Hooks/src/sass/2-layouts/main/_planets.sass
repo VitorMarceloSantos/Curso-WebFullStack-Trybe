@@ -1,0 +1,60 @@
+@use '../../1-base/variables'
+@function lengthPlanet($length)
+  $result: (($length / 10) * 200)
+  @return  $result
+  
+.planets
+  ul
+    align-items: center
+    display: flex
+    justify-content: center
+
+.card-planet
+  align-items: center
+  display: flex
+  flex-direction: column
+  justify-content: center
+  height: 170px
+  margin: .5rem
+
+  .card-planet-img
+    align-items: center
+    display: flex
+    justify-content: center
+    height: 150px
+
+  h3
+    color: variables.$header-title-color
+    font-weight: bold
+
+
+
+.card-planet-Mercúrio
+  width: lengthPlanet(1.5) * 1px
+
+.card-planet-Vênus
+  width: lengthPlanet(4) * 1px
+
+.card-planet-Terra
+  width: lengthPlanet(4) * 1px
+
+.card-planet-Marte
+  width: lengthPlanet(2.5) * 1px
+
+.card-planet-Júpiter
+  width: lengthPlanet(10) * 1px
+
+.card-planet-Saturno
+  width: lengthPlanet(9) * 1px
+
+.card-planet-Urano
+  width: lengthPlanet(5) * 1px
+
+.card-planet-Netuno
+  width: lengthPlanet(5) * 1px
+
+
+.input-options
+  background-color: 'red'
+  &:focus
+    outline: none

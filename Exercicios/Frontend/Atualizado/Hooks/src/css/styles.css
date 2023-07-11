@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 16px;
 }
@@ -52,17 +53,90 @@ table {
   border-spacing: 0;
 }
 
+body {
+  background-image: url("../assets/background.png");
+  background-size: cover;
+}
+
 @font-face {
   src: url("../../../public/fonts/Starjhol.ttf") format("truetype");
   font-family: "Starjhol";
 }
 .header {
-  background-color: #000000;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .header h1 {
-  font-family: Starjhol;
-  font-size: 2rem;
   color: rgb(255, 197, 0);
+  font-family: Starjhol;
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 2rem auto;
+}
+
+.planets ul {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.card-planet {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 170px;
+  margin: 0.5rem;
+}
+.card-planet .card-planet-img {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 150px;
+}
+.card-planet h3 {
+  color: rgb(255, 197, 0);
+  font-weight: bold;
+}
+
+.card-planet-Mercúrio {
+  width: 30px;
+}
+
+.card-planet-Vênus {
+  width: 80px;
+}
+
+.card-planet-Terra {
+  width: 80px;
+}
+
+.card-planet-Marte {
+  width: 50px;
+}
+
+.card-planet-Júpiter {
+  width: 200px;
+}
+
+.card-planet-Saturno {
+  width: 180px;
+}
+
+.card-planet-Urano {
+  width: 100px;
+}
+
+.card-planet-Netuno {
+  width: 100px;
+}
+
+.input-options {
+  background-color: "red";
+}
+.input-options:focus {
+  outline: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

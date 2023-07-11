@@ -7,7 +7,7 @@ import '../src/css/styles.css';
 
 function App() {
 	return (
-		<>
+		<div className='container-app'>
 			<header>
 				<HeaderTitle />
 			</header>
@@ -21,7 +21,7 @@ function App() {
 				</MissionsProvider>
 			</main>
 			<footer></footer>
-		</>
+		</div>
 	);
 }
 
