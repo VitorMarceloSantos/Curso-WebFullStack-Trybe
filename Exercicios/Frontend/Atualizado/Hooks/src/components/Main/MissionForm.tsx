@@ -3,17 +3,23 @@
 import { useEffect } from 'react';
 import { AddNewMissionType } from '../../types/MissionFormType';
 import { MissionsType } from '../../types/MissionType';
-import { useForm, SubmitHandler } from 'react-hook-form';
+import { useForm, SubmitHandler, Controller } from 'react-hook-form';
 import { joiResolver } from '@hookform/resolvers/joi';
 import { createFormSchema } from '../../validations/formMissionSchema';
+import { Button, InputBase, Paper } from '@mui/material';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import { valuesInitialForm } from '../../utils/InitialValues';
 
 export const MissionForm = ({ dispatch, setFormDisplay, actionSelected, missionValueUpdate }: AddNewMissionType) => {
 	const {
-		register,
 		handleSubmit,
 		setFocus,
 		formState: { errors },
-	} = useForm<MissionsType>({ resolver: joiResolver(createFormSchema) });
+		control,
+	} = useForm<MissionsType>({
+		resolver: joiResolver(createFormSchema),
+		defaultValues: { ...valuesInitialForm, year: undefined },
+	}); // year foi definida como undefined para que o conteúdo do placeholder possa aparecer, caso contrário o conteúdo do campo seria 0
 
 	const onSubmit: SubmitHandler<MissionsType> = (data) => {
 		actionSelected.actionSelected === 'update'
@@ -37,12 +43,142 @@ export const MissionForm = ({ dispatch, setFormDisplay, actionSelected, missionV
 	}, [setFocus]);
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column' }}>
+		<form onSubmit={handleSubmit(onSubmit)}>
+			<Paper
+				component='form'
+				sx={{
+					p: '1rem',
+					display: 'flex',
+					alignItems: 'center',
+					flexDirection: 'column',
+					background: 'transparent',
+					border: '1px solid yellow',
+					color: 'yellow',
+				}}
+			>
+				<Controller
+					name='name'
+					control={control}
+					render={({ field }) => (
+						<InputBase
+							{...field}
+							sx={{
+								m: 1,
+								flex: 1,
+								color: 'yellow',
+								fontWeight: 'bold',
+								fontFamily: 'Times New Roman',
+								border: '1px solid yellow',
+								borderRadius: '5px',
+								textAlign: 'justify',
+								width: '50vw',
+								maxWidth: '550px',
+							}}
+							placeholder='Nome'
+							type='text'
+						/>
+					)}
+				/>
+				{errors.name && <p>{errors.name?.message}</p>}
+				<Controller
+					name='year'
+					control={control}
+					render={({ field }) => (
+						<InputBase
+							placeholder='Ano'
+							type='number'
+							{...field}
+							sx={{
+								m: 1,
+								flex: 1,
+								color: 'yellow',
+								fontWeight: 'bold',
+								fontFamily: 'Times New Roman',
+								border: '1px solid yellow',
+								borderRadius: '5px',
+								textAlign: 'justify',
+								width: '50vw',
+								maxWidth: '550px',
+							}}
+						/>
+					)}
+				/>
+				{errors.year && <p>{errors.year?.message}</p>}
+				<Controller
+					name='country'
+					control={control}
+					render={({ field }) => (
+						<InputBase
+							{...field}
+							sx={{
+								m: 1,
+								flex: 1,
+								color: 'yellow',
+								fontWeight: 'bold',
+								fontFamily: 'Times New Roman',
+								border: '1px solid yellow',
+								borderRadius: '5px',
+								textAlign: 'justify',
+								width: '50vw',
+								maxWidth: '550px',
+							}}
+							placeholder='País'
+							type='text'
+						/>
+					)}
+				/>
+				{errors.country && <p>{errors.country?.message}</p>}
+				<Controller
+					name='destination'
+					control={control}
+					render={({ field }) => (
+						<InputBase
+							{...field}
+							sx={{
+								m: 1,
+								flex: 1,
+								color: 'yellow',
+								fontWeight: 'bold',
+								fontFamily: 'Times New Roman',
+								border: '1px solid yellow',
+								borderRadius: '5px',
+								textAlign: 'justify',
+								width: '50vw',
+								maxWidth: '550px',
+							}}
+							placeholder='Destino'
+							type='text'
+						/>
+					)}
+				/>
+				{errors.destination && <p>{errors.destination?.message}</p>}
+			</Paper>
+			{/* O button submit deve está de fora do paper */}
+			<div className='button-check-form'>
+				<Button
+					type='submit'
+					variant='outlined'
+					startIcon={<CheckCircleIcon />}
+					sx={[
+						{ marginTop: '.5rem', borderColor: 'yellow', color: 'yellow', fontWeight: 'bold' },
+						{
+							'&:hover': {
+								color: 'black',
+								backgroundColor: 'yellow',
+								borderColor: 'black',
+							},
+						},
+					]}
+				>
+					Enviar
+				</Button>
+			</div>
+			{/* 
 			<label htmlFor='newMission'>
 				Nome:
 				<input type='text' id='newMission' {...register('name')} />
 				{errors.name && <p>{errors.name?.message}</p>}
-			</label>
+			</label> 
 			<label htmlFor='newYear'>
 				Ano:
 				<input type='number' id='newYear' {...register('year')} />
@@ -59,6 +195,7 @@ export const MissionForm = ({ dispatch, setFormDisplay, actionSelected, missionV
 				{errors.destination && <p>{errors.destination?.message}</p>}
 			</label>
 			<button type='submit'>Confirmar</button>
+			*/}
 		</form>
 	);
 };

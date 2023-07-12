@@ -10,7 +10,8 @@ import Paper from '@mui/material/Paper';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
-import { Divider, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Button, Divider, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { RocketLaunch } from '@mui/icons-material';
 
 export const Missions = () => {
 	const { state, dispatch } = useContext(MissionsContext);
@@ -56,73 +57,94 @@ export const Missions = () => {
 
 	return (
 		<section className='cards'>
-			<h2 className='cards-title'>Missões</h2>
-
+			{/* <h2 className='cards-title'>Missões</h2> */}
 			<section className='cards-filter'>
-				{/* <label htmlFor='type-filter'>Selecione o filtro:</label>
-				<select name='type-filter' id='type-filter' onChange={(e) => handlerFilterSelected(e)}>
-					<option value='name'>Nome</option>
-					<option value='year'>Ano</option>
-					<option value='country'>País</option>
-					<option value='destination'>Destino</option>
-				</select> */}
-				{/* <label htmlFor='filter-selected'></label> */}
-
-				<Paper
-					component='form'
-					sx={{
-						p: '2px 4px',
-						display: 'flex',
-						alignItems: 'center',
-						width: 400,
-						backgroundColor: 'transparent',
-						border: '1px solid yellow',
-					}}
-				>
-					<Select
-						className='input-options'
-						value={filterSelected}
-						onChange={(e) => handlerFilterSelected(e)}
-						name='type-filter'
-						// Retirar bordas do input
-						variant='standard'
-						disableUnderline={true}
-						sx={[
-							{ color: 'yellow', border: 'none', width: '110px' },
-							// {
-							// 	'&:hover': {
-							// 		color: 'red',
-							// 	},
-							// },
-						]}
-					>
-						<MenuItem value='name'>Nome</MenuItem>
-						<MenuItem value='year'>Ano</MenuItem>
-						<MenuItem value='country'>País</MenuItem>
-						<MenuItem value='destination'>Destino</MenuItem>
-					</Select>
-					<Divider sx={{ height: 40, m: 0.5, background: 'yellow' }} orientation='vertical' />
-					<InputBase
-						sx={{ ml: 1, flex: 1, color: 'yellow' }}
-						placeholder='Pesquisar'
-						inputRef={inputRef}
-						value={filterGeneric}
-						onChange={(e) => handlerFilterGeneric(e)}
-					/>
-					<IconButton type='button' sx={{ p: '10px', color: 'yellow' }} aria-label='search'>
-						<SearchIcon />
-					</IconButton>
-				</Paper>
-				{/* <input type='text' value={filterGeneric} onChange={(e) => handlerFilterGeneric(e)} ref={inputRef} /> */}
-				<button onClick={() => handlerSetDisplayForm()}>Nova Missão</button>
-				{formDisplay && (
-					<MissionForm
-						dispatch={dispatch}
-						setFormDisplay={setFormDisplay}
-						actionSelected={{ actionSelected, setActionSelected }}
-						missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
-					/>
-				)}
+				<div className='cards-filter-container'>
+					<div className='cards-filter-paper'>
+						<Paper
+							component='form'
+							sx={{
+								p: '2px 6px',
+								display: 'flex',
+								alignItems: 'center',
+								width: 400,
+								backgroundColor: 'transparent',
+								border: '1px solid yellow',
+							}}
+						>
+							<Select
+								className='input-options'
+								value={filterSelected}
+								onChange={(e) => handlerFilterSelected(e)}
+								name='type-filter'
+								// Retirar bordas do input
+								variant='standard'
+								disableUnderline={true}
+								sx={[
+									{
+										color: 'black',
+										border: 'none',
+										width: '110px',
+										backgroundColor: 'yellow',
+										textAlign: 'center',
+										fontWeight: 'bold',
+										fontFamily: 'Times New Roman',
+									},
+									// {
+									// 	'&:hover': {
+									// 		color: 'red',
+									// 	},
+									// },
+								]}
+							>
+								<MenuItem value='name'>Nome</MenuItem>
+								<MenuItem value='year'>Ano</MenuItem>
+								<MenuItem value='country'>País</MenuItem>
+								<MenuItem value='destination'>Destino</MenuItem>
+							</Select>
+							<Divider sx={{ height: 40, m: 0.5, background: 'yellow', marginLeft: '.8rem' }} orientation='vertical' />
+							<InputBase
+								sx={{ ml: 1, flex: 1, color: 'yellow', fontWeight: 'bold', fontFamily: 'Times New Roman' }}
+								placeholder='Pesquisar'
+								inputRef={inputRef}
+								value={filterGeneric}
+								onChange={(e) => handlerFilterGeneric(e)}
+							/>
+							<IconButton type='button' sx={{ p: '0px', color: 'yellow' }} aria-label='search'>
+								<SearchIcon />
+							</IconButton>
+						</Paper>
+					</div>
+					<div className='cards-filter-button-new-mission'>
+						<Button
+							variant='outlined'
+							onClick={() => handlerSetDisplayForm()}
+							startIcon={<RocketLaunch />}
+							sx={[
+								{ borderColor: 'yellow', color: 'yellow', fontWeight: 'bold' },
+								{
+									'&:hover': {
+										color: 'black',
+										backgroundColor: 'yellow',
+										borderColor: 'black',
+									},
+								},
+							]}
+						>
+							Criar Missão
+						</Button>
+					</div>
+				</div>
+				<div className='cards-filter-form'>
+					{formDisplay && (
+						<MissionForm
+							dispatch={dispatch}
+							setFormDisplay={setFormDisplay}
+							actionSelected={{ actionSelected, setActionSelected }}
+							missionValueUpdate={{ valuesUpdate, setValuesUpdate }}
+						/>
+					)}
+				</div>
 			</section>
 			<ul>
 				{useMemo(

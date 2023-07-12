@@ -58,6 +58,11 @@ body {
   background-size: cover;
 }
 
+input,
+input::placeholder {
+  text-align: center;
+}
+
 @font-face {
   src: url("../../../public/fonts/Starjhol.ttf") format("truetype");
   font-family: "Starjhol";
@@ -85,6 +90,7 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
+  font-size: 1.2rem;
   justify-content: center;
   height: 170px;
   margin: 0.5rem;
@@ -137,6 +143,37 @@ body {
 }
 .input-options:focus {
   outline: none;
+}
+
+.cards-filter {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1rem auto;
+  padding: 2rem;
+}
+
+.cards-filter-container {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.cards-filter-container .cards-filter-paper {
+  margin-right: 1.5rem;
+}
+
+.cards-filter-form {
+  margin-top: 3rem;
+}
+.cards-filter-form form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cards-filter-form form .button-check-form {
+  margin-top: 1rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
